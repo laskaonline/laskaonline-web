@@ -9,34 +9,27 @@
         <h3 class="text-uppercase text-center">
             Informasi Unit Satuan Kerja
         </h3>
-        <div class="row gap-md-2">
-            <div class="col col-6 col-md-3 d-flex flex-column text-center gap-3 align-items-center">
-                <div class="rounded-circle p-2 border border-secondary border-2 ratio ratio-1x1 w-50">
-                    <i class="bi bi-folder2-open text-secondary"></i>
-                </div>
-                <b>
-                    Informasi Prosedur Layanan
-                </b>
-                <p>
-                    Berisi seluruh informasi prosedur layanan yang rnendasari pelaksanoan tugas pokok dan fungsi Lembaga
-                    Pemasyarakatan
-                </p>
-            </div>
-            <div class="col col-6 col-md-3 d-flex flex-column">
-                <div class="rounded-circle p-2">
-                    ICON
-                </div>
-            </div>
-            <div class="col col-6 col-md-3 d-flex flex-column">
-                <div class="rounded-circle p-2">
-                    ICON
-                </div>
-            </div>
-            <div class="col col-6 col-md-3 d-flex flex-column">
-                <div class="rounded-circle p-2">
-                    ICON
-                </div>
-            </div>
+        <div class="row gap-md-2 flex-lg-nowrap">
+            <x-info-box
+                icon="bi bi-folder2-open"
+                title="Informasi Prosedur Layanan"
+                description="Berisi seluruh informasi prosedur layanan yang rnendasari pelaksanoan tugas pokok dan fungsi Lembaga Pemasyarakatan"
+            />
+            <x-info-box
+                icon="bi bi-database"
+                title="Informasi Publik"
+                description="Berisi informasi tentang seluruh kegiatan program pembinaan WBP yang dilaksanakan pada I-Init Pelaksana Teknis Pemasyarakatan"
+            />
+            <x-info-box
+                icon="bi bi-people-fill"
+                title="Informasi Prosedur Layanan"
+                description="Berisi seluruh informasi prosedur layanan yang rnendasari pelaksanoan tugas pokok dan fungsi Lembaga Pemasyarakatan"
+            />
+            <x-info-box
+                icon="bi bi-basket"
+                title="Informasi Prosedur Layanan"
+                description="Berisi seluruh informasi prosedur layanan yang rnendasari pelaksanoan tugas pokok dan fungsi Lembaga Pemasyarakatan"
+            />
         </div>
     </div>
 @endsection
