@@ -76,9 +76,11 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid py-4" style="background-image: url('{{asset('assets/images/bg-testimony.png')}}')">
+    <div class="py-4 bg-primary bg-opacity-50"
+{{--         style="background-image: url('{{asset('assets/images/bg-testimony.png')}}'); background-position: center; background-repeat: no-repeat"--}}
+    >
         <h2 class="text-uppercase text-white text-center">Testimonials</h2>
-        <div class="row gap-4">
+        <div class="container-lg mx-auto row gap-4">
             <div class="col bg-primary p-2 rounded-3">
                 <b>Test</b>
             </div>
