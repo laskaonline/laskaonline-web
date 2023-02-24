@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <a href="/" class="navbar-brand">
-            <img src="{{asset('assets/images/navbar-logo.png')}}" alt="Logo Kemenkumham">
+            <img src="{{asset('assets/images/navbar-logo.png')}}" alt="Logo Kemenkumham" class="img-fluid">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
