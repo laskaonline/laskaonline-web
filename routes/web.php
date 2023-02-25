@@ -26,3 +26,4 @@ Route::middleware(['auth:web'])->prefix('admin')->group(function () {
 Route::middleware(['auth:web', 'role_or_permission:admin'])->group(function () {
     Route::view('/dashboard', 'user.dashboard');
 });
+Route::view('/dashboard', 'user.dashboard');
