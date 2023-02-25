@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('female_followers')->nullable();
             $table->string('child_followers')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
