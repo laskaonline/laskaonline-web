@@ -17,4 +17,5 @@
             <div class="g-col-6 g-col-md-4 g-col-lg-3 bg-primary text-white">1</div>
         </div>
     </div>
+
 @endsection
