@@ -32,7 +32,7 @@
         </form>
     </div>
     <footer class="container-fluid py-2 bg-primary text-white d-flex align-items-center">
-        <div class="d-flex gap-2">
+        <div class="position-absolute d-flex gap-2">
             <i class="bi bi-facebook"></i>
             <i class="bi bi-twitter"></i>
             <i class="bi bi-youtube"></i>
