@@ -16,7 +16,6 @@
 <!-- iCheck -->
 <link href="{{ asset('/template_admin/vendors/iCheck/skins/flat/green.css') }}" rel="stylesheet">
 <!-- Datatables -->
-
 <link href="{{ asset('/template_admin/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css') }}" rel="stylesheet">
 <link href="{{ asset('/template_admin/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css') }}"
     rel="stylesheet">
@@ -26,6 +25,8 @@
     rel="stylesheet">
 <link href="{{ asset('/template_admin/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css') }}"
     rel="stylesheet">
+<!-- Dropzone.js -->
+<link href="{{ asset('/template_admin/vendors/dropzone/dist/min/dropzone.min.css') }}" rel="stylesheet">
 
 <!-- Custom Theme Style -->
 <link href="{{ asset('/template_admin/build/css/custom.min.css') }}" rel="stylesheet">

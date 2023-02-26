@@ -26,6 +26,8 @@
 <script src="{{ asset('/template_admin/vendors/jszip/dist/jszip.min.js') }}"></script>
 <script src="{{ asset('/template_admin/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
 <script src="{{ asset('/template_admin/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
+<!-- Dropzone.js -->
+<script src="{{ asset('/template_admin/vendors/dropzone/dist/min/dropzone.min.js') }}"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('/template_admin/build/js/custom.min.js') }}"></script>

@@ -27,3 +27,7 @@ Route::middleware(['auth:web', 'role_or_permission:admin'])->group(function () {
     Route::view('/dashboard', 'user.dashboard');
 });
 Route::view('/dashboard', 'user.dashboard');
+Route::view('/profile', 'user.profile');
+Route::view('/itemdeposit', 'user.item_deposit');
+Route::view('/queuenumber', 'user.queue_number');
+Route::view('/guestbooks', 'user.guest_books');
