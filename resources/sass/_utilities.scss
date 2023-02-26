@@ -1,0 +1,17 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/utilities";
+
+$utilities: map-merge(
+        $utilities, (
+        'min-width': (
+            property: 'min-width',
+            class: 'min-w',
+            values: (
+                '25':25%,
+                '50':50%
+            )
+        )
+    )
+);
