@@ -20,8 +20,14 @@ Route::view('/register', 'auth.register');
 Route::post('/register', [RegisterController::class, 'register']);
 
 Route::middleware(['auth:web'])->prefix('admin')->group(function () {
-    Route::view('/dashboard', 'admin.dashboard');
+    Route::view('/admin/dashboard', 'admin.dashboard');
 });
+Route::view('/admin/dashboard', 'admin.dashboard');
+Route::view('/admin/manageuser', 'admin.manage_user');
+Route::view('/admin/itemdeposit', 'admin.item_deposit');
+Route::view('/admin/queuenumber', 'admin.queue_number');
+Route::view('/admin/wartelsuspas', 'admin.wartelsuspas');
+Route::view('/admin/guestbooks', 'admin.guest_books');
 
 Route::middleware(['auth:web', 'role_or_permission:admin'])->group(function () {
     Route::view('/dashboard', 'user.dashboard');
