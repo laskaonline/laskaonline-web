@@ -17,16 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
 
-Route::controller(LoginController::class)->group(function () {
-    Route::get('/login', 'showLoginForm')->name('/login');
-    Route::post('/login', 'login');
-    Route::post('/logout', 'logout');
-});
-
-Route::controller(RegisterController::class)->group(function () {
-    Route::view('/register', 'auth.register');
-    Route::post('/register', 'register');
-});
+Auth::routes();
 
 Route::middleware(['auth:web'])->group(function () {
     Route::middleware(['role:admin'])->prefix('admin')->group(function () {

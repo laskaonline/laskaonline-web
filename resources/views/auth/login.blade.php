@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 @extends('layouts.main')
 
 @section('title','Login | Laska Online')
@@ -11,7 +10,7 @@
                      class="img-fluid">
             </div>
             <div class="col col-lg-4">
-                <form action="{{route('/login')}}" method="post" class="row gap-2">
+                <form action="{{route('login')}}" method="post" class="row gap-2">
                     <img src="{{asset('/assets/images/kemenkumham-logo.png')}}" alt="Logo Kemenkumham"
                          class="img-fluid">
                     @csrf
@@ -43,42 +42,4 @@
         </div>
         <span class="mx-auto">&copy; Laksa 2023</span>
     </footer>
-=======
-@extends('layouts.auth.app')
-
-@section('content')
-    <div class="animate form login_form">
-        <section class="login_content">
-            <img src="{{ asset('/assets/images/personnel.png') }}" alt="Personnel" class="img-fluid mx-auto d-block">
-            <form>
-                <h1>Login Laska</h1>
-                <div>
-                    <input type="text" class="form-control" placeholder="Username" required="" />
-                </div>
-                <div>
-                    <input type="password" class="form-control" placeholder="Password" required="" />
-                </div>
-                <div>
-                    <a class="btn btn-default submit" href="index.html"><strong>Log in</strong></a>
-                    <a class="reset_pass" href="#">Lost your password?</a>
-                </div>
-
-                <div class="clearfix"></div>
-
-                <div class="separator">
-                    <p class="change_link">New to site?
-                        <a href="/register" class="to_register"> Register Here </a>
-                    </p>
-
-                    <div class="clearfix"></div>
-                    <br />
-
-                    <div>
-                        <p>©2023 Laska Online</p>
-                    </div>
-                </div>
-            </form>
-        </section>
-    </div>
->>>>>>> Stashed changes
 @endsection
