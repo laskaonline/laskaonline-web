@@ -12,6 +12,16 @@ $utilities: map-merge(
                 '25':25%,
                 '50':50%
             )
+        ),
+        'place-items': (
+            property: 'place-items',
+            class: 'place-items',
+            values: (
+                'center':center,
+                'start':start,
+                'end':end,
+                'stretch':stretch
+            )
         )
     )
 );

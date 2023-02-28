@@ -18,8 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'home');
 
 Route::controller(LoginController::class)->group(function () {
-    Route::view('/login', 'auth.login');
+    Route::get('/login', 'showLoginForm')->name('/login');
     Route::post('/login', 'login');
+    Route::post('/logout', 'logout');
 });
 
 Route::controller(RegisterController::class)->group(function () {
