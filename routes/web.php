@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,25 +16,29 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'home');
-Route::view('/login', 'auth.login');
-Route::view('/register', 'auth.register');
-Route::post('/register', [RegisterController::class, 'register']);
 
-Route::middleware(['auth:web'])->prefix('admin')->group(function () {
-    Route::view('/admin/dashboard', 'admin.dashboard');
+Route::controller(LoginController::class)->group(function () {
+    Route::view('/login', 'auth.login');
+    Route::post('/login', 'login');
 });
-Route::view('/admin/dashboard', 'admin.dashboard');
-Route::view('/admin/manageuser', 'admin.manage_user');
-Route::view('/admin/itemdeposit', 'admin.item_deposit');
-Route::view('/admin/queuenumber', 'admin.queue_number');
-Route::view('/admin/wartelsuspas', 'admin.wartelsuspas');
-Route::view('/admin/guestbooks', 'admin.guest_books');
 
-Route::middleware(['auth:web', 'role_or_permission:admin'])->group(function () {
+Route::controller(RegisterController::class)->group(function () {
+    Route::view('/register', 'auth.register');
+    Route::post('/register', 'register');
+});
+
+Route::middleware(['auth:web'])->group(function () {
+    Route::middleware(['role:admin'])->prefix('admin')->group(function () {
+        Route::view('/dashboard', 'admin.dashboard');
+        Route::view('/manage-user', 'admin.manage_user');
+        Route::view('/item-deposit', 'admin.item_deposit');
+        Route::view('/queue-number', 'admin.queue_number');
+        Route::view('/wartelsuspas', 'admin.wartelsuspas');
+        Route::view('/guestbooks', 'admin.guest_books');
+    });
     Route::view('/dashboard', 'user.dashboard');
+    Route::view('/itemdeposit', 'user.item_deposit');
+    Route::view('/queuenumber', 'user.queue_number');
+    Route::view('/guestbooks', 'user.guest_books');
+    Route::view('/profile', 'user.profile');
 });
-Route::view('/dashboard', 'user.dashboard');
-Route::view('/profile', 'user.profile');
-Route::view('/itemdeposit', 'user.item_deposit');
-Route::view('/queuenumber', 'user.queue_number');
-Route::view('/guestbooks', 'user.guest_books');
