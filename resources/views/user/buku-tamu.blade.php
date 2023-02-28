@@ -9,10 +9,8 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <br />
+                    <br/>
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
-
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama
                             </label>
@@ -26,7 +24,7 @@
                             </label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="text" id="last-name" name="last-name" required="required"
-                                    class="form-control">
+                                       class="form-control">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -55,7 +53,8 @@
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Keperluan</label>
+                            <label for="middle-name"
+                                   class="col-form-label col-md-3 col-sm-3 label-align">Keperluan</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input id="middle-name" class="form-control" type="text" name="middle-name">
                             </div>
@@ -65,10 +64,10 @@
                             </label>
                             <div class="col-md-6 col-sm-6 ">
                                 <form action="form_upload.html" class="dropzone"></form>
-                                <br />
-                                <br />
-                                <br />
-                                <br />
+                                <br/>
+                                <br/>
+                                <br/>
+                                <br/>
                             </div>
                         </div>
                         <div class="ln_solid"></div>

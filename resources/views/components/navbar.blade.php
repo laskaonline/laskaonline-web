@@ -20,13 +20,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/titip">
+                    <a class="nav-link" href="{{route('titip-barang')}}">
                         Titipan Barang
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/kunjungan">
+                    <a class="nav-link" href="{{route('kunjungan')}}">
                         Kunjungan
                     </a>
                 </li>

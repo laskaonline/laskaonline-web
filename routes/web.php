@@ -20,17 +20,17 @@ Route::view('/', 'home');
 Auth::routes();
 
 Route::middleware(['auth:web'])->group(function () {
-    Route::middleware(['role:admin'])->prefix('admin')->group(function () {
-        Route::view('/dashboard', 'admin.dashboard');
-        Route::view('/manage-user', 'admin.manage_user');
-        Route::view('/item-deposit', 'admin.item_deposit');
-        Route::view('/queue-number', 'admin.queue_number');
-        Route::view('/wartelsuspas', 'admin.wartelsuspas');
-        Route::view('/guestbooks', 'admin.guest_books');
+    Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
+        Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+        Route::view('/manage-user', 'admin.manage_user')->name('manage-user');
+        Route::view('/titip-barang', 'admin.item_deposit')->name('titip-barang');
+        Route::view('/antrian', 'admin.queue_number')->name('antrian');
+        Route::view('/wartelsuspas', 'admin.wartelsuspas')->name('wartelsuspas');
+        Route::view('/buku-tamu', 'admin.guest_books')->name('buku-tamu');
     });
-    Route::view('/dashboard', 'user.dashboard');
-    Route::view('/itemdeposit', 'user.item_deposit');
-    Route::view('/queuenumber', 'user.queue_number');
-    Route::view('/guestbooks', 'user.guest_books');
-    Route::view('/profile', 'user.profile');
+    Route::view('/dashboard', 'user.dashboard')->name('dashboard');
+    Route::view('/titip-barang', 'user.titip-barang')->name('titip-barang');
+    Route::view('/kunjungan', 'user.kunjungan')->name('kunjungan');
+    Route::view('/buku-tamu', 'user.buku-tamu')->name('buku-tamu');
+    Route::view('/profile', 'user.profile')->name('profile');
 });
