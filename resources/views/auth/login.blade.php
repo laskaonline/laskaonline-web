@@ -6,11 +6,24 @@
     <div class="vh-100 d-grid place-items-center">
         <div class="container-lg row flex-column flex-lg-row">
             <div class="col col-lg-8 text-center">
-                <img src="{{ asset('/assets/images/no-corruption-psa.png') }}" alt="Tolak Suap, Siap WTP" class="img-fluid">
+                <img src="{{ asset('/assets/images/no-corruption-psa.png') }}" alt="Tolak Suap, Siap WTP"
+                     class="img-fluid">
             </div>
             <div class="col col-lg-4">
-                <form action="{{ route('login') }}" method="post" class="row gap-2">
-                    <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham" class="img-fluid">
+                <form action="{{ url('/login') }}" method="post" class="row gap-2">
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>
+                                        {{$error}}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham"
+                         class="img-fluid">
                     @csrf
                     <div>
                         <label for="email" class="form-label">
@@ -24,7 +37,7 @@
                         </label>
                         <input type="password" name="password" class="form-control">
                     </div>
-                    <x-honeypot />
+                    <x-honeypot/>
                     <button type="submit" class="btn btn-primary">
                         Login
                     </button>

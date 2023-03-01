@@ -6,10 +6,22 @@
     <div class="vh-100 d-grid place-items-center">
         <div class="container-lg row flex-column flex-lg-row">
             <div class="col col-lg-8 text-center">
-                <img src="{{ asset('/assets/images/no-corruption-psa.png') }}" alt="Tolak Suap, Siap WTP" class="img-fluid">
+                <img src="{{ asset('/assets/images/no-corruption-psa.png') }}" alt="Tolak Suap, Siap WTP"
+                     class="img-fluid">
             </div>
             <div class="col col-lg-4">
-                <form action="{{ route('register') }}" method="post" class="row gap-2">
+                <form action="{{ url('/register') }}" method="post" class="row gap-2">
+                    @if($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                    <li>
+                                        {{$error}}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham" class="img-fluid">
                     @csrf
                     <div>

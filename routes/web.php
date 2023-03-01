@@ -17,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'home');
 
-Auth::routes();
+Auth::routes([
+    'reset' => false,
+    'confirm' => false,
+    'verify' => false
+]);
 
 Route::get('logout', [LoginController::class, 'logout']);
 
