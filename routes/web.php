@@ -19,6 +19,8 @@ Route::view('/', 'home');
 
 Auth::routes();
 
+Route::get('logout', [LoginController::class, 'logout']);
+
 Route::middleware(['auth:web'])->group(function () {
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
