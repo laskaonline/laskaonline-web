@@ -22,27 +22,29 @@
                             </ul>
                         </div>
                     @endif
-                    <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham" class="img-fluid">
+                    <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham"
+                         class="img-fluid">
                     @csrf
                     <div>
-                        <input type="text" class="form-control" placeholder="Nama" required />
+                        <input type="text" class="form-control" placeholder="Nama" required/>
                     </div>
                     <div>
-                        <input type="text" class="form-control" placeholder="No KTP" required />
+                        <input type="text" class="form-control" placeholder="No KTP" required/>
                     </div>
                     <div>
-                        <input type="tel" class="form-control" placeholder="No HP" required />
+                        <input type="tel" class="form-control" placeholder="No HP" required/>
                     </div>
                     <div>
-                        <input type="email" class="form-control" placeholder="Email" required />
+                        <input type="email" class="form-control" placeholder="Email" required/>
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="Password" required />
+                        <input type="password" class="form-control" placeholder="Password" required/>
+                        <div class="form-text">Password minimal 8 karakter.</div>
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="Ulangi Password" required />
+                        <input type="password" class="form-control" placeholder="Ulangi Password" required/>
                     </div>
-                    <x-honeypot />
+                    <x-honeypot/>
                     <button type="submit" class="btn btn-primary">
                         Register
                     </button>
