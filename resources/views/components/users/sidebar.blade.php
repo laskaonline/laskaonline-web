@@ -25,15 +25,15 @@
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li><a href="/dashboard"><i class="fa fa-home"></i> Dashboard </a>
+                    <li><a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard </a>
                     </li>
-                    <li><a href="/profile"><i class="fa fa-user"></i> Profil </a>
+                    <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i> Profil </a>
                     </li>
-                    <li><a href="/itemdeposit"><i class="fa fa-cubes"></i> Titipan Barang </a>
+                    <li><a href="{{ route('titip-barang') }}"><i class="fa fa-cubes"></i> Titipan Barang </a>
                     </li>
-                    <li><a href="/queuenumber"><i class="fa fa-table"></i> Nomor Antrian </a>
+                    <li><a href="{{ route('kunjungan') }}"><i class="fa fa-table"></i> Nomor Antrian </a>
                     </li>
-                    <li><a href="/guestbooks"><i class="fa fa-book"></i> Buku Tamu </a>
+                    <li><a href="{{ route('buku-tamu') }}"><i class="fa fa-book"></i> Buku Tamu </a>
                     </li>
 
                 </ul>
