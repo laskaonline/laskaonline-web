@@ -15,9 +15,13 @@
                 <div class="x_title">
                     <h2>History Titipan Barang</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                        <li></li>
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
+                        <div class="pull-right">
+                            <a href="{{ route('titip-barang') }}">
+                                <button type="submit" class="btn btn-primary">View All</button>
+                            </a>
+                        </div>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -94,9 +98,13 @@
                 <div class="x_title">
                     <h2>History Nomor Antrian</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                        <li></li>
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
+                        <div class="pull-right">
+                            <a href="{{ route('kunjungan') }}">
+                                <button type="submit" class="btn btn-primary">View All</button>
+                            </a>
+                        </div>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
