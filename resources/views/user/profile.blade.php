@@ -13,14 +13,10 @@
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Foto Pengunjung
-                            </label>
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Foto
+                                Pengunjung</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <form action="form_upload.html" class="dropzone"></form>
-                                <br />
-                                <br />
-                                <br />
-                                <br />
+                                <input type="file" class="form-control" id="customFile" />
                             </div>
                         </div>
                         <div class="item form-group">

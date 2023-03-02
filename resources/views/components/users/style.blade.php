@@ -28,5 +28,7 @@
 <!-- Dropzone.js -->
 <link href="{{ asset('/template_admin/vendors/dropzone/dist/min/dropzone.min.css') }}" rel="stylesheet">
 
-<!-- Custom Theme Style -->
+<!-- Custom Min Theme Style -->
 <link href="{{ asset('/template_admin/build/css/custom.min.css') }}" rel="stylesheet">
+<!-- Custom Theme Style -->
+<link href="{{ asset('/template_admin/build/css/custom.css') }}" rel="stylesheet">
