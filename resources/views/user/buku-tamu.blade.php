@@ -81,9 +81,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             </div>
                             {{-- End Open Camera --}}
                             <div class="ln_solid"></div>

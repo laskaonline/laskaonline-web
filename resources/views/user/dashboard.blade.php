@@ -11,7 +11,20 @@
 
     <div class="row">
         <div class="col-md-12 col-sm-12 ">
+            <div class="tile_count">
+                <div class=" col-sm-6  tile_stats_count">
+                    <span class="count_top d-flex justify-content-center"><i class="fa fa-cubes px-2"></i> Jumlah Titipan
+                        barang</span>
+                    <div class="count d-flex justify-content-center">2500</div>
+                </div>
+                <div class="col-sm-6  tile_stats_count">
+                    <span class="count_top d-flex justify-content-center"><i class="fa fa-table px-2"></i> Jumlah
+                        Pengunjung</span>
+                    <div class="count d-flex justify-content-center">123.50</div>
+                </div>
+            </div>
             <div class="x_panel">
+
                 <div class="x_title">
                     <h2>History Titipan Barang</h2>
                     <ul class="nav navbar-right panel_toolbox">
