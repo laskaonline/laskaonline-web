@@ -26,7 +26,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('kunjungan') }}">
+                    <a class="nav-link" href="{{ route('kunjungan.index') }}">
                         Kunjungan
                     </a>
                 </li>

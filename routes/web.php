@@ -37,7 +37,7 @@ Route::middleware(['auth:web'])->group(function () {
     });
     Route::view('/dashboard', 'user.dashboard')->name('dashboard');
     Route::view('/titip-barang', 'user.titip-barang')->name('titip-barang');
-    Route::resource('kunjungan', KunjunganController::class);
+    Route::resource('/kunjungan', KunjunganController::class);
     Route::view('/buku-tamu', 'user.buku-tamu')->name('buku-tamu');
     Route::view('/profile', 'user.profile')->name('profile');
 });
