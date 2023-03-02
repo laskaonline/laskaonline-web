@@ -7,7 +7,9 @@
         </div>
         <div class="title_right">
             <div class="pull-right">
-                <button type="submit" class="btn btn-primary">Kunjungan</button>
+                <a href="{{ route('registrasi-kunjungan') }}">
+                    <button type="submit" class="btn btn-primary">Kunjungan</button>
+                </a>
             </div>
         </div>
     </div>

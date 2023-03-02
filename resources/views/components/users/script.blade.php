@@ -33,3 +33,6 @@
 <script src="{{ asset('/template_admin/build/js/custom.min.js') }}"></script>
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('/template_admin/build/js/custom.js') }}"></script>
+
+{{-- Camera JS --}}
+@vite('/resources/js/cam.js')

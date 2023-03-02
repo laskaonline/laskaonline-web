@@ -18,7 +18,7 @@
                                     <video id="video" width="100%" height="auto"></video>
                                 </div>
                                 <div class="col-md-6 border border-dark">
-                                    <canvas id="canvas" width="100%" height="70%"></canvas>
+                                    <canvas id="canvas"></canvas>
                                 </div>
                                 <a class='btn btn-primary btn-block text-white' id='snap'><i
                                         class="fa fa-camera px-2"></i>
