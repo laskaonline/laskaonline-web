@@ -12,6 +12,20 @@
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
                         <div class="item form-group">
+                            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Foto</label>
+                            <div class="col-md-6 col-sm-6 row">
+                                <div class="col-md-6">
+                                    <video id="video" width="100%" height="auto"></video>
+                                </div>
+                                <div class="col-md-6 border border-dark">
+                                    <canvas id="canvas" width="100%" height="70%"></canvas>
+                                </div>
+                                <a class='btn btn-primary btn-block text-white' id='snap'><i
+                                        class="fa fa-camera px-2"></i>
+                                    Take Foto</a>
+                            </div>
+                        </div>
+                        <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama
                             </label>
                             <div class="col-md-6 col-sm-6 ">
@@ -58,40 +72,12 @@
                                 <input id="middle-name" class="form-control" type="text" name="middle-name">
                             </div>
                         </div>
-                        {{-- Start Open Camera --}}
-                        <div class="item form-group">
-                            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Foto
-                                Pengunjung</label>
-                            <div class=" col-md-6 col-sm-6" id='camcam'>
-                                <a class='btn btn-block btn-outline-primary' id='open'> Open Camera</a>
-                                <div id='cont'>
-                                    <div id="vid" class='son'>
-                                        <video id='video'></video>
-                                    </div>
-                                    <div id="capture" class='son'>
-                                        <canvas id='canvas'></canvas>
-                                        <canvas id='blank' style='display:none;'></canvas>
-                                    </div>
-                                    <div id="control">
-                                        <div class="col-md-4"><a id='retake' class='btn btn-block m-1'>Refresh</a>
-                                        </div>
-                                        <div class="col-md-4"><a id='snap' class='btn btn-block m-1'>Picture</a>
-                                        </div>
-                                        <div class="col-md-4"><a id='close' class='btn btn-block m-1'>Close</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {{-- End Open Camera --}}
-                            <div class="ln_solid"></div>
 
-                        </div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 offset-md-3">
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>
