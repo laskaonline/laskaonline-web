@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\KunjunganController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,8 +37,7 @@ Route::middleware(['auth:web'])->group(function () {
     });
     Route::view('/dashboard', 'user.dashboard')->name('dashboard');
     Route::view('/titip-barang', 'user.titip-barang')->name('titip-barang');
-    Route::view('/kunjungan', 'user.kunjungan')->name('kunjungan');
-    Route::view('/kunjungan/registrasi', 'user.registrasi-kunjungan')->name('registrasi-kunjungan');
+    Route::resource('kunjungan', KunjunganController::class);
     Route::view('/buku-tamu', 'user.buku-tamu')->name('buku-tamu');
     Route::view('/profile', 'user.profile')->name('profile');
 });
