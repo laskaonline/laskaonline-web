@@ -73,11 +73,11 @@
                                         <canvas id='blank' style='display:none;'></canvas>
                                     </div>
                                     <div id="control">
-                                        <div class="col-md-4"><a id='retake' class='btn btn-block m-1 hov'>Refresh</a>
+                                        <div class="col-md-4"><a id='retake' class='btn btn-block m-1'>Refresh</a>
                                         </div>
-                                        <div class="col-md-4"><a id='snap' class='btn btn-block m-1 hov'>Picture</a>
+                                        <div class="col-md-4"><a id='snap' class='btn btn-block m-1'>Picture</a>
                                         </div>
-                                        <div class="col-md-4"><a id='close' class='btn btn-block m-1 hov'>Close</a>
+                                        <div class="col-md-4"><a id='close' class='btn btn-block m-1'>Close</a>
                                         </div>
                                     </div>
                                 </div>
