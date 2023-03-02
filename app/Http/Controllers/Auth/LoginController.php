@@ -20,7 +20,11 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
-        return '/dashboard';
+        if (Auth::user()->hasAnyRole(['admin', 'superior'])) {
+            return route('admin.dashboard');
+        } else {
+            return route('dashboard');
+        }
     }
 
     public function logout(Request $request)
