@@ -15,24 +15,24 @@
         </div>
         <!-- /menu profile quick info -->
 
-        <br />
+        <br/>
 
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-                    <li><a href="/admin/dashboard"><i class="fa fa-home"></i> Dashboard </a>
+                    <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-home"></i> Dashboard </a>
                     </li>
-                    <li><a href="/admin/manageuser"><i class="fa fa-users"></i> Kelola User </a>
+                    <li><a href="{{route('admin.manage-user')}}"><i class="fa fa-users"></i> Kelola User </a>
                     </li>
-                    <li><a href="/admin/itemdeposit"><i class="fa fa-cubes"></i> Titipan Barang </a>
+                    <li><a href="{{route('admin.titip-barang')}}"><i class="fa fa-cubes"></i> Titipan Barang </a>
                     </li>
-                    <li><a href="/admin/queuenumber"><i class="fa fa-table"></i> Nomor Antrian </a>
+                    <li><a href="{{route('admin.antrian')}}"><i class="fa fa-table"></i> Nomor Antrian </a>
                     </li>
-                    <li><a href="/admin/wartelsuspas"><i class="fa fa-phone"></i> Wartelsuspas </a>
+                    <li><a href="{{route('admin.wartelsuspas')}}"><i class="fa fa-phone"></i> Wartelsuspas </a>
                     </li>
-                    <li><a href="/admin/guestbooks"><i class="fa fa-book"></i> Buku Tamu </a>
+                    <li><a href="{{route('admin.buku-tamu')}}"><i class="fa fa-book"></i> Buku Tamu </a>
                     </li>
 
                 </ul>
