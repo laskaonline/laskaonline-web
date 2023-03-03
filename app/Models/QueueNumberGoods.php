@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class QueueNumberGoods extends Model
 {
     use HasFactory;
+
+    protected $table    = 'queue_number_goods';
+    protected $guarded  = [];
 }

@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GuestBooks extends Model
+class QueueNumber extends Model
 {
     use HasFactory;
 
-    protected $table    = 'guest_books';
+    protected $table    = 'queue_number';
     protected $guarded  = [];
 }

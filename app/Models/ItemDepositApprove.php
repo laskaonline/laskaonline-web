@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ItemDepositApprove extends Model
 {
     use HasFactory;
+
+    protected $table    = 'item_deposit_approve';
+    protected $guarded  = [];
 }

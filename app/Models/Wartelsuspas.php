@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Wartelsuspas extends Model
 {
     use HasFactory;
+
+    protected $table    = 'wartelsuspas';
+    protected $guarded  = [];
 }
