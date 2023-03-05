@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class ItemDeposit extends Model
@@ -22,5 +23,10 @@ class ItemDeposit extends Model
     public function items(): MorphMany
     {
         return $this->morphMany(Deposit::class, 'depositable');
+    }
+
+    public function approvals(): HasMany
+    {
+        return $this->hasMany(ItemDepositApprove::class, 'item_deposit_id');
     }
 }
