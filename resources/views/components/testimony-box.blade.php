@@ -5,7 +5,7 @@
             <div class="d-flex gap-2 align-items-center">
                 <img src="{{ asset('/assets/images/user.png') }}" alt="Picture of Person Name"
                     class="img-fluid rounded-circle border-white border-2" height="50" width="50">
-                <b>
+                <b class="text-white">
                     Test
                 </b>
             </div>
@@ -20,7 +20,7 @@
             <div class="d-flex gap-2 align-items-center">
                 <img src="{{ asset('/assets/images/user.png') }}" alt="Picture of Person Name"
                     class="img-fluid rounded-circle border-2 border-white" height="50" width="50">
-                <b>
+                <b class="text-white">
                     Test
                 </b>
             </div>
@@ -37,7 +37,7 @@
                     <img src="{{ asset('/assets/images/user.png') }}" alt="Picture of Person Name"
                         class="img-fluid rounded-circle border-white border-2" height="50" width="50">
                 </div>
-                <b>
+                <b class="text-white">
                     Test
                 </b>
             </div>
