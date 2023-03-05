@@ -18,6 +18,7 @@ class ItemDepositController extends Controller
 
     public function create()
     {
+        return view('user.registrasi-titip-barang');
     }
 
     public function store(Request $request)

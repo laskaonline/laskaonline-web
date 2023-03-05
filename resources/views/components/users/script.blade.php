@@ -36,3 +36,56 @@
 
 {{-- Camera JS --}}
 @vite('/resources/js/cam.js')
+
+{{-- Appendchild --}}
+<script>
+    var i = 1;
+
+    function additem() {
+        var itemlist = document.getElementById('itemlist');
+
+        //                membuat element
+        var row = document.createElement('tr');
+        var name = document.createElement('td');
+        var amount = document.createElement('td');
+        var photo = document.createElement('td');
+        var action = document.createElement('td');
+
+        //                meng append element
+        itemlist.appendChild(row);
+        row.appendChild(name);
+        row.appendChild(amount);
+        row.appendChild(photo);
+        row.appendChild(action);
+
+        //                membuat element input
+        var input_name = document.createElement('input');
+        input_name.setAttribute('name', 'input_name[' + i + ']');
+        input_name.setAttribute('class', 'form-control');
+
+        var input_amount = document.createElement('input');
+        input_amount.setAttribute('name', 'input_amount[' + i + ']');
+        input_amount.setAttribute('class', 'form-control');
+
+        var upload_photo = document.createElement('input');
+        upload_photo.setAttribute('type', 'file');
+        upload_photo.setAttribute('name', 'upload_photo[' + i + ']');
+        upload_photo.setAttribute('class', 'form-control');
+
+        var hapus = document.createElement('a');
+
+        name.appendChild(input_name);
+        amount.appendChild(input_amount);
+        photo.appendChild(upload_photo);
+        action.appendChild(hapus);
+
+        hapus.innerHTML =
+            '<a class="btn btn-danger text-white"><i class="fa fa-trash px-2"></i></a>';
+        //                Aksi Delete
+        hapus.onclick = function() {
+            row.parentNode.removeChild(row);
+        };
+
+        i++;
+    }
+</script>

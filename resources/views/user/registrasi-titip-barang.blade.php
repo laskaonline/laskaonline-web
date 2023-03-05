@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-title">
         <div class="title_left">
-            <h3> Registrasi Kunjungan
+            <h3> Registrasi Titip barang
             </h3>
         </div>
     </div>
@@ -98,39 +98,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Jumlah Pengikut</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <div class="card-box table-responsive">
-                    <table class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Laki-laki</th>
-                                <th>Perempuan</th>
-                                <th>Anak</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td><input type="text" id="first-name" required="required" class="form-control ">
-                                </td>
-                                <td><input type="text" id="first-name" required="required" class="form-control ">
-                                </td>
-                                <td><input type="text" id="first-name" required="required" class="form-control ">
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
             </div>
         </div>
         <div class="x_panel">

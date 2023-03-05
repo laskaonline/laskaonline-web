@@ -7,7 +7,9 @@
         </div>
         <div class="title_right">
             <div class="pull-right">
-                <button type="submit" class="btn btn-primary">Titip Barang</button>
+                <a href="{{ route('item-deposit.create') }}">
+                    <button type="submit" class="btn btn-primary">Titip Barang</button>
+                </a>
             </div>
         </div>
     </div>

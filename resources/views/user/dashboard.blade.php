@@ -31,7 +31,7 @@
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <div class="pull-right">
-                            <a href="{{ route('titip-barang') }}">
+                            <a href="{{ route('item-deposit.index') }}">
                                 <button type="submit" class="btn btn-primary">View All</button>
                             </a>
                         </div>
@@ -114,7 +114,7 @@
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <div class="pull-right">
-                            <a href="{{ route('kunjungan.index') }}">
+                            <a href="{{ route('appointment.index') }}">
                                 <button type="submit" class="btn btn-primary">View All</button>
                             </a>
                         </div>

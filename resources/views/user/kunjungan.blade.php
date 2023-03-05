@@ -7,7 +7,7 @@
         </div>
         <div class="title_right">
             <div class="pull-right">
-                <a href="{{ route('kunjungan.create') }}">
+                <a href="{{ route('appointment.create') }}">
                     <button type="submit" class="btn btn-primary">Kunjungan</button>
                 </a>
             </div>
@@ -34,84 +34,84 @@
 
                             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
-                                <tr>
-                                    <th>Id Transaksi</th>
-                                    <th>Nama WBP</th>
-                                    <th>Blok Kamar</th>
-                                    <th>Kasus</th>
-                                    <th>Hubungan</th>
-                                    <th>Tanggal Kunjungan</th>
-                                    <th>Action</th>
-                                </tr>
+                                    <tr>
+                                        <th>Id Transaksi</th>
+                                        <th>Nama WBP</th>
+                                        <th>Blok Kamar</th>
+                                        <th>Kasus</th>
+                                        <th>Hubungan</th>
+                                        <th>Tanggal Kunjungan</th>
+                                        <th>Action</th>
+                                    </tr>
                                 </thead>
 
 
                                 <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                    <td>
-                                        <button type="button" class="btn btn-outline-primary"
+                                    <tr>
+                                        <td>Tiger Nixon</td>
+                                        <td>System Architect</td>
+                                        <td>Edinburgh</td>
+                                        <td>61</td>
+                                        <td>2011/04/25</td>
+                                        <td>$320,800</td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-primary"
                                                 data-mdb-ripple-color="dark">Detail
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Garrett Winters</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>63</td>
-                                    <td>2011/07/25</td>
-                                    <td>$170,750</td>
-                                    <td>
-                                        <button type="button" class="btn btn-outline-primary"
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Garrett Winters</td>
+                                        <td>Accountant</td>
+                                        <td>Tokyo</td>
+                                        <td>63</td>
+                                        <td>2011/07/25</td>
+                                        <td>$170,750</td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-primary"
                                                 data-mdb-ripple-color="dark">Detail
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ashton Cox</td>
-                                    <td>Junior Technical Author</td>
-                                    <td>San Francisco</td>
-                                    <td>66</td>
-                                    <td>2009/01/12</td>
-                                    <td>$86,000</td>
-                                    <td>
-                                        <button type="button" class="btn btn-outline-primary"
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ashton Cox</td>
+                                        <td>Junior Technical Author</td>
+                                        <td>San Francisco</td>
+                                        <td>66</td>
+                                        <td>2009/01/12</td>
+                                        <td>$86,000</td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-primary"
                                                 data-mdb-ripple-color="dark">Detail
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Cedric Kelly</td>
-                                    <td>Senior Javascript Developer</td>
-                                    <td>Edinburgh</td>
-                                    <td>22</td>
-                                    <td>2012/03/29</td>
-                                    <td>$433,060</td>
-                                    <td>
-                                        <button type="button" class="btn btn-outline-primary"
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cedric Kelly</td>
+                                        <td>Senior Javascript Developer</td>
+                                        <td>Edinburgh</td>
+                                        <td>22</td>
+                                        <td>2012/03/29</td>
+                                        <td>$433,060</td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-primary"
                                                 data-mdb-ripple-color="dark">Detail
-                                        </button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Airi Satou</td>
-                                    <td>Accountant</td>
-                                    <td>Tokyo</td>
-                                    <td>33</td>
-                                    <td>2008/11/28</td>
-                                    <td>$162,700</td>
-                                    <td>
-                                        <button type="button" class="btn btn-outline-primary"
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Airi Satou</td>
+                                        <td>Accountant</td>
+                                        <td>Tokyo</td>
+                                        <td>33</td>
+                                        <td>2008/11/28</td>
+                                        <td>$162,700</td>
+                                        <td>
+                                            <button type="button" class="btn btn-outline-primary"
                                                 data-mdb-ripple-color="dark">Detail
-                                        </button>
-                                    </td>
-                                </tr>
+                                            </button>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

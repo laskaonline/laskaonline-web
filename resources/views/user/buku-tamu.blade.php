@@ -15,8 +15,10 @@
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Foto Selfie + KTP
                                 Penitip</label>
                             <div class="col-md-6 col-sm-6 row">
-                                <a class='btn btn-block btn-primary text-white' data-toggle="collapse" id='open'
-                                    data-target="#cam"><i class="fa fa-camera px-2"></i> Open cam</a>
+                                <div class="col">
+                                    <a class='btn btn-block btn-primary text-white' data-toggle="collapse" id='open'
+                                        data-target="#cam"><i class="fa fa-camera px-2"></i> Open cam</a>
+                                </div>
                                 <div class="row collapse" id="cam">
                                     <div class="col-md-6">
                                         <video id="video" width="100%" height="auto"></video>

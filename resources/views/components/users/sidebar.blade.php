@@ -27,9 +27,9 @@
                     </li>
                     <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i> Profil </a>
                     </li>
-                    <li><a href="{{ route('titip-barang') }}"><i class="fa fa-cubes"></i> Titipan Barang </a>
+                    <li><a href="{{ route('item-deposit.index') }}"><i class="fa fa-cubes"></i> Titipan Barang </a>
                     </li>
-                    <li><a href="{{ route('kunjungan.index') }}"><i class="fa fa-table"></i> Nomor Antrian </a>
+                    <li><a href="{{ route('appointment.index') }}"><i class="fa fa-table"></i> Nomor Antrian </a>
                     </li>
                     <li><a href="{{ route('buku-tamu') }}"><i class="fa fa-book"></i> Buku Tamu </a>
                     </li>

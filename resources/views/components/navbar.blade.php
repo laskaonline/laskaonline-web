@@ -20,13 +20,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('titip-barang') }}">
+                    <a class="nav-link" href="{{ route('item-deposit.index') }}">
                         Titipan Barang
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('kunjungan.index') }}">
+                    <a class="nav-link" href="{{ route('appointment.index') }}">
                         Kunjungan
                     </a>
                 </li>
