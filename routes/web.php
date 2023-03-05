@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\KunjunganController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ItemDepositController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,7 +38,8 @@ Route::middleware(['auth:web'])->group(function () {
     });
     Route::view('/dashboard', 'user.dashboard')->name('dashboard');
     Route::view('/titip-barang', 'user.titip-barang')->name('titip-barang');
-    Route::resource('/kunjungan', KunjunganController::class);
+    Route::resource('/appointment', AppointmentController::class);
+    Route::resource('/item-deposit', ItemDepositController::class);
     Route::view('/buku-tamu', 'user.buku-tamu')->name('buku-tamu');
     Route::view('/profile', 'user.profile')->name('profile');
 });

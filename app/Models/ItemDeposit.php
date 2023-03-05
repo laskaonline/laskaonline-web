@@ -21,6 +21,6 @@ class ItemDeposit extends Model
 
     public function items(): MorphMany
     {
-        return $this->morphMany(Deposits::class, 'depositable');
+        return $this->morphMany(Deposit::class, 'depositable');
     }
 }

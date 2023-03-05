@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class Deposits extends Model
+class Deposit extends Model
 {
     public function depositable(): MorphTo
     {
-        return $this->morphTo();
+        return $this->morphTo('depositable');
     }
 }

@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-class QueueNumber extends Model
+class Appointment extends Model
 {
     use HasFactory;
 
-    protected $table = 'queue_number';
+    protected $table = 'appointments';
     protected $guarded = [];
 
     public function items(): MorphMany
     {
-        return $this->morphMany(Deposits::class, 'depositable');
+        return $this->morphMany(Deposit::class, 'depositable');
     }
 }
