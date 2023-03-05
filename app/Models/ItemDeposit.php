@@ -16,7 +16,7 @@ class ItemDeposit extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'created_by');
     }
 
     public function items(): MorphMany
