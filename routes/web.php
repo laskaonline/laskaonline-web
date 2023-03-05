@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApproveDepositController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AppointmentController;
@@ -31,15 +32,18 @@ Route::middleware(['auth:web'])->group(function () {
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
         Route::view('/manage-user', 'admin.manage_user')->name('manage-user');
-        Route::view('/titip-barang', 'admin.item_deposit')->name('titip-barang');
-        Route::view('/antrian', 'admin.queue_number')->name('antrian');
+
+        Route::view('/item-deposit', 'admin.item_deposit')->name('item-deposit');
+        Route::post('/item-deposit/{deposit}/approve', ApproveDepositController::class)->name('item-deposit.approve');
+
+        Route::view('/queue', 'admin.queue_number')->name('queue');
         Route::view('/wartelsuspas', 'admin.wartelsuspas')->name('wartelsuspas');
-        Route::view('/buku-tamu', 'admin.guest_books')->name('buku-tamu');
+        Route::view('/guest-book', 'admin.guest_books')->name('guest-book');
+
     });
     Route::view('/dashboard', 'user.dashboard')->name('dashboard');
-    Route::view('/titip-barang', 'user.titip-barang')->name('titip-barang');
     Route::resource('/appointment', AppointmentController::class);
     Route::resource('/item-deposit', ItemDepositController::class);
-    Route::view('/buku-tamu', 'user.buku-tamu')->name('buku-tamu');
+    Route::view('/guest-book', 'user.buku-tamu')->name('guest-book');
     Route::view('/profile', 'user.profile')->name('profile');
 });
