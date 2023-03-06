@@ -31,7 +31,7 @@
                     </li>
                     <li><a href="{{ route('appointment.index') }}"><i class="fa fa-table"></i> Nomor Antrian </a>
                     </li>
-                    <li><a href="{{ route('buku-tamu') }}"><i class="fa fa-book"></i> Buku Tamu </a>
+                    <li><a href="{{ route('guest-book') }}"><i class="fa fa-book"></i> Buku Tamu </a>
                     </li>
 
                 </ul>

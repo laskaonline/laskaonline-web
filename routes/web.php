@@ -39,7 +39,6 @@ Route::middleware(['auth:web'])->group(function () {
         Route::view('/queue', 'admin.queue_number')->name('queue');
         Route::view('/wartelsuspas', 'admin.wartelsuspas')->name('wartelsuspas');
         Route::view('/guest-book', 'admin.guest_books')->name('guest-book');
-
     });
     Route::view('/dashboard', 'user.dashboard')->name('dashboard');
     Route::resource('/appointment', AppointmentController::class);
