@@ -6,45 +6,44 @@
     <div class="vh-100 d-grid place-items-center">
         <div class="container-lg row flex-column flex-lg-row">
             <div class="col col-lg-8 text-center">
-                <img src="{{ asset('/assets/images/no-corruption-psa.png') }}" alt="Tolak Suap, Siap WTP"
-                     class="img-fluid">
+                <img src="{{ asset('/assets/images/no-corruption-psa.png') }}" alt="Tolak Suap, Siap WTP" class="img-fluid">
             </div>
             <div class="col col-lg-4">
                 <form action="{{ url('/register') }}" method="post" class="row gap-2">
-                    @if($errors->any())
+                    <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham" class="img-fluid">
+                    @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
-                                @foreach($errors->all() as $error)
+                                @foreach ($errors->all() as $error)
                                     <li>
-                                        {{$error}}
+                                        {{ $error }}
                                     </li>
                                 @endforeach
                             </ul>
                         </div>
                     @endif
-                    <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham"
-                         class="img-fluid">
                     @csrf
                     <div>
-                        <input type="text" class="form-control" placeholder="Nama" required/>
+                        <input name="name" type="text" class="form-control" placeholder="Nama" required />
                     </div>
                     <div>
-                        <input type="text" class="form-control" placeholder="No KTP" required/>
+                        <input name="no_ktp" type="text" class="form-control" placeholder="No KTP" required />
                     </div>
                     <div>
-                        <input type="tel" class="form-control" placeholder="No HP" required/>
+                        <input name="phone" type="tel" class="form-control" placeholder="No HP" required />
                     </div>
                     <div>
-                        <input type="email" class="form-control" placeholder="Email" required/>
+                        <input name="email" type="email" class="form-control" placeholder="Email" required />
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="Password" required/>
+                        <input name="password" type="password" class="form-control" placeholder="Password" required />
                         <div class="form-text">Password minimal 8 karakter.</div>
                     </div>
                     <div>
-                        <input type="password" class="form-control" placeholder="Ulangi Password" required/>
+                        <input name="password_confirmation" type="password" class="form-control"
+                            placeholder="Ulangi Password" required />
                     </div>
-                    <x-honeypot/>
+                    <x-honeypot />
                     <button type="submit" class="btn btn-primary">
                         Register
                     </button>

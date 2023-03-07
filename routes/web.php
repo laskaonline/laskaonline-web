@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\ManageUserController;
 use App\Http\Controllers\ApproveDepositController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ItemDepositController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,8 +32,7 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::middleware(['auth:web'])->group(function () {
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
-        Route::view('/manage-user', 'admin.manage_user')->name('manage-user');
-
+        Route::resource('/manage-user', ManageUserController::class);
         Route::view('/item-deposit', 'admin.item_deposit')->name('item-deposit');
         Route::post('/item-deposit/{deposit}/approve', ApproveDepositController::class)->name('item-deposit.approve');
 

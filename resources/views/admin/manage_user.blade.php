@@ -3,47 +3,61 @@
 @section('content')
     <div class="page-title">
         <div class="title_left">
-            <h3>Kelola User</h3>
+            <h3>Management User</h3>
         </div>
     </div>
 
     <div class="clearfix"></div>
 
-    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+    <form data-parsley-validate class="form-horizontal form-label-left">
 
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="first-name" required="required" class="form-control ">
+                <input type="text" name="name" required="required" class="form-control ">
             </div>
         </div>
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Email
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input type="text" id="last-name" name="last-name" required="required" class="form-control">
+                <input type="text" name="email" required="required" class="form-control">
+            </div>
+        </div>
+        <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">NIK
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                <input type="text" name="no_ktp" required="required" class="form-control ">
+            </div>
+        </div>
+        <div class="item form-group">
+            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Handphone
+            </label>
+            <div class="col-md-6 col-sm-6 ">
+                <input type="text" name="phone" required="required" class="form-control">
             </div>
         </div>
         <div class="item form-group">
             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Jabatan
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input id="middle-name" class="form-control" type="text" name="middle-name">
+                <input name="jabatan" class="form-control" type="text">
             </div>
         </div>
         <div class="item form-group">
             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Password
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input id="middle-name" class="form-control" type="text" name="middle-name">
+                <input name="password" class="form-control" type="text">
             </div>
         </div>
         <div class="item form-group">
             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Ulangi Password
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input id="middle-name" class="form-control" type="text" name="middle-name">
+                <input name="password_confirmation" class="form-control" type="text">
             </div>
         </div>
 

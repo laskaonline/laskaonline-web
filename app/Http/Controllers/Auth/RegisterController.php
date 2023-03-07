@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
@@ -34,15 +35,15 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param array $data
+     * @param array $request
      * @return Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $request)
     {
-        return Validator::make($data, [
+        return Validator::make($request, [
             'name' => ['required', 'string', 'max:255'],
-            'nik' => ['required', 'string', 'between:16,17'],
-            'email' => ['required', 'email'],
+            'no_ktp' => ['required', 'string', 'between:16,17'],
+            'email' => ['required', 'email', 'unique:users,email'],
             'phone' => ['required', 'starts_with:08,+62'],
             'password' => ['required', 'confirmed', Password::min(8)->uncompromised(3)],
         ]);
@@ -51,17 +52,24 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param array $data
+     * @param Request $request
      * @return User
      */
-    protected function create(array $data)
+    protected function create(Request $request)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'nik' => $data['nik'],
-            'phone' => $data['phone'],
-            'password' => Hash::make($data['password']),
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'no_ktp' => $request['no_ktp'],
+            'phone' => $request['phone'],
+            'password' => Hash::make($request['password']),
         ]);
+    }
+
+    protected function registered(Request $request, $user)
+    {
+        $user->assignRole('visitor');
+
+        return redirect($this->redirectPath());
     }
 }

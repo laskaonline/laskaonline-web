@@ -24,7 +24,8 @@
                 <ul class="nav side-menu">
                     <li><a href="{{ route('admin.dashboard') }}"><i class="fa fa-home"></i> Dashboard </a>
                     </li>
-                    <li><a href="{{ route('admin.manage-user') }}"><i class="fa fa-users"></i> Kelola User </a>
+                    <li><a href="{{ route('admin.manage-user.index') }}"><i class="fa fa-users"></i> Management User
+                        </a>
                     </li>
                     <li><a href="{{ route('admin.item-deposit') }}"><i class="fa fa-cubes"></i> Titipan Barang </a>
                     </li>
