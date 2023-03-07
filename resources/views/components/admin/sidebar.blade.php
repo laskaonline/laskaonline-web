@@ -31,9 +31,9 @@
                     </li>
                     <li><a href="{{ route('admin.queue') }}"><i class="fa fa-table"></i> Nomor Antrian </a>
                     </li>
-                    <li><a href="{{ route('admin.wartelsuspas') }}"><i class="fa fa-phone"></i> Wartelsuspas </a>
+                    <li><a href="{{ route('admin.wartelsuspas.index') }}"><i class="fa fa-phone"></i> Wartelsuspas </a>
                     </li>
-                    <li><a href="{{ route('admin.guest-book') }}"><i class="fa fa-book"></i> Buku Tamu </a>
+                    <li><a href="{{ route('admin.guest-book.index') }}"><i class="fa fa-book"></i> Buku Tamu </a>
                     </li>
 
                 </ul>
