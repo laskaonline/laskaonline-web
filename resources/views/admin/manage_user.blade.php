@@ -9,8 +9,20 @@
 
     <div class="clearfix"></div>
 
-    <form data-parsley-validate class="form-horizontal form-label-left">
-
+    <form action="{{ route('admin.manage-user.store') }}" method="post" data-parsley-validate
+        class="form-horizontal form-label-left">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>
+                            {{ $error }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @csrf
         <div class="item form-group">
             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama
             </label>
@@ -43,27 +55,28 @@
             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Jabatan
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input name="jabatan" class="form-control" type="text">
+                <input name="job_title" class="form-control" type="text">
             </div>
         </div>
         <div class="item form-group">
             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Password
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input name="password" class="form-control" type="text">
+                <input name="password" class="form-control" type="password">
             </div>
         </div>
         <div class="item form-group">
             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Ulangi Password
             </label>
             <div class="col-md-6 col-sm-6 ">
-                <input name="password_confirmation" class="form-control" type="text">
+                <input name="password_confirmation" class="form-control" type="password">
             </div>
         </div>
 
         <div class="ln_solid"></div>
         <div class="item form-group">
             <div class="col-md-6 col-sm-6 offset-md-3">
+                <x-honeypot />
                 <button type="submit" class="btn btn-success">Submit</button>
             </div>
         </div>

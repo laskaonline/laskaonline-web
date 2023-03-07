@@ -32,7 +32,8 @@ Route::get('logout', [LoginController::class, 'logout']);
 Route::middleware(['auth:web'])->group(function () {
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
-        Route::resource('/manage-user', ManageUserController::class);
+        Route::get('/manage-user', [\App\Http\Controllers\Admin\ManageUserController::class, 'index'])->name('manage-user.index');
+        Route::post('/manage-user/store', [\App\Http\Controllers\Admin\ManageUserController::class, 'store'])->name('manage-user.store');
         Route::view('/item-deposit', 'admin.item_deposit')->name('item-deposit');
         Route::post('/item-deposit/{deposit}/approve', ApproveDepositController::class)->name('item-deposit.approve');
 
