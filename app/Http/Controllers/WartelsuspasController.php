@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreWartelsuspasRequest;
 use App\Models\Wartelsuspas;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,11 @@ class WartelsuspasController extends Controller
     {
     }
 
-    public function store(Request $request)
+    public function store(StoreWartelsuspasRequest $request)
     {
+        auth()->user()->wartelsuspas()->create($request->validated());
+
+        return back()->with('message', 'Wartelsuspas berhasil dibuat');
     }
 
     public function show(Wartelsuspas $wartelsuspas)

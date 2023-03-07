@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreKunjunganRequest;
+use App\Http\Requests\StoreAppointmentRequest;
 use App\Models\Appointment;
 
 class AppointmentController extends Controller
@@ -22,7 +22,7 @@ class AppointmentController extends Controller
         return view('user.registrasi-kunjungan');
     }
 
-    public function store(StoreKunjunganRequest $request)
+    public function store(StoreAppointmentRequest $request)
     {
 
     }
