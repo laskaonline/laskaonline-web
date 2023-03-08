@@ -94,49 +94,65 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
-
                                 <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th>Id Pengguna</th>
                                             <th>Nama</th>
                                             <th>Email</th>
+                                            <th>NIK</th>
+                                            <th>Handphone</th>
                                             <th>Jabatan</th>
                                         </tr>
                                     </thead>
-
-
                                     <tbody>
+                                        @foreach ($admins as $admin)
+                                            <tr>
+                                                <td>{{ $admin->name }}</td>
+                                                <td>{{ $admin->email }}</td>
+                                                <td>{{ $admin->no_ktp }}</td>
+                                                <td>{{ $admin->phone }}</td>
+                                                <td>{{ $admin->job_title }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ln_solid"></div>
+    <div class="row">
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Daftar User Visitor</h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card-box table-responsive">
+                                <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
+                                            <th>Nama</th>
+                                            <th>Email</th>
+                                            <th>NIK</th>
+                                            <th>Handphone</th>
                                         </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($visitors as $visitor)
+                                            <tr>
+                                                <td>{{ $visitor->name }}</td>
+                                                <td>{{ $visitor->email }}</td>
+                                                <td>{{ $visitor->no_ktp }}</td>
+                                                <td>{{ $visitor->phone }}</td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

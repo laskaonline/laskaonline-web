@@ -4,15 +4,21 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
+use Spatie\Permission\Models\Role;
 
 class ManageUserController extends Controller
 {
     public function index()
     {
-        return view('admin.manage_user');
+        $admin = User::role('admin')->get();
+        $visitor = User::role('visitor')->get();
+        $admins['admins'] = $admin;
+        $visitors['visitors'] = $visitor;
+        return view('admin.manage_user', $admins, $visitors);
     }
 
     public function store(Request $request)
