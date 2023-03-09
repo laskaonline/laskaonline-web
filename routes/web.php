@@ -6,8 +6,10 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\ItemDepositController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WartelsuspasController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,5 +50,7 @@ Route::middleware(['auth:web'])->group(function () {
     Route::resource('/appointment', AppointmentController::class);
     Route::resource('/item-deposit', ItemDepositController::class);
     Route::resource('/guest-book', GuestBookController::class);
-    Route::view('/profile', 'user.profile')->name('profile');
+
+    Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
+    Route::put('/profile/update', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 });

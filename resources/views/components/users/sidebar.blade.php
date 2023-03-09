@@ -15,17 +15,17 @@
             </div>
         </div>
         <!-- /menu profile quick info -->
-
         <br />
-
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
                 <h3>General</h3>
+
                 <ul class="nav side-menu">
                     <li><a href="{{ route('dashboard') }}"><i class="fa fa-home"></i> Dashboard </a>
                     </li>
-                    <li><a href="{{ route('profile') }}"><i class="fa fa-user"></i> Profil </a>
+                    <li>
+                        <a href="{{ route('profile.index') }}"><i class="fa fa-user"></i> Profil </a>
                     </li>
                     <li><a href="{{ route('item-deposit.index') }}"><i class="fa fa-cubes"></i> Titipan Barang </a>
                     </li>
@@ -33,7 +33,6 @@
                     </li>
                     <li><a href="{{ route('guest-book.index') }}"><i class="fa fa-book"></i> Buku Tamu </a>
                     </li>
-
                 </ul>
             </div>
         </div>

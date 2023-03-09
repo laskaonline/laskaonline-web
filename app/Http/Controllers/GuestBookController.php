@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGuestBookRequest;
 use App\Models\GuestBook;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class GuestBookController extends Controller
 {
@@ -24,8 +25,23 @@ class GuestBookController extends Controller
     public function store(StoreGuestBookRequest $request)
     {
         auth()->user()->guestBook()->create($request->validated());
+        $data = $request->all();
 
-        return back()->with('message', 'Buku Tamu telah diisi');
+        $img = $request->photo;
+        $folderPath = "uploads/";
+
+        $image_parts = explode(";base64,", $img);
+        $image_type_aux = explode("image/", $image_parts[0]);
+        $image_type = $image_type_aux[1];
+
+        $image_base64 = base64_decode($image_parts[1]);
+        $fileName = uniqid() . '.png';
+
+        $file = $folderPath . $fileName;
+        Storage::put($file, $image_base64);
+        GuestBook::create($data);
+
+        return back()->with('message', 'Buku Tamu telah diisi', $data);
     }
 
     public function show(GuestBook $guestBooks)

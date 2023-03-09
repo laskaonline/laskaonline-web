@@ -10,7 +10,7 @@
     <div class="clearfix"></div>
 
     <form action="{{ route('admin.manage-user.store') }}" method="post" data-parsley-validate
-        class="form-horizontal form-label-left">
+        class="form-horizontal form-label-left" enctype="multipart/form-data">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>

@@ -65,4 +65,5 @@ $('#retake').click(function(event) {
 $('#vid').css('z-index','30');
 $('#capture').css('z-index','20');
 });
+
 });
