@@ -14,7 +14,6 @@ class AppointmentController extends Controller
 
     public function view()
     {
-
     }
 
     public function create()
@@ -24,21 +23,22 @@ class AppointmentController extends Controller
 
     public function store(StoreAppointmentRequest $request)
     {
-
     }
 
     public function edit(Appointment $kunjungan)
     {
-
     }
 
     public function update(Appointment $kunjungan)
     {
+    }
 
+    public function show($id)
+    {
+        return view('user.detail-kunjungan');
     }
 
     public function destroy(Appointment $kunjungan)
     {
-
     }
 }

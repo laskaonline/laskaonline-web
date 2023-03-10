@@ -48,7 +48,11 @@ Route::middleware(['auth:web'])->group(function () {
     });
     Route::view('/dashboard', 'user.dashboard')->name('dashboard');
     Route::resource('/appointment', AppointmentController::class);
+    Route::get('/appointment/show', [\App\Http\Controllers\ItemDepositController::class, 'show'])->name('appointment.show');
+
     Route::resource('/item-deposit', ItemDepositController::class);
+    Route::get('/item-deposit/show', [\App\Http\Controllers\ItemDepositController::class, 'show'])->name('item-deposit.show');
+
     Route::resource('/guest-book', GuestBookController::class);
 
     Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');

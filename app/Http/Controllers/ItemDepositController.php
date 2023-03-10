@@ -27,6 +27,7 @@ class ItemDepositController extends Controller
 
     public function show($id)
     {
+        return view('user.detail-titip-barang');
     }
 
     public function edit($id)

@@ -19,7 +19,7 @@
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
-                <h2>History Nomor Antrian</h2>
+                <h2>History Kunjungan</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li></li>
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -54,11 +54,9 @@
                                         <td>61</td>
                                         <td>2011/04/25</td>
                                         <td>$320,800</td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-primary"
-                                                data-mdb-ripple-color="dark">Detail
-                                            </button>
-                                        </td>
+                                        <td><a href="{{ route('appointment.show') }}" type="button"
+                                                class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                Detail</a></td>
                                     </tr>
                                     <tr>
                                         <td>Garrett Winters</td>
@@ -67,11 +65,9 @@
                                         <td>63</td>
                                         <td>2011/07/25</td>
                                         <td>$170,750</td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-primary"
-                                                data-mdb-ripple-color="dark">Detail
-                                            </button>
-                                        </td>
+                                        <td><a href="{{ route('appointment.show') }}" type="button"
+                                                class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                Detail</a></td>
                                     </tr>
                                     <tr>
                                         <td>Ashton Cox</td>
@@ -80,11 +76,9 @@
                                         <td>66</td>
                                         <td>2009/01/12</td>
                                         <td>$86,000</td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-primary"
-                                                data-mdb-ripple-color="dark">Detail
-                                            </button>
-                                        </td>
+                                        <td><a href="{{ route('appointment.show') }}" type="button"
+                                                class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                Detail</a></td>
                                     </tr>
                                     <tr>
                                         <td>Cedric Kelly</td>
@@ -93,11 +87,9 @@
                                         <td>22</td>
                                         <td>2012/03/29</td>
                                         <td>$433,060</td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-primary"
-                                                data-mdb-ripple-color="dark">Detail
-                                            </button>
-                                        </td>
+                                        <td><a href="{{ route('appointment.show') }}" type="button"
+                                                class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                Detail</a></td>
                                     </tr>
                                     <tr>
                                         <td>Airi Satou</td>
@@ -106,11 +98,9 @@
                                         <td>33</td>
                                         <td>2008/11/28</td>
                                         <td>$162,700</td>
-                                        <td>
-                                            <button type="button" class="btn btn-outline-primary"
-                                                data-mdb-ripple-color="dark">Detail
-                                            </button>
-                                        </td>
+                                        <td><a href="{{ route('appointment.show') }}" type="button"
+                                                class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                Detail</a></td>
                                     </tr>
                                 </tbody>
                             </table>
