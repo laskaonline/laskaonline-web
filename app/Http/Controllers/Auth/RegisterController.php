@@ -35,7 +35,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param array $request
+     * @param  array  $request
      * @return Validator
      */
     protected function validator(array $request)
@@ -52,10 +52,10 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param Request $request
+     * @param  array  $request
      * @return User
      */
-    protected function create(Request $request)
+    protected function create(array $request)
     {
         return User::create([
             'name' => $request['name'],
