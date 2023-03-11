@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGuestBookRequest;
 use App\Models\GuestBook;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class GuestBookController extends Controller
@@ -22,26 +23,52 @@ class GuestBookController extends Controller
     {
     }
 
-    public function store(StoreGuestBookRequest $request)
+    public function store(Request $request)
     {
-        auth()->user()->guestBook()->create($request->validated());
-        $data = $request->all();
+        $id         = $request->id;
+        $name       = $request->name;
+        $origin     = $request->origin;
+        $nik        = $request->nik;
+        $address    = $request->address;
+        $email      = $request->email;
+        $phone      = $request->phone;
+        $necessity  = $request->necessity;
+        $photo      = $request->photo;
+        $create_by   = Auth()->user()->id;
 
-        $img = $request->photo;
-        $folderPath = "uploads/";
 
-        $image_parts = explode(";base64,", $img);
-        $image_type_aux = explode("image/", $image_parts[0]);
-        $image_type = $image_type_aux[1];
+        $request->validate([
+            'name'      => 'required|string',
+            'origin'    => 'required|string',
+            'nik'       => 'required|integer',
+            'address'   => 'required|string',
+            'email'     => 'required|email',
+            'phone'     => 'required|string|starts_with:0,+62',
+            'necessity' => 'required|string',
+            'photo'     => 'mimes:jpg,png,jpeg|image',
+        ]);
 
-        $image_base64 = base64_decode($image_parts[1]);
-        $fileName = uniqid() . '.png';
+        if ($request->hasFile('photo')) {
+            $path = $request->file('photo')->store('upload');
+        } else {
+            $path = '';
+        }
 
-        $file = $folderPath . $fileName;
-        Storage::put($file, $image_base64);
-        GuestBook::create($data);
+        $data = new GuestBook;
+        $data->id           = $id;
+        $data->name         = $name;
+        $data->origin       = $origin;
+        $data->nik          = $nik;
+        $data->address      = $address;
+        $data->email        = $email;
+        $data->phone        = $phone;
+        $data->necessity    = $necessity;
+        $data->photo        = $path;
+        $data->created_by   = $create_by;
 
-        return back()->with('message', 'Buku Tamu telah diisi', $data);
+        $data->save();
+
+        return back()->with('message', 'Buku Tamu telah diisi');
     }
 
     public function show(GuestBook $guestBooks)

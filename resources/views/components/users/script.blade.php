@@ -37,6 +37,24 @@
 {{-- Camera JS --}}
 @vite('/resources/js/cam.js')
 
+{{-- set-value-to-file-input - pqina --}}
+<script>
+    // Get a reference to our file input
+    const fileInput = document.querySelector('input[type="file"]');
+
+    // Create a new File object
+    const myFile = new File(['Laska'], 'No file', {
+        type: 'text/plain',
+        lastModified: new Date(),
+    });
+
+    // Now let's create a DataTransfer to get a FileList
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(myFile);
+    fileInput.files = dataTransfer.files;
+</script>
+
+
 {{-- Appendchild --}}
 <script>
     var i = 1;
@@ -92,21 +110,4 @@
         i++;
 
     }
-</script>
-
-{{-- set-value-to-file-input - pqina --}}
-<script>
-    // Get a reference to our file input
-    const fileInput = document.querySelector('input[type="file"]');
-
-    // Create a new File object
-    const myFile = new File(['Laska'], 'myFile.txt', {
-        type: 'text/plain',
-        lastModified: new Date(),
-    });
-
-    // Now let's create a DataTransfer to get a FileList
-    const dataTransfer = new DataTransfer();
-    dataTransfer.items.add(myFile);
-    fileInput.files = dataTransfer.files;
 </script>

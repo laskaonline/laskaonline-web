@@ -27,28 +27,8 @@
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Foto Selfie + KTP
                                 Penitip</label>
-                            <div class="col-md-6 col-sm-6 row">
-                                <div class="col">
-                                    <a class='btn btn-block btn-primary text-white' data-toggle="collapse" id='open'
-                                        data-target="#my_camera"><i class="fa fa-camera px-2"></i> Open cam</a>
-                                </div>
-                                <div class="row collapse" id="my_camera">
-                                    <div class="col-md-6">
-                                        <video id="video" width="100%" height="auto"></video>
-                                    </div>
-                                    <div class="col-md-6 border border-dark">
-                                        <canvas id="canvas"></canvas>
-                                    </div>
-                                    <div class="row x_content">
-                                        <a class='btn btn-app h6' id='snap' value="Take Snapshot"
-                                            onClick="take_snapshot()"><i class="fa fa-camera"></i>Camera</a>
-                                        <input type="hidden" name="image" class="image-tag">
-                                        <a class='btn btn-app' id='show'><i class="fa fa-eye"></i>Open Cam</a>
-                                        <a class='btn btn-app' id='close'><i class="fa fa-eye-slash"></i>Hide Cam</a>
-                                        <a class='btn btn-app' data-toggle="collapse" data-target="#cam" id='exit'><i
-                                                class="fa fa-close"></i> close</a>
-                                    </div>
-                                </div>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="file" class="form-control" name="photo" />
                             </div>
                         </div>
                         <div class="item form-group">
@@ -63,13 +43,13 @@
                                 Institusi / Organisasi
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input name="origin" type="text"required="required" class="form-control">
+                                <input name="origin" type="text" required="required" class="form-control">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align">NIK</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input class="form-control" type="text" name="nik">
+                                <input class="form-control" type="number" name="nik">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -81,7 +61,7 @@
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Email</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input class="form-control" type="text" name="email">
+                                <input class="form-control" type="email" name="email">
                             </div>
                         </div>
                         <div class="item form-group">
