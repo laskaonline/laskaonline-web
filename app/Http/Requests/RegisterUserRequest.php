@@ -12,7 +12,7 @@ class RegisterUserRequest extends FormRequest
         return [
             'name' => ['required', 'string'],
             'nik' => ['required', 'string', 'between:16,17'],
-            'email' => ['required', 'email'],
+            'email' => ['required', 'email', 'unique:users,email'],
             'phone' => ['required', 'starts_with:08,+62'],
             'password' => ['required', 'confirmed', Password::min(8)->uncompromised(3)],
         ];

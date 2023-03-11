@@ -16,35 +16,46 @@ class ProfileController extends Controller
 
     public function update(Request $request)
     {
+        $auth = Auth::user();
 
-        $data['id']         = $request->id;
+        $id         = $request->id;
+        $name       = $request->name;
+        $no_ktp     = $request->no_ktp;
+        $phone      = $request->phone;
+        $email      = $request->email;
+        $gender     = $request->gender;
+        $address    = $request->address;
+        $photo      = $request->photo;
 
-        $data['name']       = $request->name;
-        $data['no_ktp']     = $request->no_ktp;
-        $data['phone']      = $request->phone;
-        $data['email']      = $request->email;
-        $data['gender']     = $request->gender;
-        $data['address']    = $request->address;
+        $request->validate([
+            'name'      => 'string',
+            'no_ktp'    => 'numeric',
+            'phone'     => 'starts_with:08,+62',
+            'email'     => 'email',
+        ]);
+
+        $user = User::find($request->id);
+        $user->name = $name ?? $auth->name;
+        $user->no_ktp = $no_ktp ?? $auth->no_ktp;
+        $user->phone = $phone ?? $auth->phone;
+        $user->email = $email ?? $auth->email;
+        $user->gender = $gender ?? $auth->gender;
+        $user->address = $address ?? $auth->address;
 
         //photo
-        $path = $request->file('photo')->store('photo');
+        $path = $request->photo;
 
-        $data['photo'] = $path;
-        if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('photo');
-            $data['photo'] = $path;
+        if ($path != null) {
+            Storage::delete($auth->address);
+            $path = $request->file('photo')->store('user');
+            $user->photo = $path;
         } else {
-            $path = '';
-            $data['photo'] = $path;
+            $user->photo = $auth->photo;
         }
-        //delete photo
-        $user = User::find($request->id);
-        $pathFoto =  $user->photo;
-        if ($pathFoto != null || $pathFoto != '') {
-            Storage::delete($pathFoto);
-        }
-        User::where(['id' => $request->id])->update($data);
 
-        return back()->with('message', 'Profil berhasil di ubah');
+
+        $user->save();
+
+        return back()->with('success', 'Profil berhasil di ubah');
     }
 }

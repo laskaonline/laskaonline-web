@@ -44,6 +44,12 @@
                                     value="{{ auth()->user()->photo }}" accept="photo/*" />
                             </div>
                         </div>
+                        <input type="hidden" name="id" required="required"
+                            class="form-control 
+                                    @error('id')
+                                        is-invalid
+                                    @enderror"
+                            value="{{ auth()->user()->id }}">
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama Pengunjung
                             </label>
@@ -60,6 +66,18 @@
                                     is-invalid
                                 @enderror"
                                     value="{{ auth()->user()->name }}">
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Email Pengunjung
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <input type="text" name="email" required="required"
+                                    class="form-control 
+                                    @error('email')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ auth()->user()->email }}">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -89,33 +107,26 @@
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Kelamin Pengunjung</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <div id="gender" class="btn-group" data-toggle="buttons">
-                                    @if (auth()->user()->gender = 'Laki-Laki')
-                                        <label class="btn btn-secondary active focus" data-toggle-class="btn-primary"
-                                            data-toggle-passive-class="btn-default">
-                                            <input type="radio" name="gender" value="Laki-Laki" class="join-btn"> &nbsp;
-                                            Laki-laki
-                                            &nbsp;
-                                        </label>
-                                        <label class="btn btn-primary" data-toggle-class="btn-primary"
-                                            data-toggle-passive-class="btn-default">
-                                            <input type="radio" name="gender" value="Perempuan" class="join-btn">
-                                            Perempuan
-                                        </label>
-                                    @else
-                                        <label class="btn btn-secondary " data-toggle-class="btn-primary"
-                                            data-toggle-passive-class="btn-default">
-                                            <input type="radio" name="gender" value="Laki-Laki" class="join-btn"> &nbsp;
-                                            Laki-laki
-                                            &nbsp;
-                                        </label>
-                                        <label class="btn btn-primary active focus" data-toggle-class="btn-primary"
-                                            data-toggle-passive-class="btn-default">
-                                            <input type="radio" name="gender" value="Perempuan" class="join-btn">
-                                            Perempuan
-                                        </label>
-                                    @endif
-                                </div>
+                                @if (auth()->user()->gender == 'Laki-Laki')
+                                    <div class="form-check">
+                                        Laki-Laki:
+                                        <input type="radio" class="flat" name="gender" id="Laki-laki" value="Laki-Laki"
+                                            checked="" required />
+                                        Perempuan:
+                                        <input type="radio" class="flat" name="gender" id="Perempuan"
+                                            value="Perempuan" />
+                                    </div>
+                                @else
+                                    <div class="form-check">
+                                        Laki-Laki:
+                                        <input type="radio" class="flat" name="gender" id="Laki-laki"
+                                            value="Laki-Laki" />
+                                        Perempuan:
+                                        <input type="radio" class="flat" name="gender" id="Perempuan" value="Perempuan"
+                                            checked="" required />
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
                         <div class="item form-group">
