@@ -4,23 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
     public function index()
     {
-        // $user = User::find($id);
-        // $data = [
-        //     'id'        => $id,
-        //     'name'      => $user->name,
-        //     'no_ktp'    => $user->no_ktp,
-        //     'phone'     => $user->phone,
-        //     'email'     => $user->email,
-        //     'gender'    => $user->gender,
-        //     'address'   => $user->address,
-        //     'photo'     => $user->photo,
-        // ];
+        $user = Auth::user();
+        $image = $user->image;
         return view('user.profile');
     }
 

@@ -49,7 +49,8 @@ class GuestBookController extends Controller
         ]);
 
         if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('upload');
+            // $path = $request->file('photo')->store('guest_books');
+            $path = Storage::putFile('guest_books', $request->file('photo'));
         } else {
             $path = '';
         }
