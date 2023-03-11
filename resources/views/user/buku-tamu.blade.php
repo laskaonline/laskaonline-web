@@ -1,6 +1,7 @@
 @extends('layouts.users.app')
 
 @section('content')
+    @include('sweetalert::alert')
     <div class="row">
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">

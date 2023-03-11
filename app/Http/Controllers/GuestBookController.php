@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGuestBookRequest;
 use App\Models\GuestBook;
+use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -69,7 +70,7 @@ class GuestBookController extends Controller
 
         $data->save();
 
-        return back()->with('message', 'Buku Tamu telah diisi');
+        return back()->with('success', 'Buku Tamu telah diisi');
     }
 
     public function show(GuestBook $guestBooks)
