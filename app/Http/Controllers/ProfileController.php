@@ -11,8 +11,6 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        $user = Auth::user();
-        $image = $user->image;
         return view('user.profile');
     }
 
