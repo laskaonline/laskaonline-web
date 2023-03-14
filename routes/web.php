@@ -36,8 +36,8 @@ Route::middleware(['auth:web'])->group(function () {
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
         Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
 
-        Route::get('/manage-user', [\App\Http\Controllers\Admin\ManageUserController::class, 'index'])->name('manage-user.index');
-        Route::post('/manage-user/store', [\App\Http\Controllers\Admin\ManageUserController::class, 'store'])->name('manage-user.store');
+        Route::get('/manage-user', [ManageUserController::class, 'index'])->name('manage-user.index');
+        Route::post('/manage-user/store', [ManageUserController::class, 'store'])->name('manage-user.store');
 
         Route::view('/item-deposit', 'admin.item_deposit')->name('item-deposit');
         Route::post('/item-deposit/{deposit}/approve', ApproveDepositController::class)->name('item-deposit.approve');
@@ -48,14 +48,14 @@ Route::middleware(['auth:web'])->group(function () {
     });
     Route::view('/dashboard', 'user.dashboard')->name('dashboard');
     Route::resource('/appointment', AppointmentController::class);
-    Route::get('/appointment/show', [\App\Http\Controllers\ItemDepositController::class, 'show'])->name('appointment.show');
+    Route::get('/appointment/show', [ItemDepositController::class, 'show'])->name('appointment.show');
 
     Route::resource('/item-deposit', ItemDepositController::class);
-    Route::get('/item-deposit/show', [\App\Http\Controllers\ItemDepositController::class, 'show'])->name('item-deposit.show');
+    Route::get('/item-deposit/show', [ItemDepositController::class, 'show'])->name('item-deposit.show');
     Route::post('/item-deposit/store', [\App\Http\Controllers\ItemDepositController::class, 'store'])->name('item-deposit.store');
 
     Route::resource('/guest-book', GuestBookController::class);
 
-    Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'index'])->name('profile.index');
-    Route::put('/profile/update', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });

@@ -13,7 +13,7 @@ class ApproveDepositController extends Controller
     public function __invoke(ApproveDepositRequest $request, ItemDeposit $deposit)
     {
         if ($deposit->approvals()->count() === 3) {
-            throw new  ValidationException('Barang ini sudah disetujui oleh 3 petugas');
+            throw new ValidationException('Barang ini sudah disetujui oleh 3 petugas');
         }
 
         $deposit->approvals()->updateOrCreate([

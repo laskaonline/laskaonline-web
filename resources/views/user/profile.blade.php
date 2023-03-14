@@ -9,10 +9,10 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <br />
+                    <br/>
 
                     <form method="POST" action="{{ route('profile.update') }}" class="form-horizontal form-label-left"
-                        enctype="multipart/form-data">
+                          enctype="multipart/form-data">
                         @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
@@ -32,64 +32,59 @@
                             <div class="col-md-6 col-sm-6 ">
                                 @if (auth()->user()->photo)
                                     <img src="{{ asset('storage/' . auth()->user()->photo) }}" class="img-thumbnail"
-                                        style="width:30%">
+                                         style="width:30%">
                                 @else
                                     <span class="badge badge-danger">No Foto</span>
                                 @endif
 
                                 <input type="file" name="photo"
-                                    class="form-control @error('photo')
+                                       class="form-control @error('photo')
                                 is-invalid
                                 @enderror"
-                                    value="{{ auth()->user()->photo }}" accept="photo/*" />
+                                       value="{{ auth()->user()->photo }}" accept="photo/*"/>
                             </div>
                         </div>
                         <input type="hidden" name="id" required="required"
-                            class="form-control 
+                               class="form-control
                                     @error('id')
                                         is-invalid
                                     @enderror"
-                            value="{{ auth()->user()->id }}">
+                               value="{{ auth()->user()->id }}">
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama Pengunjung
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="hidden" name="name" required="required"
-                                    class="form-control 
-                                @error('name')
-                                    is-invalid
-                                @enderror"
-                                    value="{{ auth()->user()->id }}">
                                 <input type="text" name="name" required="required"
-                                    class="form-control 
+                                       class="form-control
                                 @error('name')
                                     is-invalid
                                 @enderror"
-                                    value="{{ auth()->user()->name }}">
+                                       value="{{ old('name',auth()->user()->name )}}">
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Email Pengunjung
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="email" name="email" required="required"
-                                    class="form-control 
+                                <input type="email" name="email" required
+                                       class="form-control
                                     @error('email')
                                         is-invalid
                                     @enderror"
-                                    value="{{ auth()->user()->email }}">
+                                       value="{{ old('email',auth()->user()->email) }}">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">No KTP Pengunjung
+                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">No KTP
+                                Pengunjung
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="number" name="no_ktp" required="required"
-                                    class="form-control 
+                                <input type="number" name="no_ktp" required
+                                       class="form-control
                                     @error('no_ktp')
                                         is-invalid
                                     @enderror"
-                                    value="{{ auth()->user()->no_ktp }}">
+                                       value="{{'no_ktp', old(auth()->user()->no_ktp) }}">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -97,11 +92,11 @@
                                 Pengunjung</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="text" name="phone"
-                                    class="form-control 
+                                       class="form-control
                                 @error('phone')
                                     is-invalid
                                 @enderror"
-                                    value="{{ auth()->user()->phone }}">
+                                       value="{{ old('phone',auth()->user()->phone) }}">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -111,19 +106,19 @@
                                     <div class="form-check">
                                         Laki-Laki:
                                         <input type="radio" class="flat" name="gender" id="Laki-laki" value="Laki-Laki"
-                                            checked="" required />
+                                               checked="" required/>
                                         Perempuan:
                                         <input type="radio" class="flat" name="gender" id="Perempuan"
-                                            value="Perempuan" />
+                                               value="Perempuan"/>
                                     </div>
                                 @else
                                     <div class="form-check">
                                         Laki-Laki:
                                         <input type="radio" class="flat" name="gender" id="Laki-laki"
-                                            value="Laki-Laki" />
+                                               value="Laki-Laki"/>
                                         Perempuan:
                                         <input type="radio" class="flat" name="gender" id="Perempuan" value="Perempuan"
-                                            checked="" required />
+                                               checked="" required/>
                                     </div>
                                 @endif
 
@@ -134,15 +129,15 @@
                             </label>
                             <div class="col-md-6 col-sm-6 ">
                                 <textarea required="required" name="address" type="text"
-                                    class="form-control @error('address')
+                                          class="form-control @error('address')
                                 is-invalid
-                                @enderror">{{ auth()->user()->address }}</textarea>
+                                @enderror">{{old('address', auth()->user()->address )}}</textarea>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 offset-md-3">
-                                <x-honeypot />
+                                <x-honeypot/>
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </div>

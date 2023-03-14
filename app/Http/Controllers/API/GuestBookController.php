@@ -10,7 +10,12 @@ class GuestBookController extends Controller
 {
     public function index()
     {
-
+        return response()->json(
+            [
+                'data' => GuestBook::all(),
+                'message' => 'success'
+            ]
+        );
     }
 
     public function store(Request $request)

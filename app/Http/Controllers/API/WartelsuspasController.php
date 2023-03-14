@@ -10,7 +10,10 @@ class WartelsuspasController extends Controller
 {
     public function index()
     {
-
+        return response()->json([
+            'data' => Wartelsuspas::all(),
+            'message' => 'success'
+        ]);
     }
 
     public function store(Request $request)

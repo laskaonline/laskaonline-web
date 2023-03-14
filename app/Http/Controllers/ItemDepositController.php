@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreItemDepositRequest;
 use App\Models\Deposit;
 use App\Models\ItemDeposit;
 use Illuminate\Http\Request;
@@ -24,50 +25,29 @@ class ItemDepositController extends Controller
         return view('user.registrasi-titip-barang');
     }
 
-    public function store(Request $request)
+    public function store(StoreItemDepositRequest $request)
     {
-        // $request->dd();
+        $data['date_deposit'] = date('Y-m-d', strtotime($request->date_deposit));
+        $data['photo_visitor'] = $request->file('photo_visitor')->store('item_deposit');
+        $data['family_card'] = $request->file('family_card')->store('item_deposit');
 
-        $request->validate([
-            'name_wbp'          => 'required|string',
-            'room_block'        => 'required|string',
-            'case'              => 'required|string',
-            'relationship'      => 'required|string',
-            'date_deposit'      => 'required|date',
-            'problem'           => 'required|string',
-            'photo_visitor'     => 'required|image',
-            'family_card'       => 'required|image',
-            'items'             => 'required|array',
-            'items.*.name'      => 'required|string',
-            'items.*.amount'    => 'required|integer|gt:0',
-            'items.*.photo'     => 'required|image',
-        ]);
+        \DB::transaction(function () use ($request, $data) {
+            $item_deposit = auth()->user()->deposits()->create([
+                'name_wbp' => $request['name_wbp'],
+                'room_block' => $request['room_block'],
+                'case' => $request['case'],
+                'relationship' => $request['relationship'],
+                'problem' => $request['problem'],
+                'date_deposit' => $data['date_deposit'],
+                'photo_visitor' => $data['photo_visitor'],
+                'family_card' => $data['family_card'],
+                'state' => '0',
+            ]);
 
-        $data['date_deposit']   = date('Y-m-d', strtotime($request->date_deposit));
-        $data['photo_visitor']  = $request->file('photo_visitor')->store('item_deposit');
-        $data['family_card']    = $request->file('family_card')->store('item_deposit');
+            $item_deposit->items()->createMany($request['items']);
 
-        $item_deposit = ItemDeposit::create([
-            'name_wbp'          => $request['name_wbp'],
-            'room_block'        => $request['room_block'],
-            'case'              => $request['case'],
-            'relationship'      => $request['relationship'],
-            'date_deposit'      => $data['date_deposit'],
-            'problem'           => $request['problem'],
-            'photo_visitor'     => $data['photo_visitor'],
-            'family_card'       => $data['family_card'],
-            'state'             => '0',
-            'created_by'        => Auth::id(),
-        ]);
-
-        $deposit = new Deposit();
-        $deposit->name      = $request['name'];
-        $deposit->amount    = $request['amount'];
-        $deposit->photo     = $request['photo'];
-
-        $item_deposit->items()->createMany($request['items']);
-
-        return redirect()->route('item-deposit.index')->with('success', 'Create Success!');
+            return redirect()->route('item-deposit.index')->with('success', 'Create Success!');
+        });
     }
 
     public function show($id)
