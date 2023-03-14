@@ -41,6 +41,6 @@ class ManageUserController extends Controller
             'password'  => Hash::make($request['password']),
         ])->assignRole('admin');
 
-        return redirect()->route('admin.manage-user.index')->with('alert', 'Create Success!');
+        return redirect()->route('admin.manage-user.index')->with('success', 'Create Success!');
     }
 }

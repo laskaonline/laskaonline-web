@@ -8,10 +8,19 @@
 
         <!-- menu profile quick info -->
         <div class="profile clearfix">
+            <br>
+            <div class="profile_pic col">
 
-            <div class="profile_info">
+                @if (auth()->user()->photo)
+                    <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="..."
+                        class="img-thumbnail profile_img" style="width:100%">
+                @else
+                    <span class="badge badge-danger">No Foto</span>
+                @endif
+            </div>
+            <div class="col-md-1">
                 <span>Welcome,</span>
-                <h2>{{ auth()->user()->name }}</h2>
+                <p><strong>{{ auth()->user()->name }}</strong></p>
             </div>
         </div>
         <!-- /menu profile quick info -->

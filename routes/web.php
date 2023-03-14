@@ -52,6 +52,7 @@ Route::middleware(['auth:web'])->group(function () {
 
     Route::resource('/item-deposit', ItemDepositController::class);
     Route::get('/item-deposit/show', [\App\Http\Controllers\ItemDepositController::class, 'show'])->name('item-deposit.show');
+    Route::post('/item-deposit/store', [\App\Http\Controllers\ItemDepositController::class, 'store'])->name('item-deposit.store');
 
     Route::resource('/guest-book', GuestBookController::class);
 

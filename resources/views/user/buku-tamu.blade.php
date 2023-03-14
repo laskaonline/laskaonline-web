@@ -68,7 +68,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Nomor
                                 Telepon</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input class="form-control" type="text" name="phone">
+                                <input class="form-control" type="number" name="phone">
                             </div>
                         </div>
                         <div class="item form-group">

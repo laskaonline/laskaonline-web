@@ -72,7 +72,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Email Pengunjung
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" name="email" required="required"
+                                <input type="email" name="email" required="required"
                                     class="form-control 
                                     @error('email')
                                         is-invalid
@@ -84,7 +84,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">No KTP Pengunjung
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" name="no_ktp" required="required"
+                                <input type="number" name="no_ktp" required="required"
                                     class="form-control 
                                     @error('no_ktp')
                                         is-invalid

@@ -104,17 +104,18 @@
 
         //                membuat element input
         var input_name = document.createElement('input');
-        input_name.setAttribute('name', 'input_name[' + i + ']');
+        input_name.setAttribute('name', 'items[' + i + '][name]');
         input_name.setAttribute('class', 'form-control');
 
         var input_amount = document.createElement('input');
-        input_amount.setAttribute('name', 'input_amount[' + i + ']');
+        input_amount.setAttribute('type', 'number');
+        input_amount.setAttribute('name', 'items[' + i + '][amount]');
         input_amount.setAttribute('class', 'form-control');
 
-        var upload_photo = document.createElement('a');
-        // upload_photo.setAttribute('type', 'file');
-        // upload_photo.setAttribute('name', 'upload_photo[' + i + ']');
-        // upload_photo.setAttribute('class', 'form-control');
+        var upload_photo = document.createElement('input');
+        upload_photo.setAttribute('type', 'file');
+        upload_photo.setAttribute('name', 'items[' + i + '][photo]');
+        upload_photo.setAttribute('class', 'form-control');
 
         var hapus = document.createElement('a');
 
@@ -122,9 +123,6 @@
         amount.appendChild(input_amount);
         photo.appendChild(upload_photo);
         action.appendChild(hapus);
-
-        upload_photo.innerHTML =
-            '<input type="file" class="form-control" />';
 
         hapus.innerHTML =
             '<a class="btn btn-danger text-white"><i class="fa fa-trash px-2"></i></a>';

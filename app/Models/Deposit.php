@@ -34,6 +34,8 @@ use Illuminate\Database\Eloquent\Relations\MorphTo;
  */
 class Deposit extends Model
 {
+    protected $guarded = [];
+
     public function depositable(): MorphTo
     {
         return $this->morphTo('depositable');
