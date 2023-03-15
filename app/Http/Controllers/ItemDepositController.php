@@ -8,15 +8,24 @@ use App\Models\ItemDeposit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\DB;
 
 class ItemDepositController extends Controller
 {
     public function index()
     {
+
+
         if (auth()->user()->hasRole('admin')) {
-            return view('admin.item_deposit');
+            $data = [
+                'dataItemDeposit'   => ItemDeposit::all()
+            ];
+            return view('admin.item_deposit', $data);
         } else {
-            return view('user.titip-barang');
+            $data = [
+                'dataItemDeposit'   => ItemDeposit::where('created_by', Auth::id())->get()
+            ];
+            return view('user.titip-barang', $data);
         }
     }
 
@@ -31,7 +40,7 @@ class ItemDepositController extends Controller
         $data['photo_visitor'] = $request->file('photo_visitor')->store('item_deposit');
         $data['family_card'] = $request->file('family_card')->store('item_deposit');
 
-        \DB::transaction(function () use ($request, $data) {
+        DB::transaction(function () use ($request, $data) {
             $item_deposit = auth()->user()->deposits()->create([
                 'name_wbp' => $request['name_wbp'],
                 'room_block' => $request['room_block'],
@@ -46,13 +55,33 @@ class ItemDepositController extends Controller
 
             $item_deposit->items()->createMany($request['items']);
 
-            return redirect()->route('item-deposit.index')->with('success', 'Create Success!');
+            return redirect()->route('item-deposit.show', ['id' => $item_deposit->id])->with('success', 'Create Success!');
         });
     }
 
     public function show($id)
     {
-        return view('user.detail-titip-barang');
+        $item_deposit = ItemDeposit::find($id);
+
+        $data_item_deposit = [
+            'id'                => $item_deposit->id,
+            'name_wbp'          => $item_deposit->name_wbp,
+            'room_block'        => $item_deposit->room_block,
+            'case'              => $item_deposit->case,
+            'relationship'      => $item_deposit->relationship,
+            'date_deposit'      => $item_deposit->date_deposit,
+            'problem'           => $item_deposit->problem,
+            'photo_visitor'     => $item_deposit->photo_visitor,
+            'family_card'       => $item_deposit->family_card,
+        ];
+
+        $data_deposit = [
+            'dataDeposit'   => Deposit::where('depositable_id', $item_deposit->id)->get()
+        ];
+
+
+
+        return view('user.detail-titip-barang', $data_item_deposit, $data_deposit);
     }
 
     public function edit($id)

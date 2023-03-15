@@ -24,12 +24,12 @@ class ManageUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'      => 'required', 'string', 'max:255',
-            'no_ktp'    => 'required', 'string', 'between:16,17',
-            'email'     => 'required', 'email', 'unique:users,email',
-            'phone'     => 'required', 'starts_with:08,+62',
-            'job_title' => 'required', 'string',
-            'password'  => 'required', 'confirmed', Password::min(8)->uncompromised(3),
+            'name'      => 'required|string|max:255',
+            'no_ktp'    => 'required|string|between:16,17',
+            'email'     => 'required|email|unique:users,email',
+            'phone'     => 'required|starts_with:08,+62',
+            'job_title' => 'required|string',
+            'password'  => ['required', 'confirmed', Password::min(8)->uncompromised(3)],
         ]);
 
         User::create([

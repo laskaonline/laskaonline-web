@@ -134,7 +134,7 @@
                                     </td>
                                     <td><input type="number" name="items[0][amount]" required class="form-control ">
                                     </td>
-                                    <td><input type="file" class="form-control" name="items[0][photo]" /></td>
+                                    <td><input type="file" class="form-control" required name="items[0][photo]" /></td>
                                     <td></td>
                                 </tr>
 

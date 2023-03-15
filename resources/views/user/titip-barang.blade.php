@@ -8,7 +8,7 @@
         <div class="title_right">
             <div class="pull-right">
                 <a href="{{ route('item-deposit.create') }}">
-                    <button type="submit" class="btn btn-primary">Titip Barang</button>
+                    <button type="submit" class="btn btn-primary"> <i class="fa fa-plus pr-2"></i>Titip Barang</button>
                 </a>
             </div>
         </div>
@@ -28,9 +28,10 @@
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
 
-                                <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                                <table id="example1" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Id Transaksi</th>
                                             <th>Nama WBP</th>
                                             <th>Blok Kamar</th>
@@ -41,61 +42,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                            <td><a href="{{ route('item-deposit.show') }}" type="button"
-                                                    class="btn btn-outline-primary" data-mdb-ripple-color="dark">
-                                                    Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                            <td><a href="{{ route('item-deposit.show') }}" type="button"
-                                                    class="btn btn-outline-primary" data-mdb-ripple-color="dark">
-                                                    Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                            <td><a href="{{ route('item-deposit.show') }}" type="button"
-                                                    class="btn btn-outline-primary" data-mdb-ripple-color="dark">
-                                                    Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                            <td><a href="{{ route('item-deposit.show') }}" type="button"
-                                                    class="btn btn-outline-primary" data-mdb-ripple-color="dark">
-                                                    Detail</a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                            <td><a href="{{ route('item-deposit.show') }}" type="button"
-                                                    class="btn btn-outline-primary" data-mdb-ripple-color="dark">
-                                                    Detail</a></td>
-                                        </tr>
+                                        @foreach ($dataItemDeposit as $item_deposit)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item_deposit->id }}</td>
+                                                <td>{{ $item_deposit->name_wbp }}</td>
+                                                <td>{{ $item_deposit->room_block }}</td>
+                                                <td>{{ $item_deposit->case }}</td>
+                                                <td>{{ $item_deposit->relationship }}</td>
+                                                <td>{{ $item_deposit->date_deposit }}</td>
+                                                <td><a href="{{ route('item-deposit.show',['id'=>$item_deposit->id]) }}" type="button"
+                                                        class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                        Detail</a></td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

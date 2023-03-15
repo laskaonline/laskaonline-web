@@ -28,7 +28,11 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama WBP
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" required="required" class="form-control" readonly>
+                                <input type="text" id="first-name" required="required" class="form-control 
+                                @error('name_wbp')
+                                    is-invalid
+                                @enderror"
+                                value="{{ $name_wbp }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -36,26 +40,42 @@
                             </label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="text" id="last-name" name="last-name" required="required"
-                                    class="form-control" readonly>
+                                    class="form-control 
+                                    @error('room_block')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $room_block }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kasus</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="middle-name" class="form-control" type="text" name="middle-name" readonly>
+                                <input id="middle-name" class="form-control 
+                                @error('case')
+                                    is-invalid
+                                @enderror"
+                                value="{{ $case }}" type="text" name="middle-name" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Hubungan</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="middle-name" class="form-control" type="text" name="middle-name" readonly>
+                                <input id="middle-name" class="form-control
+                                    @error('relationship')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $relationship }}" type="text" name="middle-name" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tanggal
                                 Penitipan</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy"
+                                <input id="birthday" class="date-picker form-control
+                                    @error('date_deposit')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $date_deposit }}" placeholder="dd-mm-yyyy"
                                     type="text" required="required" type="text" onfocus="this.type='date'"
                                     onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'"
                                     onmouseout="timeFunctionLong(this)" readonly>
@@ -72,14 +92,18 @@
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Perkara
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="middle-name" class="form-control" type="text" name="middle-name" readonly>
+                                <input id="middle-name" class="form-control 
+                                    @error('problem')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $problem }}" type="text" name="middle-name" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Kartu
                                 Keluarga</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <a href="" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
+                                <a href="{{ asset('storage/' . $family_card) }}" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
                                     Download</a>
                             </div>
                         </div>
@@ -90,7 +114,7 @@
         <div class="col-md-6 col-sm-6">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Data Barang</h2>
+                    <h2>Data Pengunjung</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -99,14 +123,14 @@
                 </div>
                 <div class="x_content">
                     <div class="col-md-6 col-sm-6">
-                        {{-- @if ($gambar)
-                            <img src="{{ asset('storage/' . $gambar) }}" class="img-thumbnail" style="width:30%">
-                        @else --}}
+                        @if ($photo_visitor)
+                            <img src="{{ asset('storage/' . $photo_visitor) }}" class="img-thumbnail" style="width:70%">
+                        @else
                         <span class="badge badge-danger">No Foto</span>
-                        {{-- @endif --}}
+                        @endif
                     </div>
                     <div class="col-md-6 col-sm-6">
-
+                        
                     </div>
                 </div>
             </div>
