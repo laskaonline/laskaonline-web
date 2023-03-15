@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ManageUserController;
 use App\Http\Controllers\ApproveDepositController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\ItemDepositController;
 use App\Http\Controllers\ProfileController;
@@ -35,7 +36,7 @@ Route::get('logout', [LoginController::class, 'logout']);
 
 Route::middleware(['auth:web'])->group(function () {
     Route::middleware(['role:admin'])->prefix('admin')->name('admin.')->group(function () {
-        Route::view('/dashboard', 'admin.dashboard')->name('dashboard');
+        Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
         Route::get('/manage-user', [ManageUserController::class, 'index'])->name('manage-user.index');
         Route::post('/manage-user/store', [ManageUserController::class, 'store'])->name('manage-user.store');
@@ -47,7 +48,7 @@ Route::middleware(['auth:web'])->group(function () {
         Route::resource('/wartelsuspas', WartelsuspasController::class);
         Route::resource('/guest-book', GuestBookController::class);
     });
-    Route::view('/dashboard', 'user.dashboard')->name('dashboard');
+    Route::view('/dashboard', DashboardController::class)->name('dashboard');
     Route::resource('/appointment', AppointmentController::class);
 
     Route::resource('/item-deposit', ItemDepositController::class);
