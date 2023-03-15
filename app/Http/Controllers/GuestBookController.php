@@ -24,49 +24,34 @@ class GuestBookController extends Controller
     {
     }
 
-    public function store(Request $request)
+    public function store(StoreGuestBookRequest $request)
     {
-        $id         = $request->id;
-        $name       = $request->name;
-        $origin     = $request->origin;
-        $nik        = $request->nik;
-        $address    = $request->address;
-        $email      = $request->email;
-        $phone      = $request->phone;
-        $necessity  = $request->necessity;
-        $photo      = $request->photo;
-        $create_by   = Auth()->user()->id;
-
-
-        $request->validate([
-            'name'      => 'required|string',
-            'origin'    => 'required|string',
-            'nik'       => 'required|integer',
-            'address'   => 'required|string',
-            'email'     => 'required|email',
-            'phone'     => 'required|string|starts_with:0,+62',
-            'necessity' => 'required|string',
-            'photo'     => 'mimes:jpg,png,jpeg|image',
-        ]);
+        $name = $request->name;
+        $origin = $request->origin;
+        $nik = $request->nik;
+        $address = $request->address;
+        $email = $request->email;
+        $phone = $request->phone;
+        $necessity = $request->necessity;
+        $photo = $request->file('photo');
+        $create_by = auth()->id();
 
         if ($request->hasFile('photo')) {
-            // $path = $request->file('photo')->store('guest_books');
-            $path = Storage::putFile('guest_books', $request->file('photo'));
+            $path = Storage::putFile('guest_books', $photo);
         } else {
             $path = '';
         }
 
         $data = new GuestBook;
-        $data->id           = $id;
-        $data->name         = $name;
-        $data->origin       = $origin;
-        $data->nik          = $nik;
-        $data->address      = $address;
-        $data->email        = $email;
-        $data->phone        = $phone;
-        $data->necessity    = $necessity;
-        $data->photo        = $path;
-        $data->created_by   = $create_by;
+        $data->name = $name;
+        $data->origin = $origin;
+        $data->nik = $nik;
+        $data->address = $address;
+        $data->email = $email;
+        $data->phone = $phone;
+        $data->necessity = $necessity;
+        $data->photo = $path;
+        $data->created_by = $create_by;
 
         $data->save();
 
@@ -75,6 +60,7 @@ class GuestBookController extends Controller
 
     public function show(GuestBook $guestBooks)
     {
+
     }
 
     public function edit(GuestBook $guestBooks)

@@ -30,26 +30,19 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Foto
                                 Pengunjung</label>
                             <div class="col-md-6 col-sm-6 ">
-                                @if (auth()->user()->photo)
-                                    <img src="{{ asset('storage/' . auth()->user()->photo) }}" class="img-thumbnail"
+                                @if ($user->photo !==null)
+                                    <img src="{{ asset('storage/' . $user->photo) }}" class="img-thumbnail"
                                          style="width:30%">
                                 @else
                                     <span class="badge badge-danger">No Foto</span>
                                 @endif
-
                                 <input type="file" name="photo"
                                        class="form-control @error('photo')
                                 is-invalid
                                 @enderror"
-                                       value="{{ auth()->user()->photo }}" accept="photo/*"/>
+                                       value="{{ old('photo', $user->photo) }}" accept="image/*"/>
                             </div>
                         </div>
-                        <input type="hidden" name="id" required="required"
-                               class="form-control
-                                    @error('id')
-                                        is-invalid
-                                    @enderror"
-                               value="{{ auth()->user()->id }}">
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama Pengunjung
                             </label>
@@ -59,7 +52,7 @@
                                 @error('name')
                                     is-invalid
                                 @enderror"
-                                       value="{{ old('name',auth()->user()->name )}}">
+                                       value="{{ old('name',$user->name )}}">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -71,7 +64,7 @@
                                     @error('email')
                                         is-invalid
                                     @enderror"
-                                       value="{{ old('email',auth()->user()->email) }}">
+                                       value="{{ old('email',$user->email) }}">
                             </div>
                         </div>
                         <div class="item form-group">
@@ -84,45 +77,32 @@
                                     @error('no_ktp')
                                         is-invalid
                                     @enderror"
-                                       value="{{'no_ktp', old(auth()->user()->no_ktp) }}">
+                                       value="{{old('no_ktp', $user->no_ktp) }}">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">No HP
-                                Pengunjung</label>
+                            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">No HP</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="text" name="phone"
                                        class="form-control
                                 @error('phone')
                                     is-invalid
                                 @enderror"
-                                       value="{{ old('phone',auth()->user()->phone) }}">
+                                       value="{{ old('phone', $user->phone) }}">
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Kelamin Pengunjung</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                @if (auth()->user()->gender == 'Laki-Laki')
+                            <label class="col-form-label col-sm-3 label-align">Jenis Kelamin /label>
+                                <div class="col-sm-6">
                                     <div class="form-check">
-                                        Laki-Laki:
-                                        <input type="radio" class="flat" name="gender" id="Laki-laki" value="Laki-Laki"
-                                               checked="" required/>
-                                        Perempuan:
-                                        <input type="radio" class="flat" name="gender" id="Perempuan"
-                                               value="Perempuan"/>
-                                    </div>
-                                @else
-                                    <div class="form-check">
-                                        Laki-Laki:
                                         <input type="radio" class="flat" name="gender" id="Laki-laki"
-                                               value="Laki-Laki"/>
-                                        Perempuan:
+                                               value="Laki-Laki" @checked(old('gender',  $user->gender === 'Laki-Laki'))/>
+                                        Laki-Laki:
                                         <input type="radio" class="flat" name="gender" id="Perempuan" value="Perempuan"
-                                               checked="" required/>
+                                               @checked(old('gender', $user->gender === 'Perempuan')) required/>
+                                        Perempuan:
                                     </div>
-                                @endif
-
-                            </div>
+                                </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align">Alamat Pengunjung
@@ -131,7 +111,7 @@
                                 <textarea required="required" name="address" type="text"
                                           class="form-control @error('address')
                                 is-invalid
-                                @enderror">{{old('address', auth()->user()->address )}}</textarea>
+                                @enderror">{{old('address', $user->address )}}</textarea>
                             </div>
                         </div>
                         <div class="ln_solid"></div>
@@ -141,7 +121,6 @@
                                 <button type="submit" class="btn btn-success">Submit</button>
                             </div>
                         </div>
-
                     </form>
                 </div>
             </div>

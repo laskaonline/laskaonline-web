@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreAppointmentRequest;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,9 @@ class AppointmentController extends Controller
         ]);
     }
 
-    public function store(Request $request)
+    public function store(StoreAppointmentRequest $request)
     {
-        $appointment = auth()->user()->appointments()->create($request->all());
+        $appointment = auth()->user()->appointments()->create($request->validated());
 
         return response()->json([
             'status' => 'success',

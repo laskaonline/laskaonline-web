@@ -18,7 +18,6 @@ class ApproveDepositController extends Controller
 
         $deposit->approvals()->updateOrCreate([
             'user_id' => auth()->id(),
-
         ],
             $request->validated()
         );

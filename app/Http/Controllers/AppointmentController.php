@@ -12,8 +12,9 @@ class AppointmentController extends Controller
         return view('user.kunjungan');
     }
 
-    public function view()
+    public function view(Appointment $appointment)
     {
+        return view('user.detail-kunjungan' , compact('appointment'));
     }
 
     public function create()
@@ -23,6 +24,13 @@ class AppointmentController extends Controller
 
     public function store(StoreAppointmentRequest $request)
     {
+        //TODO: Handle Upload Picture
+        $appointment = auth()->user()->appointments()->create($request->validated());
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $appointment
+        ], 201);
     }
 
     public function edit(Appointment $kunjungan)
