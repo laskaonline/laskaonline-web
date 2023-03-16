@@ -92,7 +92,7 @@
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-sm-3 label-align">Jenis Kelamin /label>
+                            <label class="col-form-label col-sm-3 label-align">Jenis Kelamin </label>
                                 <div class="col-sm-6">
                                     <div class="form-check">
                                         <input type="radio" class="flat" name="gender" id="Laki-laki"

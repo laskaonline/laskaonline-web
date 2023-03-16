@@ -124,13 +124,14 @@
                 <div class="x_content">
                     <div class="col-md-6 col-sm-6">
                         @if ($item_deposit->photo_visitor)
-                            <img src="{{ asset('storage/' . $item_deposit->photo_visitor) }}" class="img-thumbnail" style="width:70%">
+                            <img src="{{ asset('storage/' . $item_deposit->photo_visitor) }}" class="img-thumbnail" style="width:100%">
                         @else
                         <span class="badge badge-danger">No Foto</span>
                         @endif
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        
+                        {!! QrCode::size(200)->generate($item_deposit->id); !!}
+                        <h2><strong>ID Transaksi : {{ $item_deposit->id }}</strong>
                     </div>
                 </div>
             </div>
@@ -155,28 +156,31 @@
                                 <th>Foto Barang</th>
                             </tr>
                         </thead>
-
                         <tbody id="itemlist">
                             @foreach ($item_deposit->items()->get() as $item)
-                                
-                            
-                            <tr>
-                                <td><input type="text" id="first-name" required="required" class="form-control"
-                                    value="{{ $item->name }}"
-                                        readonly>
-                                </td>
-                                <td><input type="text" id="first-name" required="required" class="form-control"
-                                    value="{{ $item->amount }}"
-                                        readonly>
-                                </td>
-                                <td>
-                                    @if ($item->photo)
-                                    <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail" style="max-width:100px">
-                                    @else
-                                    <span class="badge badge-danger">No Foto</span>
-                                    @endif
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td><input type="text" id="first-name" required="required" class="form-control
+                                        @error('problem')
+                                            is-invalid
+                                        @enderror"
+                                        value="{{ $item->name }}"
+                                            readonly>
+                                    </td>
+                                    <td><input type="text" id="first-name" required="required" class="form-control
+                                        @error('problem')
+                                            is-invalid
+                                        @enderror"
+                                        value="{{ $item->amount }}"
+                                            readonly>
+                                    </td>
+                                    <td>
+                                        @if ($item->photo)
+                                        <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail" style="max-width:100px">
+                                        @else
+                                        <span class="badge badge-danger">No Foto</span>
+                                        @endif
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

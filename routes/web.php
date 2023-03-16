@@ -48,7 +48,7 @@ Route::middleware(['auth:web'])->group(function () {
         Route::resource('/wartelsuspas', WartelsuspasController::class);
         Route::resource('/guest-book', GuestBookController::class);
     });
-    Route::view('/dashboard', DashboardController::class)->name('dashboard');
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::resource('/appointment', AppointmentController::class);
 
     Route::resource('/item-deposit', ItemDepositController::class);
