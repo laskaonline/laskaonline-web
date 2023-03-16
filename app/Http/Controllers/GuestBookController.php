@@ -60,7 +60,6 @@ class GuestBookController extends Controller
 
     public function show(GuestBook $guestBooks)
     {
-
     }
 
     public function edit(GuestBook $guestBooks)

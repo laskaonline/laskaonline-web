@@ -72,6 +72,14 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User wherePhoto($value)
  * @method static Builder|User whereRememberToken($value)
  * @method static Builder|User whereUpdatedAt($value)
+ * @property-read Collection<int, \App\Models\ItemDeposit> $deposits
+ * @property-read int|null $deposits_count
+ * @property-read Collection<int, \App\Models\GuestBook> $guestBook
+ * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
+ * @property-read Collection<int, Permission> $permissions
+ * @property-read Collection<int, Role> $roles
+ * @property-read Collection<int, PersonalAccessToken> $tokens
+ * @property-read Collection<int, \App\Models\Wartelsuspas> $wartelsuspas
  * @mixin Eloquent
  */
 class User extends Authenticatable

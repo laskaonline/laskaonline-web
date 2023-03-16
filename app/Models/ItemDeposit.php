@@ -47,6 +47,8 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|ItemDeposit whereRoomBlock($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ItemDeposit whereState($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ItemDeposit whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\ItemDepositApprove> $approvals
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Deposit> $items
  * @mixin \Eloquent
  */
 class ItemDeposit extends Model

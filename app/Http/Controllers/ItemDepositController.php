@@ -5,10 +5,14 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreItemDepositRequest;
 use App\Models\Deposit;
 use App\Models\ItemDeposit;
+use Exception;
+use Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Throwable;
 
 class ItemDepositController extends Controller
 {
@@ -36,52 +40,52 @@ class ItemDepositController extends Controller
 
     public function store(StoreItemDepositRequest $request)
     {
-        $data['date_deposit'] = date('Y-m-d', strtotime($request->date_deposit));
-        $data['photo_visitor'] = $request->file('photo_visitor')->store('item_deposit');
-        $data['family_card'] = $request->file('family_card')->store('item_deposit');
+        // $request->dd();
 
-        DB::transaction(function () use ($request, $data) {
-            $item_deposit = auth()->user()->deposits()->create([
-                'name_wbp' => $request['name_wbp'],
-                'room_block' => $request['room_block'],
-                'case' => $request['case'],
-                'relationship' => $request['relationship'],
-                'problem' => $request['problem'],
-                'date_deposit' => $data['date_deposit'],
+        $data['date_deposit']   = date('Y-m-d', strtotime($request->date_deposit));
+        $data['photo_visitor']  = $request->file('photo_visitor')->store('item_deposit');
+        $data['family_card']    = $request->file('family_card')->store('item_deposit');
+
+        DB::beginTransaction();
+
+        try {
+            $item_deposit       = auth()->user()->deposits()->create([
+                'name_wbp'      => $request['name_wbp'],
+                'room_block'    => $request['room_block'],
+                'case'          => $request['case'],
+                'relationship'  => $request['relationship'],
+                'problem'       => $request['problem'],
+                'date_deposit'  => $data['date_deposit'],
                 'photo_visitor' => $data['photo_visitor'],
-                'family_card' => $data['family_card'],
-                'state' => '0',
+                'family_card'   => $data['family_card'],
+                'state'         => '0',
             ]);
 
-            $item_deposit->items()->createMany($request['items']);
+            $itemArray = collect($request->items)->map(function ($item) {
+                $photo_path = Storage::putFile('item-deposit', $item['photo']);
 
-            return redirect()->route('item-deposit.show', ['id' => $item_deposit->id])->with('success', 'Create Success!');
-        });
+                return [
+                    'name' => $item['name'],
+                    'amount' => $item['amount'],
+                    'photo' => $photo_path
+                ];
+            });
+
+            $item_deposit->items()->createMany($itemArray);
+
+            DB::commit();
+
+            return redirect()->route('item-deposit.show', ['item_deposit' => $item_deposit]);
+        } catch (Throwable $th) {
+            DB::rollBack();
+
+            return redirect()->back()->withErrors(['error' => $th->getMessage()]);
+        }
     }
 
-    public function show($id)
+    public function show(ItemDeposit $item_deposit)
     {
-        $item_deposit = ItemDeposit::find($id);
-
-        $data_item_deposit = [
-            'id'                => $item_deposit->id,
-            'name_wbp'          => $item_deposit->name_wbp,
-            'room_block'        => $item_deposit->room_block,
-            'case'              => $item_deposit->case,
-            'relationship'      => $item_deposit->relationship,
-            'date_deposit'      => $item_deposit->date_deposit,
-            'problem'           => $item_deposit->problem,
-            'photo_visitor'     => $item_deposit->photo_visitor,
-            'family_card'       => $item_deposit->family_card,
-        ];
-
-        $data_deposit = [
-            'dataDeposit'   => Deposit::where('depositable_id', $item_deposit->id)->get()
-        ];
-
-
-
-        return view('user.detail-titip-barang', $data_item_deposit, $data_deposit);
+        return view('user.detail-titip-barang', compact('item_deposit'));
     }
 
     public function edit($id)

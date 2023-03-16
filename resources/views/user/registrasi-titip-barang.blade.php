@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-title">
         <div class="title_left">
-            <h3> Registrasi Titip barang
+            <h3> Registrasi Titip Barang
             </h3>
         </div>
     </div>

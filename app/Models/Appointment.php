@@ -46,6 +46,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereRelationship($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereState($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereUpdatedAt($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Deposit> $items
  * @mixin \Eloquent
  */
 class Appointment extends Model

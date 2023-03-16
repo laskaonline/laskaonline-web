@@ -32,7 +32,7 @@
                                 @error('name_wbp')
                                     is-invalid
                                 @enderror"
-                                value="{{ $name_wbp }}" readonly>
+                                value="{{ $item_deposit->name_wbp }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -44,7 +44,7 @@
                                     @error('room_block')
                                         is-invalid
                                     @enderror"
-                                    value="{{ $room_block }}" readonly>
+                                    value="{{ $item_deposit->room_block }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -54,7 +54,7 @@
                                 @error('case')
                                     is-invalid
                                 @enderror"
-                                value="{{ $case }}" type="text" name="middle-name" readonly>
+                                value="{{ $item_deposit->case }}" type="text" name="middle-name" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -64,7 +64,7 @@
                                     @error('relationship')
                                         is-invalid
                                     @enderror"
-                                    value="{{ $relationship }}" type="text" name="middle-name" readonly>
+                                    value="{{ $item_deposit->relationship }}" type="text" name="middle-name" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -75,7 +75,7 @@
                                     @error('date_deposit')
                                         is-invalid
                                     @enderror"
-                                    value="{{ $date_deposit }}" placeholder="dd-mm-yyyy"
+                                    value="{{ $item_deposit->date_deposit }}" placeholder="dd-mm-yyyy"
                                     type="text" required="required" type="text" onfocus="this.type='date'"
                                     onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'"
                                     onmouseout="timeFunctionLong(this)" readonly>
@@ -96,14 +96,14 @@
                                     @error('problem')
                                         is-invalid
                                     @enderror"
-                                    value="{{ $problem }}" type="text" name="middle-name" readonly>
+                                    value="{{ $item_deposit->problem }}" type="text" name="middle-name" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Kartu
                                 Keluarga</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <a href="{{ asset('storage/' . $family_card) }}" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
+                                <a href="{{ asset('storage/' . $item_deposit->family_card) }}" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
                                     Download</a>
                             </div>
                         </div>
@@ -123,8 +123,8 @@
                 </div>
                 <div class="x_content">
                     <div class="col-md-6 col-sm-6">
-                        @if ($photo_visitor)
-                            <img src="{{ asset('storage/' . $photo_visitor) }}" class="img-thumbnail" style="width:70%">
+                        @if ($item_deposit->photo_visitor)
+                            <img src="{{ asset('storage/' . $item_deposit->photo_visitor) }}" class="img-thumbnail" style="width:70%">
                         @else
                         <span class="badge badge-danger">No Foto</span>
                         @endif
@@ -157,15 +157,27 @@
                         </thead>
 
                         <tbody id="itemlist">
+                            @foreach ($item_deposit->items()->get() as $item)
+                                
+                            
                             <tr>
                                 <td><input type="text" id="first-name" required="required" class="form-control"
+                                    value="{{ $item->name }}"
                                         readonly>
                                 </td>
                                 <td><input type="text" id="first-name" required="required" class="form-control"
+                                    value="{{ $item->amount }}"
                                         readonly>
                                 </td>
-                                <td><input type="file" class="form-control" readonly /></td>
+                                <td>
+                                    @if ($item->photo)
+                                    <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail" style="max-width:100px">
+                                    @else
+                                    <span class="badge badge-danger">No Foto</span>
+                                    @endif
+                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
