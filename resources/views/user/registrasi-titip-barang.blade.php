@@ -69,7 +69,7 @@
                         <div class="col-md-6 col-sm-6 ">
                             <input name="date_deposit" class="date-picker form-control" placeholder="dd-mm-yyyy"
                                 type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'"
-                                onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)" min="<?php echo date("Y-m-d"); ?>">
                             <script>
                                 function timeFunctionLong(input) {
                                     setTimeout(function() {

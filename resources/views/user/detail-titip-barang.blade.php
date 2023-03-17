@@ -130,7 +130,7 @@
                         @endif
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        {!! QrCode::size(200)->generate($item_deposit->id); !!}
+                        {!! QrCode::size(200)->generate(json_encode(['item_deposit_id'=>$item_deposit->id])); !!}
                         <h2><strong>ID Transaksi : {{ $item_deposit->id }}</strong>
                     </div>
                 </div>

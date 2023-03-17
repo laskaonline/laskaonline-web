@@ -22,12 +22,12 @@ class ItemDepositController extends Controller
 
         if (auth()->user()->hasRole('admin')) {
             $data = [
-                'dataItemDeposit'   => ItemDeposit::all()
+                'dataItemDeposit'   => ItemDeposit::all()->orderBy('created_at', 'desc')
             ];
             return view('admin.item_deposit', $data);
         } else {
             $data = [
-                'dataItemDeposit'   => ItemDeposit::where('created_by', Auth::id())->get()
+                'dataItemDeposit'   => ItemDeposit::where('created_by', Auth::id())->orderBy('created_at', 'desc')->get()
             ];
             return view('user.titip-barang', $data);
         }

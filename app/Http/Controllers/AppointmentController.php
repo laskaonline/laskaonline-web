@@ -12,12 +12,12 @@ class AppointmentController extends Controller
     {
         if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
             $data = [
-                'dataAppointment'   => Appointment::all()
+                'dataAppointment'   => Appointment::all()->orderBy('created_at', 'desc')
             ];
             return view('admin.queue_number', $data);
         } else {
             $data = [
-                'dataAppointment'   => Appointment::where('created_by', Auth::id())->get()
+                'dataAppointment'   => Appointment::where('created_by', Auth::id())->orderBy('created_at', 'desc')->get()
             ];
             return view('user.kunjungan', $data);
         }
@@ -33,8 +33,17 @@ class AppointmentController extends Controller
         return view('user.registrasi-kunjungan');
     }
 
+    public static function getNextQueueNumber($date)
+    {
+        $maxQueueNumber = self::whereDate('date', $date)->max('queue');
+        return $maxQueueNumber + 1;
+    }
+
     public function store(StoreAppointmentRequest $request)
     {
+        $date = now()->format('Y-m-d');
+        $queueNumber = Appointment::getNextQueueNumber($date);
+
         //TODO: Handle Upload Picture
         $appointment = auth()->user()->appointments()->create($request->validated());
 
