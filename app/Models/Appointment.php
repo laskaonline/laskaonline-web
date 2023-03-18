@@ -2,9 +2,14 @@
 
 namespace App\Models;
 
+use Eloquent;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Carbon;
 
 /**
  * App\Models\Appointment
@@ -22,32 +27,31 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property string|null $child_followers
  * @property string $state
  * @property int $created_by
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Deposit> $items
+ * @property-read Collection<int, Deposit> $items
  * @property-read int|null $items_count
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment query()
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereCase($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereChildFollowers($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereCreatedBy($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereDateDeposit($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereFamilyCard($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereFemaleFollowers($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereMaleFollowers($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereNameWbp($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment wherePhotoVisitor($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereProblem($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereRelationship($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereState($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Appointment whereUpdatedAt($value)
- * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Deposit> $items
- * @mixin \Eloquent
+ * @method static Builder|Appointment newModelQuery()
+ * @method static Builder|Appointment newQuery()
+ * @method static Builder|Appointment query()
+ * @method static Builder|Appointment whereCase($value)
+ * @method static Builder|Appointment whereChildFollowers($value)
+ * @method static Builder|Appointment whereCreatedAt($value)
+ * @method static Builder|Appointment whereCreatedBy($value)
+ * @method static Builder|Appointment whereDateDeposit($value)
+ * @method static Builder|Appointment whereDeletedAt($value)
+ * @method static Builder|Appointment whereFamilyCard($value)
+ * @method static Builder|Appointment whereFemaleFollowers($value)
+ * @method static Builder|Appointment whereId($value)
+ * @method static Builder|Appointment whereMaleFollowers($value)
+ * @method static Builder|Appointment whereNameWbp($value)
+ * @method static Builder|Appointment wherePhotoVisitor($value)
+ * @method static Builder|Appointment whereProblem($value)
+ * @method static Builder|Appointment whereRelationship($value)
+ * @method static Builder|Appointment whereState($value)
+ * @method static Builder|Appointment whereUpdatedAt($value)
+ * @mixin Eloquent
  */
 class Appointment extends Model
 {
@@ -59,5 +63,10 @@ class Appointment extends Model
     public function items(): MorphMany
     {
         return $this->morphMany(Deposit::class, 'depositable');
+    }
+
+    public function creator(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
     }
 }

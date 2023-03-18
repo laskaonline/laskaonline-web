@@ -3,25 +3,20 @@
 namespace App\Http\Controllers;
 
 
+use App\Actions\ItemDeposit\ApproveItemDeposit;
 use App\Http\Requests\ApproveDepositRequest;
 use App\Models\ItemDeposit;
-use Illuminate\Http\Request;
-use Illuminate\Validation\ValidationException;
 
 class ApproveDepositController extends Controller
 {
-    public function __invoke(ApproveDepositRequest $request, ItemDeposit $deposit)
+    public function __invoke(ApproveDepositRequest $request, ItemDeposit $deposit, ApproveItemDeposit $approveItemDeposit)
     {
-        if ($deposit->approvals()->count() === 3) {
-            throw new ValidationException('Barang ini sudah disetujui oleh 3 petugas');
+        try {
+            $approveItemDeposit->handle($deposit, $request->validated());
+
+            return redirect()->back()->withMessage('Barang sudah disetujui');
+        } catch (\Exception $e) {
+            return redirect()->back(422)->withErrors($e->getMessage());
         }
-
-        $deposit->approvals()->updateOrCreate([
-            'user_id' => auth()->id(),
-        ],
-            $request->validated()
-        );
-
-        return redirect()->back()->withMessage('Barang sudah disetujui');
     }
 }
