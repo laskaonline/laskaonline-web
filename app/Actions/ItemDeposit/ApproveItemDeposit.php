@@ -29,6 +29,6 @@ class ApproveItemDeposit
 
     private function shouldValidate(ItemDeposit $itemDeposit): bool
     {
-        return !($itemDeposit->approvals()->count() === 3);
+        return $itemDeposit->approvals()->count() < 3;
     }
 }
