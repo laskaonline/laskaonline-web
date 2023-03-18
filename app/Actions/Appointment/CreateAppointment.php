@@ -11,9 +11,9 @@ class CreateAppointment
 {
     public function handle(array $data): Appointment
     {
-        $queueNumber = $this->generateQueueNumber(now());
-
         $appointment = new Appointment($data);
+
+        $queueNumber = $this->generateQueueNumber($data['visit_date']);
         $appointment->queue = $queueNumber;
 
         $appointment->photo_visitor = $this->uploadImage('photo_visitor', $data['photo_visitor']);
