@@ -5,6 +5,7 @@ namespace App\Actions\Appointment;
 use App\Models\Appointment;
 use Carbon\Carbon;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 
 class CreateAppointment
 {
@@ -14,10 +15,16 @@ class CreateAppointment
 
         $appointment = new Appointment($data);
         $appointment->queue = $queueNumber;
+
+        $appointment->photo_visitor = $this->uploadImage('photo_visitor', $data['photo_visitor']);
+        $appointment->family_card = $this->uploadImage('family_card', $data['family_card']);
+
+        $items = collect($data['items'])->map(function ($item) {
+            return $this->mapItem($item);
+        });
+
+        $appointment->items()->createMany($items->toArray());
         $appointment->creator()->associate(auth()->user());
-
-        //TODO: Handle Upload Picture
-
 
         $appointment->save();
 
@@ -31,9 +38,23 @@ class CreateAppointment
         return $maxQueueNumber + 1;
     }
 
-    protected function uploadImage(UploadedFile $file): string
+    private function uploadImage(string $path, UploadedFile $file): string
     {
-        //TODO: Handle Upload Picture
-        return 'test';
+        return Storage::putFile($path, $file);
+    }
+
+    /**
+     * @param array $item
+     * @return array
+     */
+    private function mapItem(array $item): array
+    {
+        $photo_path = $this->uploadImage('item-deposit', $item['photo']);
+
+        return [
+            'name' => $item['name'],
+            'amount' => $item['amount'],
+            'photo' => $photo_path,
+        ];
     }
 }
