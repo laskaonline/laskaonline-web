@@ -35,7 +35,7 @@ class CreateAppointment
 
     protected function generateQueueNumber(Carbon $date): int
     {
-        $maxQueueNumber = Appointment::whereDate('date', $date->format('Y-m-d'))->max('queue');
+        $maxQueueNumber = Appointment::whereDate('visit_date', $date->format('Y-m-d'))->max('queue');
         return $maxQueueNumber + 1;
     }
 

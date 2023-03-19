@@ -41,26 +41,26 @@
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama WBP
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" name="name_wbp" required="required" class="form-control ">
+                            <input type="text" name="name_wbp" class="form-control" required>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Blok Kamar
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" name="room_block" required="required" class="form-control">
+                            <input type="text" name="room_block" class="form-control" required>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kasus</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input class="form-control" type="text" name="case">
+                            <input class="form-control" type="text" name="case" required>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Hubungan</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input class="form-control" type="text" name="relationship">
+                            <input class="form-control" type="text" name="relationship" required>
                         </div>
                     </div>
                     <div class="item form-group">
@@ -68,7 +68,7 @@
                             Penitipan</label>
                         <div class="col-md-6 col-sm-6 ">
                             <input name="date_deposit" class="date-picker form-control" placeholder="dd-mm-yyyy"
-                                type="text" required="required" onfocus="this.type='date'" onmouseover="this.type='date'"
+                                type="text" required onfocus="this.type='date'" onmouseover="this.type='date'"
                                 onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)" min="<?php echo date("Y-m-d"); ?>">
                             <script>
                                 function timeFunctionLong(input) {
@@ -83,21 +83,21 @@
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Perkara
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input class="form-control" type="text" name="problem">
+                            <input class="form-control" type="text" name="problem" required>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Foto Selfie + KTP
                             Penitip</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="file" class="form-control" name="photo_visitor" />
+                            <input type="file" class="form-control" name="photo_visitor" required/>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Upload Kartu
                             Keluarga</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="file" class="form-control" name="family_card" />
+                            <input type="file" class="form-control" name="family_card" required/>
                         </div>
                     </div>
 
@@ -130,9 +130,9 @@
 
                             <tbody id="itemlist">
                                 <tr>
-                                    <td><input type="text" name="items[0][name]" required class="form-control ">
+                                    <td><input type="text" name="items[0][name]" required class="form-control">
                                     </td>
-                                    <td><input type="number" name="items[0][amount]" required class="form-control ">
+                                    <td><input type="number" name="items[0][amount]" required class="form-control">
                                     </td>
                                     <td><input type="file" class="form-control" required name="items[0][photo]" /></td>
                                     <td></td>
