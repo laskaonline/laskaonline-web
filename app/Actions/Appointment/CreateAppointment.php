@@ -29,12 +29,11 @@ class CreateAppointment
 
         $appointment->save();
 
-        if ($data['items'] ?? null) {
-            return $appointment;
-        } else {
+        if ($data['items'] !== null) {
             $this->createItems($data['items'], $appointment);
-            return $appointment;
         }
+
+        return $appointment;
     }
 
 

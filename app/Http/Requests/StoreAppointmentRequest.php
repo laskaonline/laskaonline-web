@@ -10,7 +10,6 @@ class StoreAppointmentRequest extends FormRequest
     {
         return [
             'name_wbp' => ['required', 'string', 'max:255'],
-            'room_block' => ['required', 'string', 'max:255'],
             'case' => ['required', 'string', 'max:255'],
             'relationship' => ['required', 'string', 'max:255'],
             'visit_date' => ['required', 'date'],
@@ -20,10 +19,10 @@ class StoreAppointmentRequest extends FormRequest
             'male_followers' => ['required', 'integer', 'gte:0'],
             'female_followers' => ['required', 'integer', 'gte:0'],
             'child_followers' => ['required', 'integer', 'gte:0'],
-            'items' => ['array'],
-            'items.*.name' => ['string'],
-            'items.*.amount' => ['integer', 'gt:0'],
-            'items.*.photo' => ['image'],
+            'items' => ['nullable', 'array'],
+            'items.*.name' => ['required', 'string'],
+            'items.*.amount' => ['required', 'integer', 'gt:0'],
+            'items.*.photo' => ['required', 'image'],
         ];
     }
 }
