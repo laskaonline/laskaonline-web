@@ -11,11 +11,16 @@ class CreateAppointment
 {
     public function handle(array $data): Appointment
     {
-        $appointment = new Appointment($data);
-
-        $queueNumber = $this->generateQueueNumber(Carbon::parse($data['visit_date']));
-        $appointment->queue = $queueNumber;
-
+        $appointment = new Appointment();
+        $appointment->name_wbp = $data['name_wbp'];
+        $appointment->case = $data['case'];
+        $appointment->relationship = $data['relationship'];
+        $appointment->problem = $data['problem'];
+        $appointment->visit_date = $data['visit_date'];
+        $appointment->male_followers = $data['male_followers'];
+        $appointment->female_followers = $data['female_followers'];
+        $appointment->child_followers = $data['child_followers'];
+        $appointment->queue = $this->generateQueueNumber(Carbon::parse($data['visit_date']));
         $appointment->photo_visitor = $this->uploadImage('photo_visitor', $data['photo_visitor']);
         $appointment->family_card = $this->uploadImage('family_card', $data['family_card']);
 
@@ -23,11 +28,7 @@ class CreateAppointment
 
         $appointment->save();
 
-        $items = collect($data['items'])->map(function ($item) {
-            return $this->mapItem($item);
-        });
-
-        $appointment->items()->createMany($items);
+        $this->createItems($data['items'], $appointment);
 
         return $appointment;
     }
@@ -57,5 +58,19 @@ class CreateAppointment
             'amount' => $item['amount'],
             'photo' => $photo_path,
         ];
+    }
+
+    /**
+     * @param $items1
+     * @param  Appointment  $appointment
+     * @return void
+     */
+    public function createItems($items1, Appointment $appointment): void
+    {
+        $items = collect($items1)->map(function ($item) {
+            return $this->mapItem($item);
+        });
+
+        $appointment->items()->createMany($items);
     }
 }
