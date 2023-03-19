@@ -13,20 +13,21 @@ class CreateAppointment
     {
         $appointment = new Appointment($data);
 
-        $queueNumber = $this->generateQueueNumber($data['visit_date']);
+        $queueNumber = $this->generateQueueNumber(Carbon::parse($data['visit_date']));
         $appointment->queue = $queueNumber;
 
         $appointment->photo_visitor = $this->uploadImage('photo_visitor', $data['photo_visitor']);
         $appointment->family_card = $this->uploadImage('family_card', $data['family_card']);
 
+        $appointment->creator()->associate(auth()->user());
+
+        $appointment->save();
+
         $items = collect($data['items'])->map(function ($item) {
             return $this->mapItem($item);
         });
 
-        $appointment->items()->createMany($items->toArray());
-        $appointment->creator()->associate(auth()->user());
-
-        $appointment->save();
+        $appointment->items()->createMany($items);
 
         return $appointment;
     }
@@ -44,7 +45,7 @@ class CreateAppointment
     }
 
     /**
-     * @param array $item
+     * @param  array  $item
      * @return array
      */
     private function mapItem(array $item): array
