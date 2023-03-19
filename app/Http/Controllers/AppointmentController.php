@@ -37,11 +37,12 @@ class AppointmentController extends Controller
 
     public function store(StoreAppointmentRequest $request, CreateAppointment $createAppointment)
     {
-        $createAppointment->handle($request->validated());
+        $appointment = $createAppointment->handle($request->validated());
 
-        return back()->with([
-            'Success' => 'Kunjungan berhasil didaftarkan',
-        ], 201);
+        return redirect()->route('appointment.show', ['appointment' => $appointment])->with(
+            'success',
+            'Kunjungan berhasil didaftarkan'
+        );
     }
 
     public function edit(Appointment $kunjungan)

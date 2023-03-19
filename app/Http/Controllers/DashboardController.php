@@ -20,8 +20,8 @@ class DashboardController extends Controller
         $data_appointment       = Appointment::where('visit_date', Carbon::now()->toDateString())->where('created_by', Auth::id())->orderBy('created_at', 'desc')->get();
 
         // Count Data
-        $count_item_deposit     = $data_item_deposit->count();
-        $count_appointment      = $data_appointment->count();
+        $count_item_deposit     = ItemDeposit::where('created_by', Auth::id())->orderBy('created_at', 'desc')->get()->count();
+        $count_appointment      = Appointment::where('created_by', Auth::id())->orderBy('created_at', 'desc')->get()->count();
 
         return view('user.dashboard', compact('count_item_deposit', 'count_appointment', 'data_item_deposit', 'data_appointment'));
     }

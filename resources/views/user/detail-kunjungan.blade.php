@@ -28,35 +28,55 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama WBP
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" required="required" class="form-control" readonly>
+                                <input type="text" id="first-name" required="required" class="form-control
+                                @error('name_wbp')
+                                    is-invalid
+                                @enderror"
+                                value="{{ $appointment->name_wbp }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Blok Kamar
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="last-name" name="last-name" required="required"
-                                    class="form-control" readonly>
+                                <input type="text" name="room_block" required="required"
+                                    class="form-control
+                                    @error('room_block')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $appointment->room_block }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kasus</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="middle-name" class="form-control" type="text" name="middle-name" readonly>
+                                <input id="middle-name" type="text" name="case" class="form-control
+                                    @error('case')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $appointment->case }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Hubungan</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="middle-name" class="form-control" type="text" name="middle-name" readonly>
+                                <input id="middle-name" type="text" name="relationship" class="form-control
+                                    @error('relationship')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $appointment->relationship }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tanggal
-                                Penitipan</label>
+                                Kunjungan</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="birthday" class="date-picker form-control" placeholder="dd-mm-yyyy"
-                                    type="text" required="required" type="text" onfocus="this.type='date'"
+                                <input name="visit_date" class="date-picker form-control
+                                    @error('visit_date')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $appointment->visit_date }}" placeholder="dd-mm-yyyy"
+                                    type="text" onfocus="this.type='date'"
                                     onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'"
                                     onmouseout="timeFunctionLong(this)" readonly>
                                 <script>
@@ -72,16 +92,20 @@
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Perkara
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="middle-name" class="form-control" type="text" name="middle-name" readonly>
+                                <input id="middle-name" type="text" name="problem" class="form-control
+                                    @error('problem')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $appointment->problem }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Kartu
                                 Keluarga</label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <a href="" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
-                                    Download</a>
-                            </div>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <a href="{{ asset('storage/' . $appointment->family_card) }}" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
+                                        Download</a>
+                                </div>
                         </div>
                     </form>
                 </div>
@@ -99,14 +123,27 @@
                 </div>
                 <div class="x_content">
                     <div class="col-md-6 col-sm-6">
-                        {{-- @if ($gambar)
-                            <img src="{{ asset('storage/' . $gambar) }}" class="img-thumbnail" style="width:30%">
-                        @else --}}
+                        @if ($appointment->photo_visitor)
+                            <img src="{{ asset('storage/' . $appointment->photo_visitor) }}" class="img-thumbnail" style="width:100%">
+                        @else
                         <span class="badge badge-danger">No Foto</span>
-                        {{-- @endif --}}
+                        @endif
                     </div>
                     <div class="col-md-6 col-sm-6">
-
+                        <div>
+                            <div class="border border-dark rounded p-3 bg-secondary text-white bg-gradient">
+                                <center>
+                                    <h4>Nomor Antrian :</h4>
+                                    <h1 class="display-1"><strong>{{ $appointment->queue }}</strong></h1>
+                                    <h4>Tanggal Kunjungan :</h4>
+                                    <h4>{{ $appointment->visit_date }}</h4>
+                                </center>
+                            </div>
+                            <p>Note :</p>
+                            <p>Nomor Antrian <= 20 : <br> Jam Kunjungan 08.00 s/d 11.30</p>
+                            <p>Nomor Antrian >= 20 : <br> Jam Kunjungan 12.30 s/d 15.30</p>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -133,14 +170,27 @@
 
                         <tbody>
                             <tr>
-                                <td><input type="text" id="first-name" required="required" class="form-control "
+                                <td><input type="text" name="male_followers" required="required" class="form-control 
+                                        @error('male_followers')
+                                            is-invalid
+                                        @enderror"
+                                        value="{{ $appointment->male_followers }}"
                                         readonly>
                                 </td>
-                                <td><input type="text" id="first-name" required="required" class="form-control "
+                                <td><input type="text" name="female_followers" required="required" class="form-control 
+                                    @error('female_followers')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $appointment->female_followers }}"
                                         readonly>
                                 </td>
-                                <td><input type="text" id="first-name" required="required" class="form-control "
+                                <td><input type="text" name="child_followers" required="required" class="form-control 
+                                    @error('child_followers')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $appointment->child_followers }}"
                                         readonly>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

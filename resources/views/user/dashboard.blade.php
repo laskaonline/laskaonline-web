@@ -13,13 +13,13 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="tile_count">
                 <div class=" col-sm-6  tile_stats_count">
-                    <span class="count_top d-flex justify-content-center"><i class="fa fa-cubes px-2"></i> Jumlah Titipan
+                    <span class="count_top d-flex justify-content-center"><i class="fa fa-cubes px-2"></i> Jumlah Penitipan
                         barang</span>
                     <div class="count d-flex justify-content-center">{{ $count_item_deposit }}</div>
                 </div>
                 <div class="col-sm-6  tile_stats_count">
                     <span class="count_top d-flex justify-content-center"><i class="fa fa-table px-2"></i> Jumlah
-                        Pengunjung</span>
+                        Kunjungan</span>
                     <div class="count d-flex justify-content-center">{{ $count_appointment }}</div>
                 </div>
             </div>

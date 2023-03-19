@@ -28,7 +28,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama WBP
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="first-name" required="required" class="form-control 
+                                <input type="text" name="name_wbp" required="required" class="form-control 
                                 @error('name_wbp')
                                     is-invalid
                                 @enderror"
@@ -39,7 +39,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Blok Kamar
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" id="last-name" name="last-name" required="required"
+                                <input type="text" name="room_block" required="required"
                                     class="form-control 
                                     @error('room_block')
                                         is-invalid
@@ -50,33 +50,33 @@
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kasus</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="middle-name" class="form-control 
+                                <input class="form-control 
                                 @error('case')
                                     is-invalid
                                 @enderror"
-                                value="{{ $item_deposit->case }}" type="text" name="middle-name" readonly>
+                                value="{{ $item_deposit->case }}" type="text" name="case" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Hubungan</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="middle-name" class="form-control
+                                <input class="form-control
                                     @error('relationship')
                                         is-invalid
                                     @enderror"
-                                    value="{{ $item_deposit->relationship }}" type="text" name="middle-name" readonly>
+                                    value="{{ $item_deposit->relationship }}" type="text" name="relationship" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tanggal
                                 Penitipan</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="birthday" class="date-picker form-control
+                                <input name="date_deposit" class="date-picker form-control
                                     @error('date_deposit')
                                         is-invalid
                                     @enderror"
                                     value="{{ $item_deposit->date_deposit }}" placeholder="dd-mm-yyyy"
-                                    type="text" required="required" type="text" onfocus="this.type='date'"
+                                    type="text" onfocus="this.type='date'"
                                     onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'"
                                     onmouseout="timeFunctionLong(this)" readonly>
                                 <script>
@@ -92,11 +92,11 @@
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Perkara
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input id="middle-name" class="form-control 
+                                <input class="form-control 
                                     @error('problem')
                                         is-invalid
                                     @enderror"
-                                    value="{{ $item_deposit->problem }}" type="text" name="middle-name" readonly>
+                                    value="{{ $item_deposit->problem }}" type="text" name="problem" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -159,15 +159,15 @@
                         <tbody id="itemlist">
                             @foreach ($item_deposit->items()->get() as $item)
                                 <tr>
-                                    <td><input type="text" id="first-name" required="required" class="form-control
-                                        @error('problem')
+                                    <td><input type="text" name="name" required="required" class="form-control
+                                        @error('name')
                                             is-invalid
                                         @enderror"
                                         value="{{ $item->name }}"
                                             readonly>
                                     </td>
-                                    <td><input type="text" id="first-name" required="required" class="form-control
-                                        @error('problem')
+                                    <td><input type="text" name="amount" required="required" class="form-control
+                                        @error('amount')
                                             is-invalid
                                         @enderror"
                                         value="{{ $item->amount }}"
