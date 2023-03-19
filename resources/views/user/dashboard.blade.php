@@ -15,18 +15,18 @@
                 <div class=" col-sm-6  tile_stats_count">
                     <span class="count_top d-flex justify-content-center"><i class="fa fa-cubes px-2"></i> Jumlah Titipan
                         barang</span>
-                    <div class="count d-flex justify-content-center">2500</div>
+                    <div class="count d-flex justify-content-center">{{ $count_item_deposit }}</div>
                 </div>
                 <div class="col-sm-6  tile_stats_count">
                     <span class="count_top d-flex justify-content-center"><i class="fa fa-table px-2"></i> Jumlah
                         Pengunjung</span>
-                    <div class="count d-flex justify-content-center">123.50</div>
+                    <div class="count d-flex justify-content-center">{{ $count_appointment }}</div>
                 </div>
             </div>
             <div class="x_panel">
 
                 <div class="x_title">
-                    <h2>History Titipan Barang</h2>
+                    <h2>History Titipan Barang {{ now()->toDateString() }}</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -43,61 +43,34 @@
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
 
-                                <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                                <table id="example2" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Id Transaksi</th>
                                             <th>Nama WBP</th>
                                             <th>Blok Kamar</th>
                                             <th>Kasus</th>
                                             <th>Hubungan</th>
                                             <th>Tanggal Penitipan</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-
-
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-
+                                        @foreach ($data_item_deposit as $item_deposit)
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $item_deposit->id }}</td>
+                                                <td>{{ $item_deposit->name_wbp }}</td>
+                                                <td>{{ $item_deposit->room_block }}</td>
+                                                <td>{{ $item_deposit->case }}</td>
+                                                <td>{{ $item_deposit->relationship }}</td>
+                                                <td>{{ $item_deposit->date_deposit }}</td>
+                                                <td><a href="{{ route('item-deposit.show',['item_deposit'=>$item_deposit]) }}" type="button"
+                                                        class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                        Detail</a></td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -109,7 +82,7 @@
         <div class="col-md-12 col-sm-12 ">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>History Nomor Antrian</h2>
+                    <h2>History Nomor Antrian {{ now()->toDateString() }}</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -126,61 +99,34 @@
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
 
-                                <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                                <table id="example2" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th>No</th>
                                             <th>Id Transaksi</th>
                                             <th>Nama WBP</th>
                                             <th>Blok Kamar</th>
                                             <th>Kasus</th>
                                             <th>Hubungan</th>
                                             <th>Tanggal Kunjungan</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-
-
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ashton Cox</td>
-                                            <td>Junior Technical Author</td>
-                                            <td>San Francisco</td>
-                                            <td>66</td>
-                                            <td>2009/01/12</td>
-                                            <td>$86,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cedric Kelly</td>
-                                            <td>Senior Javascript Developer</td>
-                                            <td>Edinburgh</td>
-                                            <td>22</td>
-                                            <td>2012/03/29</td>
-                                            <td>$433,060</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Airi Satou</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>33</td>
-                                            <td>2008/11/28</td>
-                                            <td>$162,700</td>
-                                        </tr>
-
+                                        @foreach ($data_appointment as $appointment )
+                                            <tr>
+                                                <td>{{ $loop->iteration }}</td>  
+                                                <td>{{ $appointment->id }}</td>
+                                                <td>{{ $appointment->name_wbp }}</td>
+                                                <td>{{ $appointment->room_block }}</td>
+                                                <td>{{ $appointment->case }}</td>
+                                                <td>{{ $appointment->relationship }}</td>
+                                                <td>{{ $appointment->visit_date }}</td>
+                                                <td><a href="{{ route('appointment.show',['appointment'=>$appointment]) }}" type="button"
+                                                        class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                        Detail</a></td>
+                                            </tr>
+                                        @endforeach   
                                     </tbody>
                                 </table>
                             </div>
