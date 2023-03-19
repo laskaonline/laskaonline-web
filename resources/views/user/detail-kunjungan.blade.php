@@ -218,15 +218,31 @@
                         </thead>
 
                         <tbody id="itemlist">
-                            <tr>
-                                <td><input type="text" id="first-name" required="required" class="form-control"
-                                        readonly>
-                                </td>
-                                <td><input type="text" id="first-name" required="required" class="form-control"
-                                        readonly>
-                                </td>
-                                <td><input type="file" class="form-control" readonly /></td>
-                            </tr>
+                            @foreach ($appointment->items()->get() as $item)
+                                <tr>
+                                    <td><input type="text" name="name" required="required" class="form-control
+                                        @error('name')
+                                            is-invalid
+                                        @enderror"
+                                        value="{{ $item->name }}"
+                                            readonly>
+                                    </td>
+                                    <td><input type="text" name="amount" required="required" class="form-control
+                                        @error('amount')
+                                            is-invalid
+                                        @enderror"
+                                        value="{{ $item->amount }}"
+                                            readonly>
+                                    </td>
+                                    <td>
+                                        @if ($item->photo)
+                                        <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail" style="max-width:100px">
+                                        @else
+                                        <span class="badge badge-danger">No Foto</span>
+                                        @endif
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
