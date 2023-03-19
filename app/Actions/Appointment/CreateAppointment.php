@@ -31,11 +31,8 @@ class CreateAppointment
 
         if (isset($data['items'])) {
             $this->createItems($data['items'], $appointment);
-            return $appointment;
-        } else {
-
-            return $appointment;
         }
+        return $appointment;
     }
 
 
