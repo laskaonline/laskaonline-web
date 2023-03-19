@@ -53,6 +53,7 @@
                                             <th>Kasus</th>
                                             <th>Hubungan</th>
                                             <th>Tanggal Penitipan</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -65,6 +66,13 @@
                                                 <td>{{ $item_deposit->room_block }}</td>
                                                 <td>{{ $item_deposit->case }}</td>
                                                 <td>{{ $item_deposit->relationship }}</td>
+                                                <td>
+                                                    @if($item_deposit->state=="0")
+                                                        <b>Waiting</b>
+                                                    @elseif($item_deposit->state=="1")
+                                                        <b>Done</b>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $item_deposit->date_deposit }}</td>
                                                 <td><a href="{{ route('item-deposit.show',['item_deposit'=>$item_deposit]) }}" type="button"
                                                         class="btn btn-outline-primary" data-mdb-ripple-color="dark">
@@ -109,6 +117,7 @@
                                             <th>Kasus</th>
                                             <th>Hubungan</th>
                                             <th>Tanggal Kunjungan</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -122,6 +131,13 @@
                                                 <td>{{ $appointment->case }}</td>
                                                 <td>{{ $appointment->relationship }}</td>
                                                 <td>{{ $appointment->visit_date }}</td>
+                                                <td>
+                                                    @if($appointment->state=="0")
+                                                        <b>Waiting</b>
+                                                    @elseif($appointment->state=="1")
+                                                        <b>Done</b>
+                                                    @endif
+                                                </td>
                                                 <td><a href="{{ route('appointment.show',['appointment'=>$appointment]) }}" type="button"
                                                         class="btn btn-outline-primary" data-mdb-ripple-color="dark">
                                                         Detail</a></td>

@@ -42,6 +42,7 @@
                                         <th>Kasus</th>
                                         <th>Hubungan</th>
                                         <th>Tanggal Kunjungan</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -55,6 +56,13 @@
                                             <td>{{ $appointment->case }}</td>
                                             <td>{{ $appointment->relationship }}</td>
                                             <td>{{ $appointment->visit_date }}</td>
+                                            <td>
+                                                @if($appointment->state=="0")
+                                                    <b>Waiting</b>
+                                                @elseif($appointment->state=="1")
+                                                    <b>Done</b>
+                                                @endif
+                                            </td>
                                             <td><a href="{{ route('appointment.show',['appointment'=>$appointment]) }}" type="button"
                                                     class="btn btn-outline-primary" data-mdb-ripple-color="dark">
                                                     Detail</a></td>

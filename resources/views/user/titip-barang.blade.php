@@ -38,6 +38,7 @@
                                             <th>Kasus</th>
                                             <th>Hubungan</th>
                                             <th>Tanggal Penitipan</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -51,6 +52,13 @@
                                                 <td>{{ $item_deposit->case }}</td>
                                                 <td>{{ $item_deposit->relationship }}</td>
                                                 <td>{{ $item_deposit->date_deposit }}</td>
+                                                <td>
+                                                    @if($item_deposit->state=="0")
+                                                        <b>Waiting</b>
+                                                    @elseif($item_deposit->state=="1")
+                                                        <b>Done</b>
+                                                    @endif
+                                                </td>
                                                 <td><a href="{{ route('item-deposit.show',['item_deposit'=>$item_deposit]) }}" type="button"
                                                         class="btn btn-outline-primary" data-mdb-ripple-color="dark">
                                                         Detail</a></td>

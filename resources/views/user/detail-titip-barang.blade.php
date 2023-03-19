@@ -1,6 +1,7 @@
 @extends('layouts.users.app')
 
 @section('content')
+<a href="https://survei.balitbangham.go.id/ly/K1C9pQsg" type="button" class="btn btn-warning text-red col-md-12 col-sm-12" target="_blank">Beri Rating Penilaian</a>
     <div class="page-title">
         <div class="title_left">
             <h3> Detail Titip barang
@@ -105,6 +106,18 @@
                             <div class="col-md-6 col-sm-6 ">
                                 <a href="{{ asset('storage/' . $item_deposit->family_card) }}" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
                                     Download</a>
+                            </div>
+                        </div>
+                        <div class="item form-group">
+                            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Status Kunjungan
+                            </label>
+                            <div class="col-md-6 col-sm-6 ">
+                                <select name="state" class="custom-select" id="kategori_project" disabled>
+                                    <option @php if($item_deposit->state=="0"){echo "selected";} @endphp value="0">Waiting</option>
+                                    <option
+                                        @php if($item_deposit->state=="1"){echo "selected";} @endphp value="1">
+                                        Done</option>
+                                </select>
                             </div>
                         </div>
                     </form>
