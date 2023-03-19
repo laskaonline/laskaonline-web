@@ -10,6 +10,7 @@ class StoreAppointmentRequest extends FormRequest
     {
         return [
             'name_wbp' => ['required', 'string', 'max:255'],
+            'room_block' => ['required', 'string', 'max:255'],
             'case' => ['required', 'string', 'max:255'],
             'relationship' => ['required', 'string', 'max:255'],
             'visit_date' => ['required', 'date'],
