@@ -37,11 +37,10 @@ class AppointmentController extends Controller
 
     public function store(StoreAppointmentRequest $request, CreateAppointment $createAppointment)
     {
-        $appointment = $createAppointment->handle($request->validated());
+        $createAppointment->handle($request->validated());
 
-        return response()->json([
-            'status' => 'success',
-            'data' => $appointment
+        return back()->with([
+            'message' => 'Kunjungan berhasil ditambah',
         ], 201);
     }
 
