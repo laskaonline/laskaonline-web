@@ -75,7 +75,7 @@ class ItemDepositController extends Controller
 
             DB::commit();
 
-            return redirect()->route('item-deposit.show', ['item_deposit' => $item_deposit]);
+            return redirect()->route('item-deposit.show', ['item_deposit' => $item_deposit])->with('success', 'Penitipan Barang berhasil didaftarkan');
         } catch (Throwable $th) {
             DB::rollBack();
 

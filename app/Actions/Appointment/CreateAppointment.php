@@ -13,6 +13,7 @@ class CreateAppointment
     {
         $appointment = new Appointment();
         $appointment->name_wbp = $data['name_wbp'];
+        $appointment->room_block = $data['room_block'];
         $appointment->case = $data['case'];
         $appointment->relationship = $data['relationship'];
         $appointment->problem = $data['problem'];
@@ -28,9 +29,12 @@ class CreateAppointment
 
         $appointment->save();
 
-        $this->createItems($data['items'], $appointment);
-
-        return $appointment;
+        if ($data['items'] ?? null) {
+            return $appointment;
+        } else {
+            $this->createItems($data['items'], $appointment);
+            return $appointment;
+        }
     }
 
 

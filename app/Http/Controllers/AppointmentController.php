@@ -40,7 +40,7 @@ class AppointmentController extends Controller
         $createAppointment->handle($request->validated());
 
         return back()->with([
-            'message' => 'Kunjungan berhasil ditambah',
+            'Success' => 'Kunjungan berhasil didaftarkan',
         ], 201);
     }
 

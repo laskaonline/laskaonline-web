@@ -35,6 +35,7 @@
                             <table id="example1" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Id Transaksi</th>
                                         <th>Nama WBP</th>
                                         <th>Blok Kamar</th>
@@ -44,24 +45,21 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-
-
                                 <tbody>
                                     @foreach ($dataAppointment as $appointment )
                                         <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td><a href="{{ route('appointment.show',['appointment'=>$appointment]) }}" type="button"
-                                                class="btn btn-outline-primary" data-mdb-ripple-color="dark">
-                                                Detail</a></td>
-                                    </tr>
-                                    @endforeach
-                                    
-                                    
+                                            <td>{{ $loop->iteration }}</td>  
+                                            <td>{{ $appointment->id }}</td>
+                                            <td>{{ $appointment->name_wbp }}</td>
+                                            <td>{{ $appointment->room_block }}</td>
+                                            <td>{{ $appointment->case }}</td>
+                                            <td>{{ $appointment->relationship }}</td>
+                                            <td>{{ $appointment->visit_date }}</td>
+                                            <td><a href="{{ route('appointment.show',['appointment'=>$appointment]) }}" type="button"
+                                                    class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                    Detail</a></td>
+                                        </tr>
+                                    @endforeach   
                                 </tbody>
                             </table>
                         </div>

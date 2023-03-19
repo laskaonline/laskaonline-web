@@ -46,3 +46,4 @@
 
 {{-- Camera CSS --}}
 @vite('/resources/css/cam.css')
+
