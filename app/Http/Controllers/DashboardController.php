@@ -28,8 +28,8 @@ class DashboardController extends Controller
             // Count Data by Date
             $count_date_appointment      = Appointment::where('visit_date', Carbon::now()->toDateString())->get()->count();
             $count_date_item_deposit     = ItemDeposit::where('date_deposit', Carbon::now()->toDateString())->get()->count();
-            $count_date_wartelsuspas     = Wartelsuspas::where('created_at', Carbon::now()->toDateString())->get()->count();
-            $count_date_guest_book       = GuestBook::where('created_at', Carbon::now()->toDateString())->get()->count();
+            $count_date_wartelsuspas     = Wartelsuspas::whereDate('created_at', '>=', now()->toDateString())->get()->count();
+            $count_date_guest_book       = GuestBook::whereDate('created_at', '>=', now()->toDateString())->get()->count();
 
             return view('admin.dashboard', compact(
                 'count_appointment',

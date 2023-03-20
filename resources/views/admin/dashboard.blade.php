@@ -163,6 +163,7 @@
                                                 <td>{{ $item_deposit->room_block }}</td>
                                                 <td>{{ $item_deposit->case }}</td>
                                                 <td>{{ $item_deposit->relationship }}</td>
+                                                <td>{{ $item_deposit->date_deposit }}</td>
                                                 <td>
                                                     @if($item_deposit->state=="0")
                                                         <b>Waiting</b>
@@ -170,7 +171,6 @@
                                                         <b>Done</b>
                                                     @endif
                                                 </td>
-                                                <td>{{ $item_deposit->date_deposit }}</td>
                                                 <td><a href="{{ route('item-deposit.show',['item_deposit'=>$item_deposit]) }}" type="button"
                                                         class="btn btn-outline-primary" data-mdb-ripple-color="dark">
                                                         Detail</a></td>
