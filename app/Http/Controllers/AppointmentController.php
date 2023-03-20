@@ -13,7 +13,7 @@ class AppointmentController extends Controller
     {
         if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
             $data = [
-                'dataAppointment' => Appointment::all()->sortByDesc('created_at')
+                'dataAppointment' => Appointment::orderBy('created_at', 'desc')->get()
             ];
             return view('admin.queue_number', $data);
         } else {
@@ -26,6 +26,9 @@ class AppointmentController extends Controller
 
     public function view(Appointment $appointment)
     {
+        if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
+            return view('admin.detail_queue_number', compact('appointment'));
+        }
         return view('user.detail-kunjungan', compact('appointment'));
     }
 
@@ -55,6 +58,9 @@ class AppointmentController extends Controller
 
     public function show(Appointment $appointment)
     {
+        if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
+            return view('admin.detail_queue_number', compact('appointment'));
+        }
         return view('user.detail-kunjungan', compact('appointment'));
     }
 

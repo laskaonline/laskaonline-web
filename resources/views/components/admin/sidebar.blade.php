@@ -27,9 +27,9 @@
                     <li><a href="{{ route('admin.manage-user.index') }}"><i class="fa fa-users"></i> Management User
                         </a>
                     </li>
-                    <li><a href="{{ route('admin.item-deposit') }}"><i class="fa fa-cubes"></i> Titipan Barang </a>
+                    <li><a href="{{ route('admin.item-deposit.index') }}"><i class="fa fa-cubes"></i> Titipan Barang </a>
                     </li>
-                    <li><a href="{{ route('admin.queue') }}"><i class="fa fa-table"></i> Nomor Antrian </a>
+                    <li><a href="{{ route('admin.appointment.index') }}"><i class="fa fa-table"></i> Nomor Antrian </a>
                     </li>
                     <li><a href="{{ route('admin.wartelsuspas.index') }}"><i class="fa fa-phone"></i> Wartelsuspas </a>
                     </li>

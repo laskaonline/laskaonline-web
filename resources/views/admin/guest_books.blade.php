@@ -24,6 +24,7 @@
                             <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>
+                                        <th>No</th>
                                         <th>Nama</th>
                                         <th>Asal Instalasi/Institusi/organisasi</th>
                                         <th>NIK</th>
@@ -31,44 +32,17 @@
                                         <th>Tanggal</th>
                                     </tr>
                                 </thead>
-
-
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>63</td>
-                                        <td>2011/07/25</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ashton Cox</td>
-                                        <td>Junior Technical Author</td>
-                                        <td>San Francisco</td>
-                                        <td>66</td>
-                                        <td>2009/01/12</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td>2012/03/29</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Airi Satou</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>33</td>
-                                        <td>2008/11/28</td>
-                                    </tr>
+                                    @foreach ($dataGuestBook as $guestbook)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $guestbook->name }}</td>
+                                            <td>{{ $guestbook->origin }}</td>
+                                            <td>{{ $guestbook->nik }}</td>
+                                            <td>{{ $guestbook->email }}</td>
+                                            <td>{{ $guestbook->crated_at }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

@@ -135,7 +135,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="card-box table-responsive">
-                                <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                                <table id="datatable2" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Nama</th>

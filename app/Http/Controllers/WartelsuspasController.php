@@ -10,7 +10,10 @@ class WartelsuspasController extends Controller
 {
     public function index()
     {
-        return view('admin.wartelsuspas');
+        $data = [
+            'dataWartelsuspas'   => Wartelsuspas::orderBy('created_at', 'desc')->get()
+        ];
+        return view('admin.wartelsuspas', $data);
     }
 
     public function create()

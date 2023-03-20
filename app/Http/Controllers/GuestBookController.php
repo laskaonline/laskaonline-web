@@ -14,7 +14,10 @@ class GuestBookController extends Controller
     public function index()
     {
         if (auth()->user()->hasRole(['admin', 'superior'])) {
-            return view('admin.guest_books');
+            $data = [
+                'dataGuestBook'   => GuestBook::orderBy('created_at', 'desc')->get()
+            ];
+            return view('admin.guest_books', $data);
         }
 
         return view('user.buku-tamu');

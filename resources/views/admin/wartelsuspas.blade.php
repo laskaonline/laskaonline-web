@@ -33,59 +33,19 @@
                                         <th>Alamat</th>
                                     </tr>
                                 </thead>
-
-
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Garrett Winters</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>63</td>
-                                        <td>2011/07/25</td>
-                                        <td>$170,750</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Ashton Cox</td>
-                                        <td>Junior Technical Author</td>
-                                        <td>San Francisco</td>
-                                        <td>66</td>
-                                        <td>2009/01/12</td>
-                                        <td>$86,000</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Cedric Kelly</td>
-                                        <td>Senior Javascript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td>2012/03/29</td>
-                                        <td>$433,060</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Airi Satou</td>
-                                        <td>Accountant</td>
-                                        <td>Tokyo</td>
-                                        <td>33</td>
-                                        <td>2008/11/28</td>
-                                        <td>$162,700</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
+                                    @foreach ($dataWartelsuspas as $wartelsuspas)
+                                        <tr>
+                                            <td>{{ $wartelsuspas->id }}</td>
+                                            <td>{{ $wartelsuspas->name_wbp }}</td>
+                                            <td>{{ $wartelsuspas->bin_wbp }}</td>
+                                            <td>{{ $wartelsuspas->block_and_room }}</td>
+                                            <td>{{ $wartelsuspas->destination_phone }}</td>
+                                            <td>{{ $wartelsuspas->information }}</td>
+                                            <td>{{ $wartelsuspas->created_at }}</td>
+                                            <td>{{ $wartelsuspas->address }}</td>
+                                        </tr>   
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

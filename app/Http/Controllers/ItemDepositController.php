@@ -20,9 +20,9 @@ class ItemDepositController extends Controller
     {
 
 
-        if (auth()->user()->hasRole('admin')) {
+        if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
             $data = [
-                'dataItemDeposit'   => ItemDeposit::all()->orderBy('created_at', 'desc')
+                'dataItemDeposit'   => ItemDeposit::orderBy('created_at', 'desc')->get()
             ];
             return view('admin.item_deposit', $data);
         } else {
@@ -85,6 +85,9 @@ class ItemDepositController extends Controller
 
     public function show(ItemDeposit $item_deposit)
     {
+        if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
+            return view('admin.detail_item_deposit', compact('item_deposit'));
+        }
         return view('user.detail-titip-barang', compact('item_deposit'));
     }
 

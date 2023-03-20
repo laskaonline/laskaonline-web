@@ -43,10 +43,10 @@ Route::middleware(['auth:web'])->group(function () {
         Route::get('/manage-user', [ManageUserController::class, 'index'])->name('manage-user.index');
         Route::post('/manage-user/store', [ManageUserController::class, 'store'])->name('manage-user.store');
 
-        Route::view('/item-deposit', 'admin.item_deposit')->name('item-deposit');
+        Route::resource('/item-deposit', ItemDepositController::class);
         Route::post('/item-deposit/{deposit}/approve', ApproveDepositController::class)->name('item-deposit.approve');
 
-        Route::view('/queue', 'admin.queue_number')->name('queue');
+        Route::resource('/appointment', AppointmentController::class);
         Route::resource('/wartelsuspas', WartelsuspasController::class);
         Route::resource('/guest-book', GuestBookController::class);
     });
