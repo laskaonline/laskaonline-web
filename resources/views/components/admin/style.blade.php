@@ -30,3 +30,8 @@
 
 <!-- Custom Theme Style -->
 <link href="{{ asset('/template_admin/build/css/custom.min.css') }}" rel="stylesheet">
+
+<!-- DataTables -->
+<link rel="stylesheet" href={{asset("/template_admin/vendors/datatables-bs4/css/dataTables.bootstrap4.min.css")}}>
+<link rel="stylesheet" href={{asset("/template_admin/vendors/datatables-responsive/css/responsive.bootstrap4.min.css")}}>
+<link rel="stylesheet" href={{asset("/template_admin/vendors/datatables-buttons/css/buttons.bootstrap4.min.css")}}>
