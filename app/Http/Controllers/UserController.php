@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -13,9 +14,10 @@ class UserController extends Controller
         return view('user.profile')->with(compact($user));
     }
 
-    public function update()
+    public function update(UpdateUserRequest $request)
     {
-        //TODO: Update User
+        auth()->user()->update($request->validated());
+
         return redirect()->back();
     }
 }

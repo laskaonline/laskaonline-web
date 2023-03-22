@@ -60,6 +60,10 @@ class GuestBookController extends Controller
 
     public function show(GuestBook $guestBook)
     {
+        return response()->json([
+            'data' => $guestBook,
+            'status' => 'success'
+        ]);
     }
 
     public function update(Request $request, GuestBook $guestBook)

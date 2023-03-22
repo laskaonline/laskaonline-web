@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Actions\Appointment\CreateAppointment;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAppointmentRequest;
 use App\Models\Appointment;
@@ -16,16 +17,16 @@ class AppointmentController extends Controller
             return response()->json($appointments);
         }
 
-        $appointments = auth()->user()->appointments()->get();
+        $appointments = Appointment::whereBelongsTo(auth()->user())->get();
         return response()->json([
             'status' => 'success',
             'data' => $appointments
         ]);
     }
 
-    public function store(StoreAppointmentRequest $request)
+    public function store(StoreAppointmentRequest $request, CreateAppointment $createAppointment)
     {
-        $appointment = auth()->user()->appointments()->create($request->validated());
+        $appointment = $createAppointment->handle($request->validated());
 
         return response()->json([
             'status' => 'success',

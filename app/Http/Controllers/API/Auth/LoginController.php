@@ -17,7 +17,7 @@ class LoginController extends Controller
             $token = $user->createToken('mobile-app')->plainTextToken;
             return response()->json([
                 'status' => 'success',
-                'token' => $token
+                'data' => $token
             ]);
         }
 

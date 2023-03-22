@@ -16,7 +16,7 @@ class ApproveItemDeposit
      */
     public function handle(ItemDeposit $itemDeposit, array $data): ItemDepositApprove
     {
-        if (!$this->shouldValidate($itemDeposit)) {
+        if (!$this->shouldApprove($itemDeposit)) {
             throw new Exception('Barang ini sudah disetujui oleh 3 petugas');
         }
 
@@ -27,7 +27,7 @@ class ApproveItemDeposit
         );
     }
 
-    private function shouldValidate(ItemDeposit $itemDeposit): bool
+    private function shouldApprove(ItemDeposit $itemDeposit): bool
     {
         return $itemDeposit->approvals()->count() < 3;
     }

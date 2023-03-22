@@ -4,18 +4,18 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreItemDepositRequest;
-use App\Models\Deposit;
 use App\Models\ItemDeposit;
 use DB;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ItemDepositController extends Controller
 {
     public function index()
     {
+        $item_deposits = ItemDeposit::with(['items', 'approvals'])->whereBelongsTo(auth()->user())->get();
+
         return response()->json([
-            'data' => auth()->user()->deposits()->with(['items', 'approvals'])->get(),
+            'data' => $item_deposits,
             'message' => 'success'
         ]);
     }
