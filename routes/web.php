@@ -42,6 +42,7 @@ Route::middleware(['auth:web'])->group(function () {
 
         Route::get('/manage-user', [ManageUserController::class, 'index'])->name('manage-user.index');
         Route::get('/manage-user/{admin}', [ManageUserController::class, 'show'])->name('manage-user.show');
+        Route::get('/manage-user/visitor/{visitor}', [ManageUserController::class, 'visitor'])->name('manage-user.visitor');
         Route::post('/manage-user/store', [ManageUserController::class, 'store'])->name('manage-user.store');
 
         Route::resource('/item-deposit', ItemDepositController::class);

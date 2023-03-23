@@ -1,9 +1,9 @@
-@extends('layouts.admin.app')
+@extends('layouts.users.app')
 
 @section('content')
     <div class="page-title">
         <div class="title_left">
-            <h3> Detail Titip barang
+            <h3> Detail Titip Barang
             </h3>
         </div>
     </div>

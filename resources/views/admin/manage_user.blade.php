@@ -102,6 +102,7 @@
                                             <th>NIK</th>
                                             <th>Handphone</th>
                                             <th>Jabatan</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -112,6 +113,10 @@
                                                 <td>{{ $admin->no_ktp }}</td>
                                                 <td>{{ $admin->phone }}</td>
                                                 <td>{{ $admin->job_title }}</td>
+                                                <td>
+                                                    <a href="{{ route('admin.manage-user.show',['admin'=>$admin]) }}" type="button"
+                                                        class="btn btn-outline-primary" data-mdb-ripple-color="dark">Detail</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -142,6 +147,7 @@
                                             <th>Email</th>
                                             <th>NIK</th>
                                             <th>Handphone</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -151,6 +157,10 @@
                                                 <td>{{ $visitor->email }}</td>
                                                 <td>{{ $visitor->no_ktp }}</td>
                                                 <td>{{ $visitor->phone }}</td>
+                                                <td>
+                                                    <a href="{{ route('admin.manage-user.visitor',['visitor'=>$visitor]) }}" type="button"
+                                                        class="btn btn-outline-primary" data-mdb-ripple-color="dark">Detail</a>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

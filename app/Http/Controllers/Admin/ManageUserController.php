@@ -43,4 +43,18 @@ class ManageUserController extends Controller
 
         return redirect()->route('admin.manage-user.index')->with('success', 'Create Success!');
     }
+
+    public function show(User $admin)
+    {
+        if (Auth()->user()->hasAnyRole(['admin', 'superior'])) {
+            return view('admin.detail_manage_admin', compact('admin'));
+        }
+    }
+
+    public function visitor(User $visitor)
+    {
+        if (Auth()->user()->hasAnyRole(['admin', 'superior'])) {
+            return view('admin.detail_manage_visitor', compact('visitor'));
+        }
+    }
 }
