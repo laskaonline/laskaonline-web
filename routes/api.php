@@ -1,8 +1,14 @@
 <?php
 
 use App\Http\Controllers\API\AppointmentController;
+use App\Http\Controllers\API\ApproveDepositController;
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Auth\RegisterController;
+use App\Http\Controllers\API\GuestBookController;
+use App\Http\Controllers\API\ItemDepositController;
+use App\Http\Controllers\API\ManageUserController;
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\WartelsuspasController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -23,21 +29,18 @@ Route::post('/register', [RegisterController::class, 'register'])->name('registe
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::middleware(['role:admin|superior'])->prefix('admin')->name('admin.')->group(function () {
-        Route::get('/users', function (Request $request) {
-            return User::all();
-        });
+        Route::get('/users', [ManageUserController::class, 'index']);
+        Route::post('/users', [ManageUserController::class, 'store']);
     });
 
     Route::apiResource('appointments', AppointmentController::class);
+    Route::apiResource('guest-books', GuestBookController::class);
+    Route::apiResource('item-deposits', ItemDepositController::class);
+    Route::apiResource('wartelsuspas', WartelsuspasController::class);
 
-    Route::get('/user', function (Request $request) {
-        return $request->user();
-    });
-    Route::post('/user', function (Request $request) {
-        //Update User here
-        return $request->user();
-    });
+    Route::post('/item-deposits/{deposit}/approve', ApproveDepositController::class)->name('item-deposits.approve');
 
-
+    Route::get('/user', [UserController::class, 'view']);
+    Route::put('/user', [UserController::class, 'update']);
 });
 
