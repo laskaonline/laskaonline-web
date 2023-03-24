@@ -42,7 +42,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/item-deposits/{deposit}/approve', ApproveDepositController::class)->name('item-deposits.approve');
     Route::post('/appointments/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
 
-    Route::get('/user', [UserController::class, 'view']);
+    Route::get('/user', [UserController::class, 'show']);
     Route::put('/user', [UserController::class, 'update']);
 });
 
