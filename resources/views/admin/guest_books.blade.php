@@ -26,10 +26,11 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>Asal Instalasi/Institusi/organisasi</th>
+                                        <th>Asal Instalasi/Institusi/Organisasi</th>
                                         <th>NIK</th>
                                         <th>Email</th>
                                         <th>Tanggal</th>
+                                        <th>Acction</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,7 +41,15 @@
                                             <td>{{ $guestbook->origin }}</td>
                                             <td>{{ $guestbook->nik }}</td>
                                             <td>{{ $guestbook->email }}</td>
-                                            <td>{{ $guestbook->crated_at }}</td>
+                                            <td>{{ $guestbook->created_at }}</td>
+                                            <td>
+                                                <a
+                                                    href="{{ route('admin.guest-book.show',['guest_book'=>$guestbook]) }}"
+                                                    type="button"
+                                                    class="btn btn-outline-primary"
+                                                    data-mdb-ripple-color="dark">
+                                                    Detail</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -61,8 +61,11 @@ class GuestBookController extends Controller
         return back()->with('success', 'Buku Tamu telah diisi');
     }
 
-    public function show(GuestBook $guestBooks)
+    public function show(GuestBook $guest_book)
     {
+        if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
+            return view('admin.detail_guest_book', compact('guest_book'));
+        }
     }
 
     public function edit(GuestBook $guestBooks)
