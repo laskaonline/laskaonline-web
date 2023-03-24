@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function view()
+    public function show()
     {
         $user = Auth::user();
 

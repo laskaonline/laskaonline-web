@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\AppointmentController;
+use App\Http\Controllers\API\ApproveAppointmentController;
 use App\Http\Controllers\API\ApproveDepositController;
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Auth\RegisterController;
@@ -39,8 +40,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('wartelsuspas', WartelsuspasController::class);
 
     Route::post('/item-deposits/{deposit}/approve', ApproveDepositController::class)->name('item-deposits.approve');
+    Route::post('/appointments/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
 
-    Route::get('/user', [UserController::class, 'view']);
+    Route::get('/user', [UserController::class, 'show']);
     Route::put('/user', [UserController::class, 'update']);
 });
 
