@@ -36,11 +36,6 @@
                                 @else
                                     <span class="badge badge-danger">No Foto</span>
                                 @endif
-                                <input type="file" name="photo"
-                                       class="form-control @error('photo')
-                                is-invalid
-                                @enderror"
-                                       value="{{ $visitor->photo }}" accept="image/*"/>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -52,7 +47,7 @@
                                 @error('name')
                                     is-invalid
                                 @enderror"
-                                       value="{{ $visitor->name }}">
+                                       value="{{ $visitor->name }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -64,7 +59,7 @@
                                     @error('email')
                                         is-invalid
                                     @enderror"
-                                       value="{{ $visitor->email }}">
+                                       value="{{ $visitor->email }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -77,7 +72,7 @@
                                     @error('no_ktp')
                                         is-invalid
                                     @enderror"
-                                       value="{{ $visitor->no_ktp }}">
+                                       value="{{ $visitor->no_ktp }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -88,7 +83,7 @@
                                 @error('phone')
                                     is-invalid
                                 @enderror"
-                                       value="{{ $visitor->phone }}">
+                                       value="{{ $visitor->phone }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -96,10 +91,10 @@
                                 <div class="col-sm-6">
                                     <div class="form-check">
                                         <input type="radio" class="flat" name="gender" id="Laki-laki"
-                                               value="Laki-Laki" @checked($visitor->gender === 'Laki-Laki')/>
+                                               value="Laki-Laki" @checked($visitor->gender === 'Laki-Laki') disabled/>
                                         Laki-Laki:
                                         <input type="radio" class="flat" name="gender" id="Perempuan" value="Perempuan"
-                                               @checked($visitor->gender === 'Perempuan') required/>
+                                               @checked($visitor->gender === 'Perempuan') disabled/>
                                         Perempuan:
                                     </div>
                                 </div>
@@ -111,7 +106,7 @@
                                 <textarea required="required" name="address" type="text"
                                           class="form-control @error('address')
                                 is-invalid
-                                @enderror">{{ $visitor->address }}</textarea>
+                                @enderror" readonly>{{ $visitor->address }}</textarea>
                             </div>
                         </div>
                     

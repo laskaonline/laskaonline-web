@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreWartelsuspasRequest;
 use App\Models\Wartelsuspas;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class WartelsuspasController extends Controller
 {
@@ -29,6 +30,11 @@ class WartelsuspasController extends Controller
 
     public function show(Wartelsuspas $wartelsuspas)
     {
+        if (Auth()->user()->hasAnyRole(['admin', 'superior'])) {
+            $wartelSuspasData = Wartelsuspas::with('user')->find($wartelsuspas->id);
+            $userData = $wartelSuspasData->user;
+            return view('admin.detail_wartelsuspas', ['wartelSuspasData' => $wartelSuspasData, 'userData' => $userData]);
+        }
     }
 
     public function edit(Wartelsuspas $wartelsuspas)

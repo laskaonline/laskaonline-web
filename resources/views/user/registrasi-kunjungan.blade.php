@@ -170,7 +170,8 @@
                     </div>
                 </div>
             </div>
-        <x-honeypot />
-        <button class='btn btn-block btn-success text-white'><i class="fa fa-save px-2"></i> Submit Pengajuan</button>
+            <x-honeypot />
+            <button class='btn btn-block btn-success text-white'><i class="fa fa-save px-2"></i> Submit Pengajuan</button>
+        </form>
     </div>
 @endsection

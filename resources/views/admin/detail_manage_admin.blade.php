@@ -36,11 +36,6 @@
                                 @else
                                     <span class="badge badge-danger">No Foto</span>
                                 @endif
-                                <input type="file" name="photo"
-                                       class="form-control @error('photo')
-                                is-invalid
-                                @enderror"
-                                       value="{{ $admin->photo }}" accept="image/*"/>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -52,7 +47,7 @@
                                 @error('name')
                                     is-invalid
                                 @enderror"
-                                       value="{{ $admin->name }}">
+                                       value="{{ $admin->name }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -64,7 +59,7 @@
                                     @error('email')
                                         is-invalid
                                     @enderror"
-                                       value="{{ $admin->email }}">
+                                       value="{{ $admin->email }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -77,7 +72,7 @@
                                     @error('no_ktp')
                                         is-invalid
                                     @enderror"
-                                       value="{{ $admin->no_ktp }}">
+                                       value="{{ $admin->no_ktp }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -88,7 +83,7 @@
                                 @error('phone')
                                     is-invalid
                                 @enderror"
-                                       value="{{ $admin->phone }}">
+                                       value="{{ $admin->phone }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -96,10 +91,10 @@
                                 <div class="col-sm-6">
                                     <div class="form-check">
                                         <input type="radio" class="flat" name="gender" id="Laki-laki"
-                                               value="Laki-Laki" @checked($admin->gender === 'Laki-Laki')/>
+                                               value="Laki-Laki" @checked($admin->gender === 'Laki-Laki') disabled/>
                                         Laki-Laki:
                                         <input type="radio" class="flat" name="gender" id="Perempuan" value="Perempuan"
-                                               @checked($admin->gender === 'Perempuan') required/>
+                                               @checked($admin->gender === 'Perempuan') required disabled/>
                                         Perempuan:
                                     </div>
                                 </div>
@@ -112,7 +107,7 @@
                                 @error('job_title')
                                     is-invalid
                                 @enderror"
-                                       value="{{ $admin->job_title }}">
+                                       value="{{ $admin->job_title }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -122,7 +117,7 @@
                                 <textarea required="required" name="address" type="text"
                                           class="form-control @error('address')
                                 is-invalid
-                                @enderror">{{ $admin->address }}</textarea>
+                                @enderror" readonly>{{ $admin->address }}</textarea>
                             </div>
                         </div>
                     

@@ -49,7 +49,10 @@ Route::middleware(['auth:web'])->group(function () {
         Route::post('/item-deposit/{deposit}/approve', ApproveDepositController::class)->name('item-deposit.approve');
 
         Route::resource('/appointment', AppointmentController::class);
-        Route::resource('/wartelsuspas', WartelsuspasController::class);
+
+        Route::get('/wartelsuspas', [WartelsuspasController::class, 'index'])->name('wartelsuspas.index');
+        Route::get('/wartelsuspas/{wartelsuspas}', [WartelsuspasController::class, 'show'])->name('wartelsuspas.show');
+
         Route::resource('/guest-book', GuestBookController::class);
     });
     Route::get('/dashboard', DashboardController::class)->name('dashboard');

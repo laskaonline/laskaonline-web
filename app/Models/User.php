@@ -111,22 +111,22 @@ class User extends Authenticatable
     public function photoUrl()
     {
         return Attribute::make(
-          get: fn () => $this->photo ? asset('storage/' . $this->photo) : asset('images/default.png'),
+            get: fn () => $this->photo ? asset('storage/' . $this->photo) : asset('images/default.png'),
         );
     }
 
     public function wartelsuspas(): HasMany
     {
-        return $this->hasMany(Wartelsuspas::class, 'created_by');
+        return $this->hasMany(Wartelsuspas::class, 'created_by', 'id');
     }
 
     public function guestBook(): HasMany
     {
-        return $this->hasMany(GuestBook::class, 'created_by');
+        return $this->hasMany(GuestBook::class, 'created_by', 'id');
     }
 
     public function deposits(): HasMany
     {
-        return $this->hasMany(ItemDeposit::class, 'created_by');
+        return $this->hasMany(ItemDeposit::class, 'created_by', 'id');
     }
 }
