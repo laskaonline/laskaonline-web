@@ -19,7 +19,10 @@ class GuestBookController extends Controller
             ];
             return view('admin.guest_books', $data);
         }
+    }
 
+    public function public()
+    {
         return view('user.buku-tamu');
     }
 

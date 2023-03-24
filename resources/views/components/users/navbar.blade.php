@@ -9,7 +9,11 @@
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown"
                         data-toggle="dropdown" aria-expanded="false">
-                        {{ auth()->user()->name }}
+                        @if (auth()->check())
+                            {{ auth()->user()->name }}
+                        @else
+                            Anda Belem Login
+                        @endif
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profile.index') }}"> Profile</a>

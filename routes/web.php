@@ -62,8 +62,11 @@ Route::middleware(['auth:web'])->group(function () {
     Route::post('/appointment/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
 
     Route::resource('/item-deposit', ItemDepositController::class);
-    Route::resource('/guest-book', GuestBookController::class);
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [ProfileController::class, 'update'])->middleware(['honeypot'])->name('profile.update');
 });
+
+Route::get('/guest-book', [GuestBookController::class, 'public'])->name('guest-book.public');
+Route::post('/guest-book/store', [GuestBookController::class, 'store'])->name('guest-book.store');
+// Route::resource('/guest-book', GuestBookController::class);

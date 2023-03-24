@@ -10,17 +10,25 @@
         <div class="profile clearfix">
             <br>
             <div class="profile_pic col">
-
-                @if (auth()->user()->photo)
-                    <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="..."
-                        class="img-thumbnail profile_img" style="width:100%">
+                @if (auth()->check())
+                    @if (auth()->user()->photo)
+                        <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="..."
+                            class="img-thumbnail profile_img" style="width:100%">
+                    @else
+                        <span class="badge badge-danger">No Foto</span>
+                    @endif
                 @else
-                    <span class="badge badge-danger">No Foto</span>
+                    <p>Anda Belem Login</p>
                 @endif
+                
             </div>
             <div class="col-md-1">
                 <span>Welcome,</span>
-                <p><strong>{{ auth()->user()->name }}</strong></p>
+                    @if (auth()->check())
+                        <p><strong>{{ auth()->user()->name }}</strong></p>
+                    @else
+                        <p>Anda Belem Login</p>
+                    @endif
             </div>
         </div>
         <!-- /menu profile quick info -->
@@ -40,7 +48,7 @@
                     </li>
                     <li><a href="{{ route('appointment.index') }}"><i class="fa fa-table"></i> Nomor Antrian </a>
                     </li>
-                    <li><a href="{{ route('guest-book.index') }}"><i class="fa fa-book"></i> Buku Tamu </a>
+                    <li><a href="{{ route('guest-book.public') }}"><i class="fa fa-book"></i> Buku Tamu </a>
                     </li>
                 </ul>
             </div>
