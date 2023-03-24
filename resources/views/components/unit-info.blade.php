@@ -1,4 +1,4 @@
-<div class="container-lg my-2">
+<div class="py-4 bg-secondary text-primary">
     <h2 class="text-uppercase text-center">
         Informasi Unit Satuan Kerja
     </h2>

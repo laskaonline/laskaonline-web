@@ -5,10 +5,12 @@
 @section('content')
     <x-navbar />
     <img src="{{ asset('/assets/images/personnel.png') }}" alt="Personnel" class="img-fluid mx-auto d-block">
-    <x-unit-info />
-    <x-testimony-box />
+    <x-fitur-app />
     <x-gallery />
-    <div class="bg-secondary">
+    <x-unit-info />
+    {{-- <x-testimony-box /> --}}
+    
+    {{-- <div class="bg-secondary">
         <div class="container-lg my-2 ">
             <br>
             <h3 class="text-uppercase text-center">
@@ -33,7 +35,7 @@
                 </button>
             </form>
         </div>
-    </div>
+    </div> --}}
 
     <footer class="container-fluid py-2 bg-primary text-white d-flex align-items-center">
         <div class="position-absolute d-flex gap-2">
@@ -50,6 +52,6 @@
                 <i class="fa fa-youtube"></i>
             </a>
         </div>
-        <span class="mx-auto">&copy; Laksa 2023</span>
+        <span class="mx-auto">&copy; SINI-BANG 2023</span>
     </footer>
 @endsection

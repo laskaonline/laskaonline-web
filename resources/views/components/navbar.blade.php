@@ -1,7 +1,8 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar bg-secondary  navbar-expand-lg">
     <div class="container-fluid">
+        <br>
         <a href="/" class="navbar-brand">
-            <img src="{{ asset('assets/images/navbar-logo.png') }}" alt="Logo Kemenkumham" class="img-fluid">
+            <img src="{{ asset('assets/images/SINI-BANG-Kanan-Biru.png') }}" alt="Logo Kemenkumham" class="img-fluid"  width="600px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
@@ -14,11 +15,11 @@
                         Home
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="#">
                         Sekilas Laksa
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('item-deposit.index') }}">
                         Titipan Barang
@@ -30,7 +31,7 @@
                         Kunjungan
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link" href="/contact">
                         Contact
                     </a>
@@ -39,7 +40,7 @@
                     <a class="nav-link" href="/faq">
                         FAQ
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="/login">
                         Administrator
