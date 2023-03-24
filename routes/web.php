@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ManageUserController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ApproveAppointmentController;
 use App\Http\Controllers\ApproveDepositController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\DashboardController;
@@ -58,6 +59,8 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     Route::resource('/appointment', AppointmentController::class);
+    Route::post('/appointment/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
+
     Route::resource('/item-deposit', ItemDepositController::class);
     Route::resource('/guest-book', GuestBookController::class);
 
