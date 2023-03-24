@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::view('/', 'home');
+Route::view('/contact', 'contact');
 
 Route::middleware(['honeypot'])->group(function () {
     Auth::routes([

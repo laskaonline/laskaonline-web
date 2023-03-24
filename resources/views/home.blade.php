@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    Home | Laska Online
+    Home | SINI-BANG
 @endsection
 @section('content')
     <x-navbar />
@@ -39,18 +39,7 @@
 
     <footer class="container-fluid py-2 bg-primary text-white d-flex align-items-center">
         <div class="position-absolute d-flex gap-2">
-            <a href="https://www.facebook.com/LapasSekayu.PAS?mibextid=ZbWKwL" target="_blank">
-                <i class="fa fa-facebook"></i>
-            </a>
-            <a href="https://instagram.com/lapassekayu?igshid=MDM4ZDc5MmU=" target="_blank">
-                <i class="fa fa-instagram"></i>
-            </a>
-            <a href="https://twitter.com/SekayuLapas?t=Gw4O9yG_KtjLhn-hGX360w&s=09" target="_blank">
-                <i class="fa fa-twitter"></i>
-            </a>
-            <a href="https://www.youtube.com/@lapaskelasiibsekayu9988/featured" target="_blank">
-                <i class="fa fa-youtube"></i>
-            </a>
+            
         </div>
         <span class="mx-auto">&copy; SINI-BANG 2023</span>
     </footer>
