@@ -19,13 +19,33 @@ class WartelsuspasController extends Controller
 
     public function create()
     {
+        return view('admin.add_wartelsuspas');
     }
 
     public function store(StoreWartelsuspasRequest $request)
     {
-        auth()->user()->wartelsuspas()->create($request->validated());
+        $name_wbp           = $request->name_wbp;
+        $bin_wbp            = $request->bin_wbp;
+        $block_and_room     = $request->block_and_room;
+        $destination_phone  = $request->destination_phone;
+        $relationship       = $request->relationship;
+        $address            = $request->address;
+        $information        = $request->information;
+        $create_by          = auth()->user()->id;
 
-        return back()->with('message', 'Wartelsuspas berhasil dibuat');
+        $data = new Wartelsuspas();
+        $data->name_wbp             = $name_wbp;
+        $data->bin_wbp              = $bin_wbp;
+        $data->block_and_room       = $block_and_room;
+        $data->destination_phone    = $destination_phone;
+        $data->relationship         = $relationship;
+        $data->address              = $address;
+        $data->information          = $information;
+        $data->created_by           = $create_by;
+
+        $data->save();
+
+        return redirect()->route('admin.wartelsuspas.index')->with('message', 'Wartelsuspas berhasil dibuat');
     }
 
     public function show(Wartelsuspas $wartelsuspas)

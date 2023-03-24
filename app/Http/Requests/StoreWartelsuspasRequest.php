@@ -14,6 +14,7 @@ class StoreWartelsuspasRequest extends FormRequest
             'block_and_room' => ['required', 'string'],
             'destination_phone' => ['required', 'string', 'starts_with:0'],
             'relationship' => ['required', 'string'],
+            'address' => ['required', 'string'],
             'information' => ['required', 'string']
         ];
     }

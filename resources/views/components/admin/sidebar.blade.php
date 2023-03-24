@@ -2,7 +2,7 @@
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
             <a href="{{ route('admin.dashboard') }}" class="site_title">
-                <img src="{{ asset('/assets/images/SINI-BANG-Kanan-Putih.png') }}" alt="sinibang" height="15px" class="img-fluid>
+                <img src="{{ asset('/assets/images/SINI-BANG-Kanan-Putih.png') }}" alt="sinibang" height="15px" class="img-fluid">
             </a>
         </div>
 

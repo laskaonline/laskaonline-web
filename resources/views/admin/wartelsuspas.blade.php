@@ -3,6 +3,13 @@
     <div class="title_left">
         <h3>Daftar Wartelsuspas</h3>
     </div>
+    <div class="title_right">
+        <div class="pull-right">
+            <a href="{{ route('admin.wartelsuspas.create') }}">
+                <button type="submit" class="btn btn-primary"> <i class="fa fa-plus pr-2"></i>Add Wartelsuspas</button>
+            </a>
+        </div>
+    </div>
 </div>
 
 <div class="clearfix"></div>
