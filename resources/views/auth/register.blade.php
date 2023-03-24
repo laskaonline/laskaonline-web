@@ -6,7 +6,7 @@
     <div class="vh-100 d-grid place-items-center">
         <div class="container-lg row flex-column flex-lg-row">
             <div class="col col-lg-8 text-center">
-                <img src="{{ asset('/assets/images/no-corruption-psa.png') }}" alt="Tolak Suap, Siap WTP" class="img-fluid">
+                <img src="{{ asset('/assets/images/no-corruption.png') }}" alt="Tolak Suap, Siap WTP" class="img-fluid" width="90%">
             </div>
             <div class="col col-lg-4">
                 <form action="{{ url('/register') }}" method="post" class="row gap-2">
@@ -55,10 +55,7 @@
     </div>
     <footer class="container-fluid py-2 bg-primary text-white d-flex align-items-center fixed-bottom">
         <div class="position-absolute d-flex gap-2">
-            <i class="bi bi-facebook"></i>
-            <i class="bi bi-twitter"></i>
-            <i class="bi bi-youtube"></i>
         </div>
-        <span class="mx-auto">&copy; Laksa 2023</span>
+        <span class="mx-auto">&copy; SINI-BANG 2023</span>
     </footer>
 @endsection
