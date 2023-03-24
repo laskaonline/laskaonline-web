@@ -4,7 +4,7 @@
     </h2>
     <div class="grid gap-lg-2">
         <div class="g-col-6 g-col-lg-3 d-flex flex-column text-center gap-3 align-items-center">
-            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-25">
+            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor"
                     class="bi bi-folder2-open" viewBox="0 0 16 16">
                     <path
@@ -20,7 +20,7 @@
             </p>
         </div>
         <div class="g-col-6 g-col-lg-3 d-flex flex-column text-center gap-3 align-items-center">
-            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-25">
+            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-50">
                 <a href="https://lapassekayu.kemenkumham.go.id/" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor"
                         class="bi bi-database" viewBox="0 0 16 16">
@@ -40,7 +40,7 @@
             </p>
         </div>
         <div class="g-col-6 g-col-lg-3 d-flex flex-column text-center gap-3 align-items-center">
-            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-25">
+            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-50">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor"
                     class="bi bi-people-fill" viewBox="0 0 16 16">
                     <path
@@ -56,7 +56,7 @@
             </p>
         </div>
         <div class="g-col-6 g-col-lg-3 d-flex flex-column text-center gap-3 align-items-center">
-            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-25">
+            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-50">
                 <a href="https://www.facebook.com/LapasSekayu.PAS?mibextid=ZbWKwL" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor"
                         class="bi bi-basket-fill" viewBox="0 0 16 16">

@@ -21,8 +21,10 @@
                             </ul>
                         </div>
                     @endif
-                    <a href="/"><img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham"
-                            class="img-fluid"></a>
+                    <center>
+                        <a href="/"><img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham"
+                            class="img-fluid min-w-100 w-75"></a>
+                    </center>
 
                     @csrf
                     <div>

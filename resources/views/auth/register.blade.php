@@ -10,7 +10,9 @@
             </div>
             <div class="col col-lg-4">
                 <form action="{{ url('/register') }}" method="post" class="row gap-2">
-                    <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham" class="img-fluid">
+                    <center>
+                    <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham" class="img-fluid img-fluid min-w-100 w-75">
+                    </center>
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>

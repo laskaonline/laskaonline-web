@@ -2,7 +2,7 @@
     <h2 class="text-uppercase text-center">Media Sosial</h2>
     <div class="grid gap-lg-2">
         <div class="g-col-6 g-col-lg-3 d-flex flex-column text-center gap-3 align-items-center">
-            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-25">
+            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-50">
                 <a href="https://www.facebook.com/LapasSekayu.PAS?mibextid=ZbWKwL" target="_blank">
                     <img src="{{ asset('assets/images/medsos-fb.png') }}" width="100%" height="100%" fill="currentColor"
                     class="bi bi-folder2-open" viewBox="0 0 16 16">
@@ -15,7 +15,7 @@
             </b>
         </div>
         <div class="g-col-6 g-col-lg-3 d-flex flex-column text-center gap-3 align-items-center">
-            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-25">
+            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-50">
                 <a href="https://instagram.com/lapassekayu?igshid=MDM4ZDc5MmU=" target="_blank">
                     <img src="{{ asset('assets/images/medsos-ig.png') }}" width="100%" height="100%" fill="currentColor"
                         class="bi bi-database" viewBox="0 0 16 16">
@@ -28,7 +28,7 @@
             </b>
         </div>
         <div class="g-col-6 g-col-lg-3 d-flex flex-column text-center gap-3 align-items-center">
-            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-25">
+            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-50">
                 <a href="https://twitter.com/SekayuLapas?t=Gw4O9yG_KtjLhn-hGX360w&s=09" target="_blank">
                     <img src="{{ asset('assets/images/medsos-twitter.png') }}" width="100%" height="100%" fill="currentColor"
                     class="bi bi-people-fill" viewBox="0 0 16 16">
@@ -41,7 +41,7 @@
             </b>
         </div>
         <div class="g-col-6 g-col-lg-3 d-flex flex-column text-center gap-3 align-items-center">
-            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-25">
+            <div class="rounded-circle p-3 text-primary border border-primary border-2 min-w-25 w-50">
                 <a href="https://www.youtube.com/@lapaskelasiibsekayu9988/featured" target="_blank">
                     <img src="{{ asset('assets/images/medsos-youtube.png') }}" width="100%" height="100%" fill="currentColor"
                         class="bi bi-basket-fill" viewBox="0 0 16 16">
