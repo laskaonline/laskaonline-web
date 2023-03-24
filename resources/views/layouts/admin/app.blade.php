@@ -27,11 +27,8 @@
             <!-- /page content -->
 
             <!-- footer content -->
-            <footer>
-                <div class="pull-right">
-                    Admin | Lapas Sekayu
-                </div>
-                <div class="clearfix"></div>
+            <footer class="container-fluid py-2 text-white d-flex align-items-center" style="background-color:#002858">
+                <span class="mx-auto">&copy; SINI-BANG 2023</span>
             </footer>
             <!-- /footer content -->
         </div>
