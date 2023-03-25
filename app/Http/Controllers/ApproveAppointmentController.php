@@ -11,6 +11,6 @@ class ApproveAppointmentController extends Controller
         $appointment->state = '1';
         $appointment->save();
 
-        return back();
+        return redirect()->route('admin.appointment.index');
     }
 }

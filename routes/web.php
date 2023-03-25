@@ -55,6 +55,7 @@ Route::middleware(['auth:web'])->group(function () {
 
         // Admin Antrian
         Route::resource('/appointment', AppointmentController::class);
+        Route::post('/appointment/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
 
         // Admin Wartelsuspas
         Route::get('/wartelsuspas', [WartelsuspasController::class, 'index'])->name('wartelsuspas.index');
@@ -70,7 +71,6 @@ Route::middleware(['auth:web'])->group(function () {
 
     // Antrian  Visitor
     Route::resource('/appointment', AppointmentController::class);
-    Route::post('/appointment/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
 
     // Penitipan Barang Visitor
     Route::resource('/item-deposit', ItemDepositController::class);

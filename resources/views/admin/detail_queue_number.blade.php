@@ -260,5 +260,13 @@
                 </div>
             </div>
         </div>
+        @if ($appointment->state == "0")
+            <form method="POST" action="{{ route('admin.appointment.approve',['appointment'=>$appointment]) }}">
+                @csrf
+                <x-honeypot />
+                <button type="submit" class='btn btn-block btn-success text-white'><i class="fa fa-save px-2"></i> Validasi Kedatangan</button>    
+            </form>
+        @endif
+        
     </div>
 @endsection
