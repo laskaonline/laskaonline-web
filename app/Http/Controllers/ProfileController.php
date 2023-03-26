@@ -28,24 +28,26 @@ class ProfileController extends Controller
         if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
             $user = Auth::user();
 
-            $name       = $request_admin->name;
-            $no_ktp     = $request_admin->no_ktp;
-            $phone      = $request_admin->phone;
-            $email      = $request_admin->email;
-            $job_title  = $request_admin->job_title;
-            $gender     = $request_admin->gender;
-            $address    = $request_admin->address;
+            $name = $request_admin->name;
+            $no_ktp = $request_admin->no_ktp;
+            $phone = $request_admin->phone;
+            $email = $request_admin->email;
+            $job_title = $request_admin->job_title;
+            $gender = $request_admin->gender;
+            $address = $request_admin->address;
 
-            $user->name         = $name;
-            $user->no_ktp       = $no_ktp;
-            $user->phone        = $phone;
-            $user->email        = $email;
-            $user->job_title    = $job_title;
-            $user->gender       = $gender;
-            $user->address      = $address;
+            $user->name = $name;
+            $user->no_ktp = $no_ktp;
+            $user->phone = $phone;
+            $user->email = $email;
+            $user->job_title = $job_title;
+            $user->gender = $gender;
+            $user->address = $address;
 
             if ($request->hasFile('photo')) {
-                Storage::delete($user->photo);
+                if ($user->photo !== null) {
+                    Storage::delete($user->photo);
+                }
                 $path = $request->file('photo')->store('user');
                 $user->photo = $path;
             }
