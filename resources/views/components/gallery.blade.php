@@ -1,6 +1,5 @@
-<div class="container-lg my-2">
-    <br>
-    <h3 class="text-center text-uppercase">Galeri Laksa</h3>
+<div class="py3 container-lg my-2">
+    <h3 class="text-center text-uppercase text-primary pt-3"><strong>Galeri Laksa</strong> </h3>
     <br>
     <div class="grid">
         <div class="g-col-6 g-col-md-4 g-col-lg-3 bg-primary text-white">
