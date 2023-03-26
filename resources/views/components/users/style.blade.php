@@ -44,6 +44,4 @@
 <!-- Custom Theme Style -->
 <link href="{{ asset('/template_admin/build/css/custom.css') }}" rel="stylesheet">
 
-{{-- Camera CSS --}}
-@vite('/resources/css/cam.css')
 

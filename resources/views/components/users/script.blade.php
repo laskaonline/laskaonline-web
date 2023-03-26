@@ -60,9 +60,6 @@
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('/template_admin/build/js/custom.js') }}"></script>
 
-{{-- Camera JS --}}
-@vite('/resources/js/cam.js')
-
 {{-- set-value-to-file-input - pqina --}}
 <script>
     // Get a reference to our file input
