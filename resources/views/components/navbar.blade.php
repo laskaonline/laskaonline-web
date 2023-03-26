@@ -1,8 +1,7 @@
 <nav class="navbar bg-secondary  navbar-expand-lg">
-    <div class="container-fluid">
-        <br>
-        <a href="/" class="navbar-brand">
-            <img src="{{ asset('assets/images/SINI-BANG-Kanan-Biru.png') }}" alt="Logo Kemenkumham" class="img-fluid"  width="600px">
+    <div class="container-fluid flex-nowrap">
+        <a href="/" class="navbar-brand align-self-start">
+            <img src="{{ asset('assets/images/SINI-BANG-Kanan-Biru.png') }}" alt="Logo Kemenkumham" class="img-fluid"  width="500px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
