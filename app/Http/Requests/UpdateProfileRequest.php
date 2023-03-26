@@ -13,6 +13,7 @@ class UpdateProfileRequest extends FormRequest
             'no_ktp' => ['numeric'],
             'phone' => ['starts_with:08,+62'],
             'email' => ['email'],
+            'job_title' => ['sometimes','string'],
             'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
         ];
     }

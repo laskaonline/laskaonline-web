@@ -23,40 +23,8 @@ class ProfileController extends Controller
         return view('user.profile', compact('user'));
     }
 
-    public function update(UpdateProfileRequest $request, UpdateProfileAdminRequest $request_admin)
+    public function update(UpdateProfileRequest $request)
     {
-        if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
-            $user = Auth::user();
-
-            $name = $request_admin->name;
-            $no_ktp = $request_admin->no_ktp;
-            $phone = $request_admin->phone;
-            $email = $request_admin->email;
-            $job_title = $request_admin->job_title;
-            $gender = $request_admin->gender;
-            $address = $request_admin->address;
-
-            $user->name = $name;
-            $user->no_ktp = $no_ktp;
-            $user->phone = $phone;
-            $user->email = $email;
-            $user->job_title = $job_title;
-            $user->gender = $gender;
-            $user->address = $address;
-
-            if ($request->hasFile('photo')) {
-                if ($user->photo !== null) {
-                    Storage::delete($user->photo);
-                }
-                $path = $request->file('photo')->store('user');
-                $user->photo = $path;
-            }
-
-            $user->save();
-
-            return back()->with('success', 'Profil berhasil di ubah');
-        }
-
         $user = Auth::user();
 
         $name = $request->name;
@@ -65,6 +33,7 @@ class ProfileController extends Controller
         $email = $request->email;
         $gender = $request->gender;
         $address = $request->address;
+        $job_title = $request->job_title;
 
         $user->name = $name;
         $user->no_ktp = $no_ktp;
@@ -72,9 +41,14 @@ class ProfileController extends Controller
         $user->email = $email;
         $user->gender = $gender;
         $user->address = $address;
+        if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
+            $user->job_title = $job_title;
+        }
 
         if ($request->hasFile('photo')) {
-            Storage::delete($user->photo);
+            if ($user->photo !== null) {
+                Storage::delete($user->photo);
+            }
             $path = $request->file('photo')->store('user');
             $user->photo = $path;
         }
