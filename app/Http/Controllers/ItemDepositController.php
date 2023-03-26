@@ -43,8 +43,8 @@ class ItemDepositController extends Controller
         // $request->dd();
 
         $data['date_deposit']   = date('Y-m-d', strtotime($request->date_deposit));
-        $data['photo_visitor']  = $request->file('photo_visitor')->store('item_deposit');
-        $data['family_card']    = $request->file('family_card')->store('item_deposit');
+        $data['photo_visitor']  = $request->file('photo_visitor')->store('photo_visitor');
+        $data['family_card']    = $request->file('family_card')->store('family_card');
 
         DB::beginTransaction();
 
