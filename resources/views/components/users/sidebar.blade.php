@@ -20,7 +20,7 @@
                         <span class="badge badge-danger">No Foto</span>
                     @endif
                 @else
-                    <p>Anda Belem Login</p>
+                    <p>Anda Belum Login</p>
                 @endif
                 
             </div>
@@ -29,7 +29,7 @@
                     @if (auth()->check())
                         <p><strong>{{ auth()->user()->name }}</strong></p>
                     @else
-                        <p>Anda Belem Login</p>
+                        <p>Anda Belum Login</p>
                     @endif
             </div>
         </div>
