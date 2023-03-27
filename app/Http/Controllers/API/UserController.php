@@ -11,7 +11,7 @@ class UserController extends Controller
     public function show()
     {
         $user = Auth::user();
-        $user->role_name = $user->roles()->first()->value('name');
+        $user->role_name = $user->roles()->first()->name;
 
         return response()->json([
             'status' => 'success',
