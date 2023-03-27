@@ -12,7 +12,7 @@
                         @if (auth()->check())
                             {{ auth()->user()->name }}
                         @else
-                            Anda Belem Login
+                            Anda Belum Login
                         @endif
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
