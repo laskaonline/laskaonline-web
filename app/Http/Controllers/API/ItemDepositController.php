@@ -14,7 +14,7 @@ class ItemDepositController extends Controller
     public function index()
     {
         $item_deposits = ItemDeposit::with(['items', 'approvals'])
-            ->when(auth()->user()->hasRole('admin'), fn ($q) => $q->whereBelongsTo(auth()->user()))
+            ->when(auth()->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo(auth()->user()))
             ->get();
 
         return response()->json([
