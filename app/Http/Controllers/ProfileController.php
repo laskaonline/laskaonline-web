@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UpdateProfileAdminRequest;
 use App\Http\Requests\UpdateProfileRequest;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -49,7 +46,7 @@ class ProfileController extends Controller
             if ($user->photo !== null) {
                 Storage::delete($user->photo);
             }
-            $path = $request->file('photo')->store('user');
+            $path = $request->file('photo')->store('user', 'web-file');
             $user->photo = $path;
         }
 
