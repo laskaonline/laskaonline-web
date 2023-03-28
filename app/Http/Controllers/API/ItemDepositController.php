@@ -5,14 +5,17 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreItemDepositRequest;
 use App\Models\ItemDeposit;
-use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ItemDepositController extends Controller
 {
     public function index()
     {
-        $item_deposits = ItemDeposit::with(['items', 'approvals'])->whereBelongsTo(auth()->user())->get();
+        $item_deposits = ItemDeposit::with(['items', 'approvals'])
+            ->when(auth()->user()->hasRole('admin'), fn ($q) => $q->whereBelongsTo(auth()->user()))
+            ->get();
 
         return response()->json([
             'data' => $item_deposits,
@@ -39,8 +42,17 @@ class ItemDepositController extends Controller
                 'state' => '0',
             ]);
 
-            $item_deposit->items()->createMany($request['items']);
+            $itemArray = collect($request->items)->map(function ($item) {
+                $photo_path = Storage::putFile('item-deposit', $item['photo']);
 
+                return [
+                    'name' => $item['name'],
+                    'amount' => $item['amount'],
+                    'photo' => $photo_path
+                ];
+            });
+
+            $item_deposit->items()->createMany($itemArray);
             return response()->json([
                 'data' => $item_deposit->load(['items', 'approvals']),
                 'message' => 'success'
