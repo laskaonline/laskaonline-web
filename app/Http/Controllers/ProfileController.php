@@ -10,12 +10,11 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
-            $user = auth()->user();
+        $user = auth()->user();
 
+        if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
             return view('admin.profile', compact('user'));
         }
-        $user = auth()->user();
 
         return view('user.profile', compact('user'));
     }

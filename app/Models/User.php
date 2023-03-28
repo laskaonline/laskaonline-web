@@ -15,6 +15,7 @@ use Illuminate\Notifications\DatabaseNotification;
 use Illuminate\Notifications\DatabaseNotificationCollection;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Sanctum\PersonalAccessToken;
 use Spatie\Permission\Models\Permission;
@@ -39,7 +40,9 @@ use Spatie\Permission\Traits\HasRoles;
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
- * @property-read Collection<int, GuestBook> $guestBook
+ * @property-read Collection<int, \App\Models\ItemDeposit> $deposits
+ * @property-read int|null $deposits_count
+ * @property-read Collection<int, \App\Models\GuestBook> $guestBook
  * @property-read int|null $guest_book_count
  * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
  * @property-read int|null $notifications_count
@@ -49,9 +52,9 @@ use Spatie\Permission\Traits\HasRoles;
  * @property-read int|null $roles_count
  * @property-read Collection<int, PersonalAccessToken> $tokens
  * @property-read int|null $tokens_count
- * @property-read Collection<int, Wartelsuspas> $wartelsuspas
+ * @property-read Collection<int, \App\Models\Wartelsuspas> $wartelsuspas
  * @property-read int|null $wartelsuspas_count
- * @method static UserFactory factory($count = null, $state = [])
+ * @method static \Database\Factories\UserFactory factory($count = null, $state = [])
  * @method static Builder|User newModelQuery()
  * @method static Builder|User newQuery()
  * @method static Builder|User permission($permissions)
@@ -72,14 +75,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User wherePhoto($value)
  * @method static Builder|User whereRememberToken($value)
  * @method static Builder|User whereUpdatedAt($value)
- * @property-read Collection<int, \App\Models\ItemDeposit> $deposits
- * @property-read int|null $deposits_count
- * @property-read Collection<int, \App\Models\GuestBook> $guestBook
- * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
- * @property-read Collection<int, Permission> $permissions
- * @property-read Collection<int, Role> $roles
- * @property-read Collection<int, PersonalAccessToken> $tokens
- * @property-read Collection<int, \App\Models\Wartelsuspas> $wartelsuspas
  * @mixin Eloquent
  */
 class User extends Authenticatable
@@ -108,10 +103,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function photoUrl()
+    public function photoUrl(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->photo ? asset('storage/' . $this->photo) : asset('images/default.png'),
+            get: fn() => $this->photo ? Storage::disk('web-file')->get($this->photo) : asset('images/default.png'),
         );
     }
 
