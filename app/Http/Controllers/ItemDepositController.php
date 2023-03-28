@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreItemDepositRequest;
 use App\Models\Deposit;
 use App\Models\ItemDeposit;
+use App\Models\ItemDepositApprove;
 use Exception;
 use Log;
 use Illuminate\Http\Request;
@@ -86,9 +87,17 @@ class ItemDepositController extends Controller
     public function show(ItemDeposit $item_deposit)
     {
         if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
-            return view('admin.detail_item_deposit', compact('item_deposit'));
+
+            $data = [
+                'dataApproveItemDeposit'   => ItemDepositApprove::with('user')->where('item_deposit_id', $item_deposit->id)->orderBy('created_at', 'ASC')->get()
+            ];
+
+            return view('admin.detail_item_deposit', $data, compact('item_deposit'));
         }
-        return view('user.detail-titip-barang', compact('item_deposit'));
+        $data = [
+            'dataApproveItemDeposit'   => ItemDepositApprove::with('user')->where('item_deposit_id', $item_deposit->id)->orderBy('created_at', 'ASC')->get()
+        ];
+        return view('user.detail-titip-barang', $data, compact('item_deposit'));
     }
 
     public function edit($id)

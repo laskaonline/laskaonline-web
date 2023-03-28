@@ -149,7 +149,8 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
                 <h2>Data Barang</h2>
@@ -192,6 +193,54 @@
                                         @else
                                         <span class="badge badge-danger">No Foto</span>
                                         @endif
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12 pb-4">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Status Validasi Barang</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <div class="card-box table-responsive">
+                    <table class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Divalidasi Oleh</th>
+                                <th>Foto Kondisi Barang</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="itemlist">
+                            @foreach ($dataApproveItemDeposit as $ApproveItemDeposit)
+                                <tr>
+                                    <td><input type="text" name="name_user" required="required" class="form-control
+                                        @error('name_user')
+                                            is-invalid
+                                        @enderror"
+                                        value="{{ $ApproveItemDeposit->user->name}}"
+                                            readonly>
+                                    </td>
+                                    <td>
+                                        @if ($ApproveItemDeposit->photo)
+                                        <img src="{{ asset('storage/' . $ApproveItemDeposit->photo) }}" class="img-thumbnail" style="max-width:100px">
+                                        @else
+                                        <span class="badge badge-danger">No Foto</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        {{ "Approve $loop->iteration" }}
                                     </td>
                                 </tr>
                             @endforeach

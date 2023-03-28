@@ -33,4 +33,13 @@ class ItemDepositApprove extends Model
 
     protected $table    = 'item_deposit_approve';
     protected $guarded  = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+    public function itemDeposit()
+    {
+        return $this->belongsTo(ItemDeposit::class, 'item_deposit_id', 'id');
+    }
 }

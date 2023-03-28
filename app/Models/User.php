@@ -124,4 +124,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(ItemDeposit::class, 'created_by', 'id');
     }
+
+    public function itemDepositApprove(): HasMany
+    {
+        return $this->hasMany(ItemDepositApprove::class, 'user_id', 'id');
+    }
 }
