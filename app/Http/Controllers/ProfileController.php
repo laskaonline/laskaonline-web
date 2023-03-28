@@ -49,7 +49,7 @@ class ProfileController extends Controller
             if ($user->photo !== null) {
                 Storage::delete($user->photo);
             }
-            $path = $request->file('photo')->storeAs('user', 'local');
+            $path = $request->file('photo')->store('user');
             $user->photo = $path;
         }
 
