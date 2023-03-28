@@ -31,7 +31,7 @@
                                 Pengunjung</label>
                             <div class="col-md-6 col-sm-6 ">
                                 @if ($user->photo !==null)
-                                    <img src="{{ asset('storage/' . $user->photo) }}" class="img-thumbnail"
+                                    <img src="{{ asset('file/images/user/' . $user->photo) }}" class="img-thumbnail"
                                          style="width:30%">
                                 @else
                                     <span class="badge badge-danger">No Foto</span>
@@ -93,19 +93,20 @@
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-sm-3 label-align">Jenis Kelamin </label>
-                                <div class="col-sm-6">
-                                    <div class="form-check">
-                                        <input type="radio" class="flat" name="gender" id="Laki-laki"
-                                               value="Laki-Laki" @checked(old('gender',  $user->gender === 'Laki-Laki'))/>
-                                        Laki-Laki:
-                                        <input type="radio" class="flat" name="gender" id="Perempuan" value="Perempuan"
-                                               @checked(old('gender', $user->gender === 'Perempuan')) required/>
-                                        Perempuan:
-                                    </div>
+                            <div class="col-sm-6">
+                                <div class="form-check">
+                                    <input type="radio" class="flat" name="gender" id="Laki-laki"
+                                           value="Laki-Laki" @checked(old('gender',  $user->gender === 'Laki-Laki'))/>
+                                    Laki-Laki:
+                                    <input type="radio" class="flat" name="gender" id="Perempuan" value="Perempuan"
+                                           @checked(old('gender', $user->gender === 'Perempuan')) required/>
+                                    Perempuan:
                                 </div>
+                            </div>
                         </div>
                         <div class="item form-group">
-                            <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Jabatan</label>
+                            <label for="middle-name"
+                                   class="col-form-label col-md-3 col-sm-3 label-align">Jabatan</label>
                             <div class="col-md-6 col-sm-6 ">
                                 <input type="text" name="job_title"
                                        class="form-control
