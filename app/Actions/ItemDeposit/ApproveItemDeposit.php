@@ -5,6 +5,7 @@ namespace App\Actions\ItemDeposit;
 use App\Models\ItemDeposit;
 use App\Models\ItemDepositApprove;
 use Exception;
+use Illuminate\Support\Facades\Storage;
 
 class ApproveItemDeposit
 {
@@ -20,9 +21,13 @@ class ApproveItemDeposit
             throw new Exception('Barang ini sudah disetujui oleh 3 petugas');
         }
 
-        return $itemDeposit->approvals()->updateOrCreate([
-            'user_id' => auth()->id(),
-        ],
+        $photo_path = Storage::putFile('item-deposit', $data['photo']);
+        $data['photo'] = $photo_path;
+
+        return $itemDeposit->approvals()->updateOrCreate(
+            [
+                'user_id' => auth()->id(),
+            ],
             $data
         );
     }
