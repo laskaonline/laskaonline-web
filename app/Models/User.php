@@ -106,7 +106,7 @@ class User extends Authenticatable
     public function photoUrl(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this->photo ? Storage::disk('web-file')->get($this->photo) : asset('images/default.png'),
+            get: fn() => $this->photo ? Storage::url($this->photo) : asset('images/default.png'),
         );
     }
 
