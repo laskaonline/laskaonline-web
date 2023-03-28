@@ -54,11 +54,11 @@ class ItemDepositController extends Controller
             });
 
             $item_deposit->items()->createMany($itemArray);
-            return response()->json([
-                'data' => $item_deposit->load(['items', 'approvals']),
-                'message' => 'success'
-            ]);
         });
+
+        return response()->json([
+            'message' => 'success'
+        ]);
     }
 
     public function show(ItemDeposit $itemDeposit)
