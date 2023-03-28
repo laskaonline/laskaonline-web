@@ -35,12 +35,12 @@ return [
             'root' => public_path('app/public'),
             'throw' => false,
         ],
-        'web-file' => [
-            'driver' => 'local',
-            'root' => '/home/sini4363/public_html/file',
-            'url' => 'https://sini-bang.com/file',
-            'visibility' => 'public',
-        ],
+//        'web-file' => [
+//            'driver' => 'local',
+//            'root' => '/home/sini4363/public_html/file',
+//            'url' => 'https://sini-bang.com/file',
+//            'visibility' => 'public',
+//        ],
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
