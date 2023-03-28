@@ -35,7 +35,7 @@ Route::get('/storage-link', function () {
 
 Route::get('/file-link', function () {
     $targetFolder = public_path('file');
-    $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/storage';
+    $linkFolder = $_SERVER['DOCUMENT_ROOT'] . '/file';
     symlink($targetFolder, $linkFolder);
 });
 
