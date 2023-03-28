@@ -15,6 +15,7 @@ class ItemDepositController extends Controller
     {
         $item_deposits = ItemDeposit::with(['items', 'approvals'])
             ->when(auth()->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo(auth()->user()))
+            ->orderBy('created_at', 'desc')
             ->get();
 
         return response()->json([
@@ -26,8 +27,8 @@ class ItemDepositController extends Controller
     public function store(StoreItemDepositRequest $request)
     {
         $data['date_deposit'] = date('Y-m-d', strtotime($request->date_deposit));
-        $data['photo_visitor'] = $request->file('photo_visitor')->store('item_deposit');
-        $data['family_card'] = $request->file('family_card')->store('item_deposit');
+        $data['photo_visitor'] = $request->file('photo_visitor')->store('item-deposit');
+        $data['family_card'] = $request->file('family_card')->store('item-deposit');
 
         DB::transaction(function () use ($request, $data) {
             $item_deposit = auth()->user()->deposits()->create([
