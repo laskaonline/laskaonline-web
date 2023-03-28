@@ -10,8 +10,6 @@ use App\Http\Controllers\API\ItemDepositController;
 use App\Http\Controllers\API\ManageUserController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\WartelsuspasController;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +25,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/register', [RegisterController::class, 'register'])->name('register');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::middleware(['role:admin|superior'])->prefix('admin')->name('admin.')->group(function () {
