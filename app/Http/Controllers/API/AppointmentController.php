@@ -12,12 +12,10 @@ class AppointmentController extends Controller
 {
     public function index()
     {
-        if (auth()->user()->hasAnyRole('admin', 'superior')) {
-            $appointments = Appointment::with('user')->get();
-            return response()->json($appointments);
-        }
+        $appointments = auth()->user()->hasAnyRole('admin', 'superior')
+            ? Appointment::with('user')->get()
+            : Appointment::whereBelongsTo(auth()->user())->get();
 
-        $appointments = Appointment::whereBelongsTo(auth()->user())->get();
         return response()->json([
             'status' => 'success',
             'data' => $appointments
