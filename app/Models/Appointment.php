@@ -69,4 +69,9 @@ class Appointment extends Model
     {
         return $this->belongsTo(User::class, 'created_by', 'id');
     }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'approve_by', 'id');
+    }
 }

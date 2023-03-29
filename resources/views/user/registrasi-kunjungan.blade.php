@@ -9,9 +9,8 @@
     </div>
 
     <div class="clearfix"></div>
-
-    <div class="col-md-12 col-sm-12 ">
-        <form method="POST" action="{{ route('appointment.store') }}" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+    <form method="POST" action="{{ route('appointment.store') }}" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
+        <div class="col-md-12 col-sm-12 ">
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -171,7 +170,7 @@
                 </div>
             </div>
             <x-honeypot />
-            <button class='btn btn-block btn-success text-white'><i class="fa fa-save px-2"></i> Submit Pengajuan</button>
-        </form>
-    </div>
+            <button class='btn btn-block btn-success text-white'><i class="fa fa-save px-2"></i> Submit Pengajuan</button>  
+        </div>
+    </form>
 @endsection

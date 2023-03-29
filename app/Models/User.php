@@ -106,7 +106,7 @@ class User extends Authenticatable
     public function photoUrl(): Attribute
     {
         return Attribute::make(
-            get: fn() => $this->photo ? Storage::url($this->photo) : asset('images/default.png'),
+            get: fn () => $this->photo ? Storage::url($this->photo) : asset('images/default.png'),
         );
     }
 
@@ -128,5 +128,10 @@ class User extends Authenticatable
     public function itemDepositApprove(): HasMany
     {
         return $this->hasMany(ItemDepositApprove::class, 'user_id', 'id');
+    }
+
+    public function appointmentApprove(): HasMany
+    {
+        return $this->hasMany(Appointment::class, 'approve_by', 'id');
     }
 }

@@ -13,12 +13,12 @@ class AppointmentController extends Controller
     {
         if (auth()->user()->hasAnyRole(['admin', 'superior'])) {
             $data = [
-                'dataAppointment' => Appointment::orderBy('created_at', 'desc')->get()
+                'dataAppointment' => Appointment::with('user')->orderBy('created_at', 'desc')->get()
             ];
             return view('admin.queue_number', $data);
         } else {
             $data = [
-                'dataAppointment' => Appointment::where('created_by', Auth::id())->orderBy('created_at', 'desc')->get()
+                'dataAppointment' => Appointment::with('user')->where('created_by', Auth::id())->orderBy('created_at', 'desc')->get()
             ];
             return view('user.kunjungan', $data);
         }

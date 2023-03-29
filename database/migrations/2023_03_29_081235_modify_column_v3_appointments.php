@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('appointments', function (Blueprint $table) {
-            $table->foreignId('approve_by')->references('id')->on('users')->after('state')->nullable();
-            $table->date('approve_date')->after('approve_by')->nullable();
+            $table->foreignId('approve_by')->after('state')->nullable()->references('id')->on('users');
+            $table->dateTime('approve_date')->after('approve_by')->nullable();
         });
     }
 

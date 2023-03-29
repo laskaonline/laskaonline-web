@@ -162,6 +162,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
                 <h2>Jumlah Pengikut</h2>
@@ -211,6 +213,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
                 <h2>Data Barang</h2>
@@ -262,9 +266,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Status Approvaal</h2>
+                <h2>Status Kedatangan</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -280,27 +286,24 @@
                                 <th>Jam Kedatangan</th>
                             </tr>
                         </thead>
-
-                        {{-- <tbody id="itemlist">
-                            @foreach ($appointment->items()->get() as $item)
-                                <tr>
-                                    <td><input type="text" name="name" required="required" class="form-control
-                                        @error('name')
-                                            is-invalid
-                                        @enderror"
-                                        value="{{ $item->name }}"
-                                            readonly>
-                                    </td>
-                                    <td><input type="text" name="amount" required="required" class="form-control
-                                        @error('amount')
-                                            is-invalid
-                                        @enderror"
-                                        value="{{ $item->amount }}"
-                                            readonly>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody> --}}
+                        <tbody>
+                            <tr>
+                                <td><input type="text" name="female_followers" required="required" class="form-control 
+                                    @error('female_followers')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $appointment->user->name }}"
+                                        readonly>
+                                </td>
+                                <td><input type="text" name="child_followers" required="required" class="form-control 
+                                    @error('child_followers')
+                                        is-invalid
+                                    @enderror"
+                                    value="{{ $appointment->approve_date }}"
+                                        readonly>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>
