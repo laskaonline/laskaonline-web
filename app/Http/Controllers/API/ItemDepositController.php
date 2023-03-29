@@ -11,11 +11,17 @@ use Illuminate\Support\Facades\Storage;
 
 class ItemDepositController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $limit  = $request->query('limit', 10);
+        $offset = $request->query('offset', 0);
+        $sortBy = $request->query('sortBy', 'DESC');
+
         $item_deposits = ItemDeposit::with(['items', 'approvals'])
             ->when(auth()->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo(auth()->user()))
-            ->orderBy('created_at', 'desc')
+            ->limit($limit)
+            ->offset($offset)
+            ->orderBy('created_at', $sortBy)
             ->get();
 
         return response()->json([
