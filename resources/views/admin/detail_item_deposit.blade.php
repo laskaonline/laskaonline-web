@@ -103,7 +103,7 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Kartu
                                 Keluarga</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <a href="{{ asset('storage/' . $item_deposit->family_card) }}" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
+                                <a href="{{ asset('file/' . $item_deposit->family_card) }}" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
                                     Download</a>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                 <div class="x_content">
                     <div class="col-md-6 col-sm-6">
                         @if ($item_deposit->photo_visitor)
-                            <img src="{{ asset('storage/' . $item_deposit->photo_visitor) }}" class="img-thumbnail" style="width:100%">
+                            <img src="{{ asset('file/' . $item_deposit->photo_visitor) }}" class="img-thumbnail" style="width:100%">
                         @else
                         <span class="badge badge-danger">No Foto</span>
                         @endif
@@ -188,7 +188,7 @@
                                     </td>
                                     <td>
                                         @if ($item->photo)
-                                        <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail" style="max-width:100px">
+                                        <img src="{{ asset('file/' . $item->photo) }}" class="img-thumbnail" style="max-width:100px">
                                         @else
                                         <span class="badge badge-danger">No Foto</span>
                                         @endif
@@ -234,7 +234,7 @@
                                     </td>
                                     <td>
                                         @if ($ApproveItemDeposit->photo)
-                                        <img src="{{ asset('storage/' . $ApproveItemDeposit->photo) }}" class="img-thumbnail" style="max-width:100px">
+                                        <img src="{{ asset('file/' . $ApproveItemDeposit->photo) }}" class="img-thumbnail" style="max-width:100px">
                                         @else
                                         <span class="badge badge-danger">No Foto</span>
                                         @endif

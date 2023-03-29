@@ -31,7 +31,7 @@
                                 Pengunjung</label>
                             <div class="col-md-6 col-sm-6 ">
                                 @if ($visitor->photo !==null)
-                                    <img src="{{ asset('storage/' . $visitor->photo) }}" class="img-thumbnail"
+                                    <img src="{{ asset('file/' . $visitor->photo) }}" class="img-thumbnail"
                                          style="width:30%">
                                 @else
                                     <span class="badge badge-danger">No Foto</span>

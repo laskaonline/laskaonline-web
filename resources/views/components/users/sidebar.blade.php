@@ -14,7 +14,7 @@
             <div class="profile_pic col">
                 @if (auth()->check())
                     @if (auth()->user()->photo)
-                        <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="..."
+                        <img src="{{ asset('file/images/user/' . auth()->user()->photo) }}" alt="..."
                             class="img-thumbnail profile_img" style="width:100%">
                     @else
                         <span class="badge badge-danger">No Foto</span>

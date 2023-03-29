@@ -30,8 +30,8 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Foto
                                 Pengunjung</label>
                             <div class="col-md-6 col-sm-6 ">
-                                @if ($user->photo !==null)
-                                    <img src="{{ $user->photo_url }}" class="img-thumbnail"
+                                @if ($user->photo !== null)
+                                    <img src="{{ asset('file/images/user/' . $user->photo) }}" class="img-thumbnail"
                                          style="width:30%">
                                 @else
                                     <span class="badge badge-danger">No Foto</span>
