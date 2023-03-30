@@ -267,46 +267,48 @@
             </div>
         </div>
     </div>
-    <div class="col-md-12 col-sm-12 ">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Status Kedatangan</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
-                <div class="card-box table-responsive">
-                    <table class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Valdasi Kedatangan Oleh</th>
-                                <th>Jam Kedatangan</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><input type="text" name="female_followers" required="required" class="form-control 
-                                    @error('female_followers')
-                                        is-invalid
-                                    @enderror"
-                                    value="{{ $appointment->user->name }}"
-                                        readonly>
-                                </td>
-                                <td><input type="text" name="child_followers" required="required" class="form-control 
-                                    @error('child_followers')
-                                        is-invalid
-                                    @enderror"
-                                    value="{{ $appointment->approve_date }}"
-                                        readonly>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+    @if ($appointment->state != "0")        
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Status Kedatangan</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <div class="card-box table-responsive">
+                        <table class="table table-striped table-bordered" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Valdasi Kedatangan Oleh</th>
+                                    <th>Jam Kedatangan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" name="female_followers" required="required" class="form-control 
+                                        @error('female_followers')
+                                            is-invalid
+                                        @enderror"
+                                        value="{{ $appointment->user->name }}"
+                                            readonly>
+                                    </td>
+                                    <td><input type="text" name="child_followers" required="required" class="form-control 
+                                        @error('child_followers')
+                                            is-invalid
+                                        @enderror"
+                                        value="{{ $appointment->approve_date }}"
+                                            readonly>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    @endif
 @endsection
