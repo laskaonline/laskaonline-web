@@ -9,8 +9,9 @@ use Request;
 
 class RegisterController extends Controller
 {
-    public function apiregister(RegisterUserRequest $request)
+    public function store(RegisterUserRequest $request)
     {
+        dd($request->all());
         $user = User::create($request->validated());
 
         $token = $user->createToken('mobile-app')->plainTextToken;
