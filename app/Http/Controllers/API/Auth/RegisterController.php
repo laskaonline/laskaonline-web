@@ -9,7 +9,7 @@ use Request;
 
 class RegisterController extends Controller
 {
-    public function register(RegisterUserRequest $request)
+    public function apiregister(RegisterUserRequest $request)
     {
         $user = User::create($request->validated());
 
