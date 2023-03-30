@@ -23,8 +23,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/api/login', [LoginController::class, 'apilogin'])->name('login');
-Route::post('/api/register', [RegisterController::class, 'apiregister'])->name('register');
+Route::post('/api/login', [LoginController::class, 'apilogin'])->name('apilogin');
+Route::post('/api/register', [RegisterController::class, 'apiregister'])->name('apiregister');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::middleware(['role:admin|superior'])->prefix('admin')->name('admin.')->group(function () {
