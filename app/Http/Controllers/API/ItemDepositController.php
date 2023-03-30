@@ -16,9 +16,11 @@ class ItemDepositController extends Controller
         $limit  = $request->query('limit', 10);
         $offset = $request->query('offset', 0);
         $sortBy = $request->query('sortBy', 'DESC');
+        $hasApproval = $request->query('hasApproval', null);
 
         $item_deposits = ItemDeposit::with(['items', 'approvals'])
             ->when(auth()->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo(auth()->user()))
+            ->when($hasApproval, fn ($q) => $q->has('approvals'))
             ->limit($limit)
             ->offset($offset)
             ->orderBy('created_at', $sortBy)
@@ -26,7 +28,7 @@ class ItemDepositController extends Controller
 
         return response()->json([
             'data' => $item_deposits,
-            'message' => 'success'
+            'message' => 'success',
         ]);
     }
 
