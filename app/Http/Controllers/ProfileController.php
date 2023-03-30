@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -41,17 +42,12 @@ class ProfileController extends Controller
         }
 
         if ($request->hasFile('photo')) {
-            $path = 'images/user/';
-
-            if (!is_null($user->photo)) {
-                !file_exists('file/' . $path . $user->photo) ?: unlink('file/' . $path . $user->photo);
+            if ($user->photo !== null) {
+                Storage::delete($user->photo);
             }
 
-            $file = $request->file('photo');
-            $filename = str()->random(20) . '.' . $file->getClientOriginalExtension();
-            $file->storeAs($path, $filename, 'local');
-
-            $user->photo = $filename;
+            $path = $request->file('photo')->store('user');
+            $user->photo = $path;
         }
 
         $user->save();

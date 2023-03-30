@@ -31,7 +31,7 @@
                                 Admin</label>
                             <div class="col-md-6 col-sm-6 ">
                                 @if ($admin->photo !==null)
-                                    <img src="{{ asset('file/' . $admin->photo) }}" class="img-thumbnail"
+                                    <img src="{{ asset('storage/' . $admin->photo) }}" class="img-thumbnail"
                                          style="width:30%">
                                 @else
                                     <span class="badge badge-danger">No Foto</span>
