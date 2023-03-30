@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Register | Laska Online')
+@section('title', 'SINI-BANG | Lapas Sekayu')
 
 @section('content')
     <div class="vh-100 d-grid place-items-center">
@@ -11,7 +11,7 @@
             <div class="col col-lg-4">
                 <form action="{{ url('/register') }}" method="post" class="row gap-2">
                     <center>
-                    <img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham" class="img-fluid img-fluid min-w-100 w-75">
+                    <img src="{{ asset('/assets/images/kemenkumham-auth.png') }}" alt="Logo Kemenkumham" class="img-fluid img-fluid min-w-100 w-75 p-3">
                     </center>
                     @if ($errors->any())
                         <div class="alert alert-danger">

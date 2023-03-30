@@ -28,7 +28,7 @@
 
             <!-- footer content -->
             <footer class="container-fluid py-2 text-white d-flex align-items-center" style="background-color:#002858">
-                <span class="mx-auto">&copy; SINI-BANG 2023</span>
+                <span class="mx-auto">&copy; SINI-BANG | Lapas Kelas II.B Sekayu 2023</span>
             </footer>
             <!-- /footer content -->
         </div>

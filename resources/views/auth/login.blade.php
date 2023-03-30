@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Login | Laska Online')
+@section('title', 'SINI-BANG | Lapas Sekayu')
 
 @section('content')
     <div class="vh-100 d-grid place-items-center">
@@ -22,8 +22,8 @@
                         </div>
                     @endif
                     <center>
-                        <a href="/"><img src="{{ asset('/assets/images/kemenkumham-logo.png') }}" alt="Logo Kemenkumham"
-                            class="img-fluid min-w-100 w-75"></a>
+                        <a href="/"><img src="{{ asset('/assets/images/kemenkumham-auth.png') }}" alt="Logo Kemenkumham"
+                            class="img-fluid min-w-100 w-75 p-3"></a>
                     </center>
 
                     @csrf

@@ -19,8 +19,26 @@
             <div class="x_content">
                 <div class="row">
                     <div class="col-sm-12">
+                        <form method="POST" action="">
+                            @csrf
+                            <div class="col-sm-5">
+                                <div class="item form-group">
+                                    <label for="start_date">Start Date</label>
+                                    <input type="date" name="start_date" class="form-control" id="start_date" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="item form-group">
+                                    <label for="end_date">End Date</label>
+                                    <input type="date" name="end_date" class="form-control" id="end_date" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                            </div>
+                        </form>
+                        <hr>
                         <div class="card-box table-responsive">
-
                             <table id="example1" class="table table-striped table-bordered" style="width:100%">
                                 <thead>
                                     <tr>

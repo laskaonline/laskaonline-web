@@ -1,6 +1,6 @@
 @extends('layouts.main')
 @section('title')
-    Home | SINI-BANG
+SINI-BANG | Lapas Sekayu
 @endsection
 @section('content')
     <x-navbar />
