@@ -34,7 +34,10 @@
                                 </div>
                             </div>
                             <div class="col-sm-2">
-                                <button type="submit" class="btn btn-primary">Filter</button>
+                                <button type="submit" class="btn btn-primary" id="submit-btn">
+                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    Filter
+                                </button>
                             </div>
                         </form>
                         <hr>
@@ -78,4 +81,5 @@
             </div>
         </div>
     </div>
+    <div class="clearfix"></div>
 @endsection

@@ -63,7 +63,7 @@ class ItemDepositController extends Controller
             ]);
 
             $itemArray = collect($request->items)->map(function ($item) {
-                $photo_path = Storage::putFile('item-deposit', $item['photo']);
+                $photo_path = Storage::putFile('item_deposit', $item['photo']);
 
                 return [
                     'name' => $item['name'],

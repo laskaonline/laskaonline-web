@@ -109,9 +109,9 @@
                                 @enderror" readonly>{{ $visitor->address }}</textarea>
                             </div>
                         </div>
-                    
                 </div>
             </div>
         </div>
     </div>
+    <div class="clearfix"></div>
 @endsection
