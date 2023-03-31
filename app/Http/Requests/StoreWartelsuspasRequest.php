@@ -9,13 +9,13 @@ class StoreWartelsuspasRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name_wbp' => ['required', 'string'],
-            'bin_wbp' => ['required', 'string'],
-            'block_and_room' => ['required', 'string'],
+            'name_wbp'          => ['required', 'string'],
+            'bin_wbp'           => ['required', 'string'],
+            'block_and_room'    => ['required', 'string'],
             'destination_phone' => ['required', 'string', 'starts_with:0'],
-            'relationship' => ['required', 'string'],
-            'address' => ['required', 'string'],
-            'information' => ['required', 'string']
+            'relationship'      => ['required', 'string'],
+            'address'           => ['required', 'string'],
+            'information'       => ['required', 'string']
         ];
     }
 }
