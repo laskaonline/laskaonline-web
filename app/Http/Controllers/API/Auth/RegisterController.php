@@ -11,8 +11,8 @@ class RegisterController extends Controller
 {
     public function store(RegisterUserRequest $request)
     {
-        dd($request->all());
-        $user = User::create($request->validated());
+        $user = User::create($request->validated())
+            ->assignRole('visitor');
 
         $token = $user->createToken('mobile-app')->plainTextToken;
 
