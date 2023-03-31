@@ -1,4 +1,4 @@
-<!-- jQuery -->
+s<!-- jQuery -->
 <script src="{{ asset('/template_admin/vendors/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ asset('/template_admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
@@ -158,6 +158,18 @@
     });
     $('#reservationdate2').datetimepicker({
         format: 'L'
+    });
+</script>
+
+{{-- Loading --}}
+<script>
+    $('#submit-btn').click(function() {
+    // Show the spinner and disable the button
+    $(this).find('.spinner-border').removeClass('d-none');
+    $(this).prop('disabled', true);
+
+    // Submit the form
+    $('form').submit();
     });
 </script>
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Actions\Appointment\CreateAppointment;
 use App\Http\Requests\StoreAppointmentRequest;
 use App\Models\Appointment;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AppointmentController extends Controller
@@ -66,5 +68,18 @@ class AppointmentController extends Controller
 
     public function destroy(Appointment $kunjungan)
     {
+    }
+
+    public function filterByDate(Request $request)
+    {
+        $start_date = $request->input('start_date');
+        $end_date   = $request->input('end_date');
+
+        $filteredData = Appointment::whereBetween('created_at', [
+            Carbon::parse($start_date)->startOfDay(),
+            Carbon::parse($end_date)->endOfDay(),
+        ])->get();
+
+        return view('admin.filter_queue_number', ['data' => $filteredData]);
     }
 }

@@ -72,3 +72,15 @@
         format: 'L'
     });
 </script>
+
+{{-- Loading --}}
+<script>
+    $('#submit-btn').click(function() {
+    // Show the spinner and disable the button
+    $(this).find('.spinner-border').removeClass('d-none');
+    $(this).prop('disabled', true);
+
+    // Submit the form
+    $('form').submit();
+    });
+</script>

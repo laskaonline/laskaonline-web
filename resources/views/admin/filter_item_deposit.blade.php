@@ -86,7 +86,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($dataItemDeposit as $item_deposit)
+                                        @foreach ($data as $item_deposit)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
                                                 <td>{{ $item_deposit->id }}</td>

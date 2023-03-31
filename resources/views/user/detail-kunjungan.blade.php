@@ -311,4 +311,5 @@
             </div>
         </div>
     @endif
+    <div class="clearfix"></div>
 @endsection

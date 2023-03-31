@@ -10,11 +10,11 @@ class RegisterUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string'],
-            'nik' => ['required', 'string', 'between:16,17'],
-            'email' => ['required', 'email', 'unique:users,email'],
-            'phone' => ['required', 'starts_with:08,+62'],
-            'password' => ['required', 'confirmed', Password::min(8)->uncompromised(3)],
+            'name'      => ['required', 'string'],
+            'nik'       => ['required', 'string', 'between:16,17'],
+            'email'     => ['required', 'email', 'unique:users,email'],
+            'phone'     => ['required', 'starts_with:08,+62'],
+            'password'  => ['required', 'confirmed', Password::min(8)],
         ];
     }
 }

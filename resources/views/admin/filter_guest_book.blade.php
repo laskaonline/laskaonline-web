@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-title">
         <div class="title_left">
-            <h3>Daftar Kunjungan</h3>
+            <h3>Daftar Buku Tamu</h3>
         </div>
     </div>
 
@@ -12,18 +12,14 @@
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
-                <h2>History Kunjungan</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li></li>
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
+                <h2>Daftar Buku Tamu</h2>
+
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <form method="POST" action="{{ route('admin.appointment.filter') }}">
+                        <form method="POST" action="{{ route('admin.guest-book.filter') }}">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
                                     <ul>
@@ -79,38 +75,33 @@
                                 <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Id Transaksi</th>
-                                        <th>Nama WBP</th>
-                                        <th>Blok Kamar</th>
-                                        <th>Kasus</th>
-                                        <th>Hubungan</th>
-                                        <th>Tanggal Kunjungan</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Nama</th>
+                                        <th>Asal Instalasi/Institusi/Organisasi</th>
+                                        <th>NIK</th>
+                                        <th>Email</th>
+                                        <th>Tanggal</th>
+                                        <th>Acction</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($dataAppointment as $appointment )
+                                    @foreach ($data as $guestbook)
                                         <tr>
-                                            <td>{{ $loop->iteration }}</td>  
-                                            <td>{{ $appointment->id }}</td>
-                                            <td>{{ $appointment->name_wbp }}</td>
-                                            <td>{{ $appointment->room_block }}</td>
-                                            <td>{{ $appointment->case }}</td>
-                                            <td>{{ $appointment->relationship }}</td>
-                                            <td>{{ $appointment->visit_date }}</td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $guestbook->name }}</td>
+                                            <td>{{ $guestbook->origin }}</td>
+                                            <td>{{ $guestbook->nik }}</td>
+                                            <td>{{ $guestbook->email }}</td>
+                                            <td>{{ $guestbook->created_at }}</td>
                                             <td>
-                                                @if($appointment->state=="0")
-                                                    <b>Waiting</b>
-                                                @elseif($appointment->state=="1")
-                                                    <b>Done</b>
-                                                @endif
+                                                <a
+                                                    href="{{ route('admin.guest-book.show',['guest_book'=>$guestbook]) }}"
+                                                    type="button"
+                                                    class="btn btn-outline-primary"
+                                                    data-mdb-ripple-color="dark">
+                                                    Detail</a>
                                             </td>
-                                            <td><a href="{{ route('admin.appointment.show',['appointment'=>$appointment]) }}" type="button"
-                                                    class="btn btn-outline-primary" data-mdb-ripple-color="dark">
-                                                    Detail</a></td>
                                         </tr>
-                                    @endforeach   
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

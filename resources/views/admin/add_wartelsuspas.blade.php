@@ -84,11 +84,15 @@
                             </div>
                         </div>
                         <x-honeypot />
-                        <button type="submit" class='btn btn-block btn-success text-white'><i class="fa fa-save px-2"></i> Submit
-                            Wartelsuspas</button>
+                        <button type="submit" class='btn btn-block btn-success text-white' id="submit-btn">
+                            <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                            <i class="fa fa-save px-2"></i> 
+                            Submit Wartelsuspas
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <div class="clearfix"></div>
 @endsection

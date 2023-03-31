@@ -19,22 +19,54 @@
             <div class="x_content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('admin.guest-book.filter') }}">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>
+                                                {{ $error }}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             @csrf
                             <div class="col-sm-5">
                                 <div class="item form-group">
                                     <label for="start_date">Start Date</label>
-                                    <input type="date" name="start_date" class="form-control" id="start_date" required>
+                                    <input id="start_date" name="start_date" class="date-picker form-control" placeholder="dd-mm-yyyy"
+                                        type="text" required onfocus="this.type='date'" onmouseover="this.type='date'"
+                                        onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <script>
+                                        function timeFunctionLong(input) {
+                                            setTimeout(function() {
+                                                input.type = 'text';
+                                            }, 60000);
+                                        }
+                                    </script>
                                 </div>
                             </div>
                             <div class="col-sm-5">
                                 <div class="item form-group">
                                     <label for="end_date">End Date</label>
-                                    <input type="date" name="end_date" class="form-control" id="end_date" required>
+                                    <input id="end_date" name="end_date" class="date-picker form-control" placeholder="dd-mm-yyyy"
+                                        type="text" required onfocus="this.type='date'" onmouseover="this.type='date'"
+                                        onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                    <script>
+                                        function timeFunctionLong(input) {
+                                            setTimeout(function() {
+                                                input.type = 'text';
+                                            }, 60000);
+                                        }
+                                    </script>
                                 </div>
                             </div>
                             <div class="col-sm-2">
-                                <button type="submit" class="btn btn-primary">Filter</button>
+                                <button type="submit" class="btn btn-primary" id="submit-btn">
+                                    <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                    Filter
+                                </button>
                             </div>
                         </form>
                         <hr>
@@ -78,4 +110,5 @@
             </div>
         </div>
     </div>
+    <div class="clearfix"></div>
 @endsection

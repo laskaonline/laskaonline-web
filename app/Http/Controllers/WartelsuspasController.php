@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreWartelsuspasRequest;
 use App\Models\Wartelsuspas;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -67,5 +68,18 @@ class WartelsuspasController extends Controller
 
     public function destroy(Wartelsuspas $wartelsuspas)
     {
+    }
+
+    public function filterByDate(Request $request)
+    {
+        $start_date = $request->input('start_date');
+        $end_date   = $request->input('end_date');
+
+        $filteredData = Wartelsuspas::whereBetween('created_at', [
+            Carbon::parse($start_date)->startOfDay(),
+            Carbon::parse($end_date)->endOfDay(),
+        ])->get();
+
+        return view('admin.filter_wartelsuspas', ['data' => $filteredData]);
     }
 }
