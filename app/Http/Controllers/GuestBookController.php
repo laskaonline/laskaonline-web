@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGuestBookRequest;
 use App\Models\GuestBook;
+use Carbon\Carbon;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -32,15 +33,15 @@ class GuestBookController extends Controller
 
     public function store(StoreGuestBookRequest $request)
     {
-        $name = $request->name;
-        $origin = $request->origin;
-        $nik = $request->nik;
-        $address = $request->address;
-        $email = $request->email;
-        $phone = $request->phone;
-        $necessity = $request->necessity;
-        $photo = $request->file('photo');
-        $create_by = auth()->id();
+        $name       = $request->name;
+        $origin     = $request->origin;
+        $nik        = $request->nik;
+        $address    = $request->address;
+        $email      = $request->email;
+        $phone      = $request->phone;
+        $necessity  = $request->necessity;
+        $photo      = $request->file('photo');
+        $create_by  = auth()->id();
 
         if ($request->hasFile('photo')) {
             $path = Storage::putFile('guest_books', $photo);
@@ -49,15 +50,15 @@ class GuestBookController extends Controller
         }
 
         $data = new GuestBook;
-        $data->name = $name;
-        $data->origin = $origin;
-        $data->nik = $nik;
-        $data->address = $address;
-        $data->email = $email;
-        $data->phone = $phone;
-        $data->necessity = $necessity;
-        $data->photo = $path;
-        $data->created_by = $create_by;
+        $data->name         = $name;
+        $data->origin       = $origin;
+        $data->nik          = $nik;
+        $data->address      = $address;
+        $data->email        = $email;
+        $data->phone        = $phone;
+        $data->necessity    = $necessity;
+        $data->photo        = $path;
+        $data->created_by   = $create_by;
 
         $data->save();
 
@@ -81,5 +82,18 @@ class GuestBookController extends Controller
 
     public function destroy(GuestBook $guestBooks)
     {
+    }
+
+    public function filterByDate(Request $request)
+    {
+        $start_date = $request->input('start_date');
+        $end_date   = $request->input('end_date');
+
+        $filteredData = GuestBook::whereBetween('created_at', [
+            Carbon::parse($start_date)->startOfDay(),
+            Carbon::parse($end_date)->endOfDay(),
+        ])->get();
+
+        return view('admin.filter_guest_book', ['data' => $filteredData]);
     }
 }

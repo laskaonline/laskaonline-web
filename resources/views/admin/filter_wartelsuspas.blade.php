@@ -93,7 +93,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($dataWartelsuspas as $wartelsuspas)
+                                @foreach ($data as $wartelsuspas)
                                 <tr>
                                     <td>{{ $wartelsuspas->id }}</td>
                                     <td>{{ $wartelsuspas->name_wbp }}</td>

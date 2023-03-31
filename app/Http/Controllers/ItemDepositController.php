@@ -6,6 +6,7 @@ use App\Http\Requests\StoreItemDepositRequest;
 use App\Models\Deposit;
 use App\Models\ItemDeposit;
 use App\Models\ItemDepositApprove;
+use Carbon\Carbon;
 use Exception;
 use Log;
 use Illuminate\Http\Request;
@@ -110,5 +111,18 @@ class ItemDepositController extends Controller
 
     public function destroy($id)
     {
+    }
+
+    public function filterByDate(Request $request)
+    {
+        $start_date = $request->input('start_date');
+        $end_date   = $request->input('end_date');
+
+        $filteredData = ItemDeposit::whereBetween('created_at', [
+            Carbon::parse($start_date)->startOfDay(),
+            Carbon::parse($end_date)->endOfDay(),
+        ])->get();
+
+        return view('admin.filter_item_deposit', ['data' => $filteredData]);
     }
 }

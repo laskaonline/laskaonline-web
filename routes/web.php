@@ -52,19 +52,23 @@ Route::middleware(['auth:web'])->group(function () {
         // Admin Penitipan Barang
         Route::resource('/item-deposit', ItemDepositController::class);
         Route::post('/item-deposit/{deposit}/approve', ApproveDepositController::class)->name('item-deposit.approve');
+        Route::post('/item-deposit/filter', [ItemDepositController::class, 'filterByDate'])->name('item-deposit.filter');
 
         // Admin Antrian
         Route::resource('/appointment', AppointmentController::class);
         Route::post('/appointment/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
+        Route::post('/appointment/filter', [AppointmentController::class, 'filterByDate'])->name('appointment.filter');
 
         // Admin Wartelsuspas
         Route::get('/wartelsuspas', [WartelsuspasController::class, 'index'])->name('wartelsuspas.index');
         Route::get('/wartelsuspas/create', [WartelsuspasController::class, 'create'])->name('wartelsuspas.create');
         Route::post('/wartelsuspas/store', [WartelsuspasController::class, 'store'])->name('wartelsuspas.store');
         Route::get('/wartelsuspas/{wartelsuspas}', [WartelsuspasController::class, 'show'])->name('wartelsuspas.show');
+        Route::post('/guest-wartelsuspas/filter', [WartelsuspasController::class, 'filterByDate'])->name('wartelsuspas.filter');
 
         // Admin Buku Tamu
         Route::resource('/guest-book', GuestBookController::class);
+        Route::post('/guest-book/filter', [GuestBookController::class, 'filterByDate'])->name('guest-book.filter');
     });
     // Dashboard Visitor
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
