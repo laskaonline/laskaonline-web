@@ -3,7 +3,7 @@
 @section('content')
     <div class="page-title">
         <div class="title_left">
-            <h3>Filter Daftar Kunjungan</h3>
+            <h3>Daftar Kunjungan</h3>
         </div>
     </div>
 
@@ -12,7 +12,7 @@
     <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Filter History Kunjungan</h2>
+                <h2>History Kunjungan</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li></li>
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>

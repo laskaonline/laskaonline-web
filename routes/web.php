@@ -5,6 +5,7 @@ use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ApproveAppointmentController;
 use App\Http\Controllers\ApproveDepositController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GuestBookController;
 use App\Http\Controllers\ItemDepositController;
@@ -82,6 +83,7 @@ Route::middleware(['auth:web'])->group(function () {
     // Profil Visitor
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [ProfileController::class, 'update'])->middleware(['honeypot'])->name('profile.update');
+    Route::post('/password/update', [ChangePasswordController::class, 'update'])->name('password.update');
 });
 
 // Buku Tamu Public
