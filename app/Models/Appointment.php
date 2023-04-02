@@ -18,7 +18,7 @@ use Illuminate\Support\Carbon;
  * @property string $name_wbp
  * @property string $case
  * @property string $relationship
- * @property string $date_deposit
+ * @property string $visit_date
  * @property string $problem perkara
  * @property string $photo_visitor
  * @property string $family_card

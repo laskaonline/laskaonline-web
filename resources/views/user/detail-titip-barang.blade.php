@@ -1,7 +1,8 @@
 @extends('layouts.users.app')
 
 @section('content')
-<a href="https://survei.balitbangham.go.id/ly/K1C9pQsg" type="button" class="btn btn-warning text-red col-md-12 col-sm-12" target="_blank">Beri Rating Penilaian</a>
+    <a href="https://survei.balitbangham.go.id/ly/K1C9pQsg" type="button" class="btn btn-warning text-red col-md-12 col-sm-12"
+        target="_blank">Beri Rating Penilaian</a>
     <div class="page-title">
         <div class="title_left">
             <h3> Detail Titip barang
@@ -29,11 +30,12 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama WBP
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input type="text" name="name_wbp" required="required" class="form-control 
+                                <input type="text" name="name_wbp" required="required"
+                                    class="form-control 
                                 @error('name_wbp')
                                     is-invalid
                                 @enderror"
-                                value="{{ $item_deposit->name_wbp }}" readonly>
+                                    value="{{ $item_deposit->name_wbp }}" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
@@ -51,17 +53,19 @@
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kasus</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input class="form-control 
+                                <input
+                                    class="form-control 
                                 @error('case')
                                     is-invalid
                                 @enderror"
-                                value="{{ $item_deposit->case }}" type="text" name="case" readonly>
+                                    value="{{ $item_deposit->case }}" type="text" name="case" readonly>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Hubungan</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input class="form-control
+                                <input
+                                    class="form-control
                                     @error('relationship')
                                         is-invalid
                                     @enderror"
@@ -72,14 +76,14 @@
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tanggal
                                 Penitipan</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input name="date_deposit" class="date-picker form-control
-                                    @error('date_deposit')
+                                <input name="deposit_date"
+                                    class="date-picker form-control
+                                    @error('deposit_date')
                                         is-invalid
                                     @enderror"
-                                    value="{{ $item_deposit->date_deposit }}" placeholder="dd-mm-yyyy"
-                                    type="text" onfocus="this.type='date'"
-                                    onmouseover="this.type='date'" onclick="this.type='date'" onblur="this.type='text'"
-                                    onmouseout="timeFunctionLong(this)" readonly>
+                                    value="{{ $item_deposit->deposit_date }}" placeholder="dd-mm-yyyy" type="text"
+                                    onfocus="this.type='date'" onmouseover="this.type='date'" onclick="this.type='date'"
+                                    onblur="this.type='text'" onmouseout="timeFunctionLong(this)" readonly>
                                 <script>
                                     function timeFunctionLong(input) {
                                         setTimeout(function() {
@@ -93,7 +97,8 @@
                             <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Perkara
                             </label>
                             <div class="col-md-6 col-sm-6 ">
-                                <input class="form-control 
+                                <input
+                                    class="form-control 
                                     @error('problem')
                                         is-invalid
                                     @enderror"
@@ -104,7 +109,8 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Kartu
                                 Keluarga</label>
                             <div class="col-md-6 col-sm-6 ">
-                                <a href="{{ asset('storage/' . $item_deposit->family_card) }}" target="_blank" class="btn btn-secondary"><i class="fa fa-download"></i>
+                                <a href="{{ asset('storage/' . $item_deposit->family_card) }}" target="_blank"
+                                    class="btn btn-secondary"><i class="fa fa-download"></i>
                                     Download</a>
                             </div>
                         </div>
@@ -113,9 +119,9 @@
                             </label>
                             <div class="col-md-6 col-sm-6 ">
                                 <select name="state" class="custom-select" id="kategori_project" disabled>
-                                    <option @php if($item_deposit->state=="0"){echo "selected";} @endphp value="0">Waiting</option>
-                                    <option
-                                        @php if($item_deposit->state=="1"){echo "selected";} @endphp value="1">
+                                    <option @php if($item_deposit->state=="0"){echo "selected";} @endphp value="0">
+                                        Waiting</option>
+                                    <option @php if($item_deposit->state=="1"){echo "selected";} @endphp value="1">
                                         Done</option>
                                 </select>
                             </div>
@@ -137,13 +143,14 @@
                 <div class="x_content">
                     <div class="col-md-6 col-sm-6">
                         @if ($item_deposit->photo_visitor)
-                            <img src="{{ asset('storage/' . $item_deposit->photo_visitor) }}" class="img-thumbnail" style="width:100%">
+                            <img src="{{ asset('storage/' . $item_deposit->photo_visitor) }}" class="img-thumbnail"
+                                style="width:100%">
                         @else
-                        <span class="badge badge-danger">No Foto</span>
+                            <span class="badge badge-danger">No Foto</span>
                         @endif
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        {!! QrCode::size(200)->generate(json_encode(['item_deposit_id'=>$item_deposit->id])); !!}
+                        {!! QrCode::size(200)->generate(json_encode(['item_deposit_id' => $item_deposit->id])) !!}
                         <h2><strong>ID Transaksi : {{ $item_deposit->id }}</strong>
                     </div>
                 </div>
@@ -173,25 +180,26 @@
                         <tbody id="itemlist">
                             @foreach ($item_deposit->items()->get() as $item)
                                 <tr>
-                                    <td><input type="text" name="name" required="required" class="form-control
+                                    <td><input type="text" name="name" required="required"
+                                            class="form-control
                                         @error('name')
                                             is-invalid
                                         @enderror"
-                                        value="{{ $item->name }}"
-                                            readonly>
+                                            value="{{ $item->name }}" readonly>
                                     </td>
-                                    <td><input type="text" name="amount" required="required" class="form-control
+                                    <td><input type="text" name="amount" required="required"
+                                            class="form-control
                                         @error('amount')
                                             is-invalid
                                         @enderror"
-                                        value="{{ $item->amount }}"
-                                            readonly>
+                                            value="{{ $item->amount }}" readonly>
                                     </td>
                                     <td>
                                         @if ($item->photo)
-                                        <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail" style="max-width:100px">
+                                            <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail"
+                                                style="max-width:100px">
                                         @else
-                                        <span class="badge badge-danger">No Foto</span>
+                                            <span class="badge badge-danger">No Foto</span>
                                         @endif
                                     </td>
                                 </tr>
@@ -225,18 +233,19 @@
                         <tbody id="itemlist">
                             @foreach ($dataApproveItemDeposit as $ApproveItemDeposit)
                                 <tr>
-                                    <td><input type="text" name="name_user" required="required" class="form-control
+                                    <td><input type="text" name="name_user" required="required"
+                                            class="form-control
                                         @error('name_user')
                                             is-invalid
                                         @enderror"
-                                        value="{{ $ApproveItemDeposit->user->name}}"
-                                            readonly>
+                                            value="{{ $ApproveItemDeposit->user->name }}" readonly>
                                     </td>
                                     <td>
                                         @if ($ApproveItemDeposit->photo)
-                                        <img src="{{ asset('storage/' . $ApproveItemDeposit->photo) }}" class="img-thumbnail" style="max-width:100px">
+                                            <img src="{{ asset('storage/' . $ApproveItemDeposit->photo) }}"
+                                                class="img-thumbnail" style="max-width:100px">
                                         @else
-                                        <span class="badge badge-danger">No Foto</span>
+                                            <span class="badge badge-danger">No Foto</span>
                                         @endif
                                     </td>
                                     <td>

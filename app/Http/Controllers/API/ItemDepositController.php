@@ -34,7 +34,7 @@ class ItemDepositController extends Controller
 
     public function store(StoreItemDepositRequest $request)
     {
-        $data['date_deposit'] = date('Y-m-d', strtotime($request->date_deposit));
+        $data['deposit_date'] = date('Y-m-d', strtotime($request->deposit_date));
         $data['photo_visitor'] = $request->file('photo_visitor')->store('item_deposit');
         $data['family_card'] = $request->file('family_card')->store('item_deposit');
 
@@ -45,7 +45,7 @@ class ItemDepositController extends Controller
                 'case' => $request['case'],
                 'relationship' => $request['relationship'],
                 'problem' => $request['problem'],
-                'date_deposit' => $data['date_deposit'],
+                'deposit_date' => $data['deposit_date'],
                 'photo_visitor' => $data['photo_visitor'],
                 'family_card' => $data['family_card'],
                 'state' => '0',
