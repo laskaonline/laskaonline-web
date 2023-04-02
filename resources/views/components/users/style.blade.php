@@ -44,4 +44,7 @@
 <!-- Custom Theme Style -->
 <link href="{{ asset('/template_admin/build/css/custom.css') }}" rel="stylesheet">
 
-
+<!-- PNotify -->
+<link href="{{ asset('/template_admin/vendors/pnotify/dist/pnotify.css') }}" rel="stylesheet">
+<link href="{{ asset('/template_admin/vendors/pnotify/dist/pnotify.buttons.css') }}" rel="stylesheet">
+<link href="{{ asset('/template_admin/vendors/pnotify/dist/pnotify.nonblock.css') }}" rel="stylesheet">

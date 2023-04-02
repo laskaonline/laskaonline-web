@@ -54,6 +54,10 @@ s<!-- jQuery -->
 <!-- Custom Theme Scripts -->
 <script src="{{ asset('/template_admin/build/js/custom.min.js') }}"></script>
 
+<!-- PNotify -->
+<script src="{{ asset('/template_admin/vendors/pnotify/dist/pnotify.js') }}"></script>
+<script src="{{ asset('/template_admin/vendors/pnotify/dist/pnotify.buttons.js') }}"></script>
+<script src="{{ asset('/template_admin/vendors/pnotify/dist/pnotify.nonblock.js') }}"></script>
 
 <!-- Custom Min Theme Scripts -->
 <script src="{{ asset('/template_admin/build/js/custom.min.js') }}"></script>
@@ -172,4 +176,3 @@ s<!-- jQuery -->
     $('form').submit();
     });
 </script>
-

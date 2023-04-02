@@ -6,11 +6,46 @@
             <div class="x_panel">
                 <div class="x_title">
                     <h2>Profil Pengunjung</h2>
+                    <div class="pull-right">
+                        <!-- Change Password -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Change Password</button>
+                        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <form method="POST" action="{{ route('password.update') }}">
+                                        @csrf
+                                        <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="old_password" class="form-label">Old Password</label>
+                                                    <input type="password" name="old_password" class="form-control" id="old_password">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="new_password" class="form-label">New Password</label>
+                                                    <input type="password" name="new_password" class="form-control" id="new_password">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="new_password_confirmation" class="form-label">Confirm New Password</label>
+                                                    <input type="password" name="new_password_confirmation" class="form-control" id="new_password_confirmation">
+                                                </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <br/>
-
                     <form method="POST" action="{{ route('profile.update') }}" class="form-horizontal form-label-left"
                           enctype="multipart/form-data">
                         @if ($errors->any())
