@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('item_deposit', function (Blueprint $table) {
-            $table->string('problem')->after('date_deposit')->comment('perkara');
+            $table->string('problem')->after('deposit_date')->comment('perkara');
             $table->string('family_card')->after('photo_visitor');
         });
     }

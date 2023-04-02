@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('room_block');
             $table->string('case');
             $table->string('relationship');
-            $table->date('date_deposit');
+            $table->date('deposit_date');
             $table->string('photo_visitor');
             $table->timestamps();
             $table->softDeletes();
