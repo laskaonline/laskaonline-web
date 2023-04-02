@@ -35,8 +35,8 @@ class ItemDepositController extends Controller
     public function store(StoreItemDepositRequest $request)
     {
         $data['date_deposit'] = date('Y-m-d', strtotime($request->date_deposit));
-        $data['photo_visitor'] = $request->file('photo_visitor')->store('item-deposit');
-        $data['family_card'] = $request->file('family_card')->store('item-deposit');
+        $data['photo_visitor'] = $request->file('photo_visitor')->store('item_deposit');
+        $data['family_card'] = $request->file('family_card')->store('item_deposit');
 
         DB::transaction(function () use ($request, $data) {
             $item_deposit = auth()->user()->deposits()->create([
@@ -52,7 +52,7 @@ class ItemDepositController extends Controller
             ]);
 
             $itemArray = collect($request->items)->map(function ($item) {
-                $photo_path = Storage::putFile('item-deposit', $item['photo']);
+                $photo_path = Storage::putFile('item_deposit', $item['photo']);
 
                 return [
                     'name' => $item['name'],
@@ -71,6 +71,10 @@ class ItemDepositController extends Controller
 
     public function show(ItemDeposit $itemDeposit)
     {
+        return response()->json([
+            'status' => 'success',
+            'data' => $itemDeposit->with(['items', 'approvals'])->first()
+        ]);
     }
 
     public function update(Request $request, ItemDeposit $itemDeposit)
