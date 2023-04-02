@@ -18,7 +18,7 @@ class ItemDepositController extends Controller
         $sortBy = $request->query('sortBy', 'DESC');
         $hasApproval = $request->query('hasApproval', null);
 
-        $item_deposits = ItemDeposit::with(['items', 'approvals'])
+        $item_deposits = ItemDeposit::with(['user', 'items', 'approvals.user'])
             ->when(auth()->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo(auth()->user()))
             ->when($hasApproval, fn ($q) => $q->has('approvals'))
             ->limit($limit)
@@ -27,8 +27,8 @@ class ItemDepositController extends Controller
             ->get();
 
         return response()->json([
-            'data' => $item_deposits,
             'message' => 'success',
+            'data' => $item_deposits,
         ]);
     }
 
