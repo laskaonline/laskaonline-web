@@ -29,7 +29,6 @@ Route::view('/contact', 'contact');
 
 Route::middleware(['honeypot'])->group(function () {
     Auth::routes([
-        'reset' => false,
         'confirm' => false,
         'verify' => false
     ]);

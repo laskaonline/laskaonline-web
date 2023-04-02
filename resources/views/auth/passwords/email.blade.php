@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'SINI-BANG | Lapas Sekayu')
+@section('title', 'Lupa Password | Lapas Sekayu')
 
 @section('content')
     <div class="vh-100 d-grid place-items-center">
@@ -10,7 +10,7 @@
                      width="80%">
             </div>
             <div class="col col-lg-4">
-                <form action="{{ url('/login') }}" method="post" class="row gap-2">
+                <form action="{{ route('password.email') }}" method="post" class="row gap-2">
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -30,23 +30,17 @@
                     @csrf
                     <div>
                         <label for="email" class="form-label">
-                            Email
+                            Email Terdaftar
                         </label>
                         <input type="email" name="email" class="form-control">
                     </div>
-                    <div>
-                        <label for="password" class="form-label">
-                            Password
-                        </label>
-                        <input type="password" name="password" class="form-control">
-                    </div>
                     <x-honeypot/>
                     <button type="submit" class="btn btn-primary">
-                        Login
+                        Request Password
                     </button>
 
-                    <p class="text-center">Lupa Password? <a href="{{route('password.request')}}">Lupa Password</a></p>
-                    <p class="text-center">Belum punya akun? <a href="/register">Register</a></p>
+                    <p class="text-center">Belum punya akun? <a href="{{route('register')}}">Register</a></p>
+                    <p class="text-center">Sudah punya akun? <a href="{{route('login')}}">Login</a></p>
                 </form>
             </div>
         </div>
