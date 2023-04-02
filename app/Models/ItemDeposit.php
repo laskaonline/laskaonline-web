@@ -20,7 +20,7 @@ use Illuminate\Support\Carbon;
  * @property string $room_block
  * @property string $case
  * @property string $relationship
- * @property string $date_deposit
+ * @property string $deposit_date
  * @property string $problem perkara
  * @property string $photo_visitor
  * @property string $family_card

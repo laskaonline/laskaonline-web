@@ -18,7 +18,7 @@ class ItemDepositController extends Controller
         $sortBy = $request->query('sortBy', 'DESC');
         $hasApproval = $request->query('hasApproval', null);
 
-        $item_deposits = ItemDeposit::with(['items', 'approvals'])
+        $item_deposits = ItemDeposit::with(['user', 'items', 'approvals.user'])
             ->when(auth()->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo(auth()->user()))
             ->when($hasApproval, fn ($q) => $q->has('approvals'))
             ->limit($limit)
@@ -27,16 +27,16 @@ class ItemDepositController extends Controller
             ->get();
 
         return response()->json([
-            'data' => $item_deposits,
             'message' => 'success',
+            'data' => $item_deposits,
         ]);
     }
 
     public function store(StoreItemDepositRequest $request)
     {
-        $data['date_deposit'] = date('Y-m-d', strtotime($request->date_deposit));
-        $data['photo_visitor'] = $request->file('photo_visitor')->store('item-deposit');
-        $data['family_card'] = $request->file('family_card')->store('item-deposit');
+        $data['deposit_date'] = date('Y-m-d', strtotime($request->deposit_date));
+        $data['photo_visitor'] = $request->file('photo_visitor')->store('item_deposit');
+        $data['family_card'] = $request->file('family_card')->store('item_deposit');
 
         DB::transaction(function () use ($request, $data) {
             $item_deposit = auth()->user()->deposits()->create([
@@ -45,14 +45,14 @@ class ItemDepositController extends Controller
                 'case' => $request['case'],
                 'relationship' => $request['relationship'],
                 'problem' => $request['problem'],
-                'date_deposit' => $data['date_deposit'],
+                'deposit_date' => $data['deposit_date'],
                 'photo_visitor' => $data['photo_visitor'],
                 'family_card' => $data['family_card'],
                 'state' => '0',
             ]);
 
             $itemArray = collect($request->items)->map(function ($item) {
-                $photo_path = Storage::putFile('item-deposit', $item['photo']);
+                $photo_path = Storage::putFile('item_deposit', $item['photo']);
 
                 return [
                     'name' => $item['name'],
@@ -71,6 +71,10 @@ class ItemDepositController extends Controller
 
     public function show(ItemDeposit $itemDeposit)
     {
+        return response()->json([
+            'status' => 'success',
+            'data' => $itemDeposit->with(['user', 'items', 'approvals.user'])->find($itemDeposit->id)
+        ]);
     }
 
     public function update(Request $request, ItemDeposit $itemDeposit)

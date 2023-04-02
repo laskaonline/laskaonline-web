@@ -9,8 +9,8 @@
     </div>
 
     <div class="clearfix"></div>
-    <form method="POST" action="{{ route('item-deposit.store') }}" data-parsley-validate class="form-horizontal form-label-left"
-    enctype="multipart/form-data">
+    <form method="POST" action="{{ route('item-deposit.store') }}" data-parsley-validate
+        class="form-horizontal form-label-left" enctype="multipart/form-data">
         <div class="col-md-12 col-sm-12 ">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -66,9 +66,10 @@
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tanggal
                             Penitipan</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input name="date_deposit" class="date-picker form-control" placeholder="dd-mm-yyyy"
+                            <input name="deposit_date" class="date-picker form-control" placeholder="dd-mm-yyyy"
                                 type="text" required onfocus="this.type='date'" onmouseover="this.type='date'"
-                                onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)" min="<?php echo date("Y-m-d"); ?>">
+                                onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)"
+                                min="<?php echo date('Y-m-d'); ?>">
                             <script>
                                 function timeFunctionLong(input) {
                                     setTimeout(function() {
@@ -89,14 +90,14 @@
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Foto Selfie + KTP
                             Penitip</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="file" class="form-control" name="photo_visitor" required/>
+                            <input type="file" class="form-control" name="photo_visitor" required />
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Upload Kartu
                             Keluarga</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="file" class="form-control" name="family_card" required/>
+                            <input type="file" class="form-control" name="family_card" required />
                         </div>
                     </div>
 
@@ -133,7 +134,8 @@
                                     </td>
                                     <td><input type="number" name="items[0][amount]" required class="form-control">
                                     </td>
-                                    <td><input type="file" class="form-control" required name="items[0][photo]" /></td>
+                                    <td><input type="file" class="form-control" required name="items[0][photo]" />
+                                    </td>
                                     <td></td>
                                 </tr>
 
@@ -145,7 +147,7 @@
             <x-honeypot />
             <button type="submit" class='btn btn-block btn-success text-white' id="submit-btn">
                 <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                <i class="fa fa-save px-2"></i> 
+                <i class="fa fa-save px-2"></i>
                 Submit Pengajuan
             </button>
         </div>

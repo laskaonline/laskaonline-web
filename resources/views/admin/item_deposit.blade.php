@@ -35,9 +35,10 @@
                                 <div class="col-sm-5">
                                     <div class="item form-group">
                                         <label for="start_date">Start Date</label>
-                                        <input id="start_date" name="start_date" class="date-picker form-control" placeholder="dd-mm-yyyy"
-                                            type="text" required onfocus="this.type='date'" onmouseover="this.type='date'"
-                                            onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                        <input id="start_date" name="start_date" class="date-picker form-control"
+                                            placeholder="dd-mm-yyyy" type="text" required onfocus="this.type='date'"
+                                            onmouseover="this.type='date'" onclick="this.type='date'"
+                                            onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                                         <script>
                                             function timeFunctionLong(input) {
                                                 setTimeout(function() {
@@ -50,9 +51,10 @@
                                 <div class="col-sm-5">
                                     <div class="item form-group">
                                         <label for="end_date">End Date</label>
-                                        <input id="end_date" name="end_date" class="date-picker form-control" placeholder="dd-mm-yyyy"
-                                            type="text" required onfocus="this.type='date'" onmouseover="this.type='date'"
-                                            onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
+                                        <input id="end_date" name="end_date" class="date-picker form-control"
+                                            placeholder="dd-mm-yyyy" type="text" required onfocus="this.type='date'"
+                                            onmouseover="this.type='date'" onclick="this.type='date'"
+                                            onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                                         <script>
                                             function timeFunctionLong(input) {
                                                 setTimeout(function() {
@@ -64,7 +66,8 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <button type="submit" class="btn btn-primary" id="submit-btn">
-                                        <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                        <span class="spinner-border spinner-border-sm d-none" role="status"
+                                            aria-hidden="true"></span>
                                         Filter
                                     </button>
                                 </div>
@@ -94,16 +97,17 @@
                                                 <td>{{ $item_deposit->room_block }}</td>
                                                 <td>{{ $item_deposit->case }}</td>
                                                 <td>{{ $item_deposit->relationship }}</td>
-                                                <td>{{ $item_deposit->date_deposit }}</td>
+                                                <td>{{ $item_deposit->deposit_date }}</td>
                                                 <td>
-                                                    @if($item_deposit->state=="0")
+                                                    @if ($item_deposit->state == '0')
                                                         <b>Waiting</b>
-                                                    @elseif($item_deposit->state=="1")
+                                                    @elseif($item_deposit->state == '1')
                                                         <b>Done</b>
                                                     @endif
                                                 </td>
-                                                <td><a href="{{ route('admin.item-deposit.show',['item_deposit'=>$item_deposit]) }}" type="button"
-                                                        class="btn btn-outline-primary" data-mdb-ripple-color="dark">
+                                                <td><a href="{{ route('admin.item-deposit.show', ['item_deposit' => $item_deposit]) }}"
+                                                        type="button" class="btn btn-outline-primary"
+                                                        data-mdb-ripple-color="dark">
                                                         Detail</a></td>
                                             </tr>
                                         @endforeach

@@ -17,7 +17,7 @@ class DashboardController extends Controller
 
             // Query Data
             $data_appointment       = Appointment::where('visit_date', Carbon::now()->toDateString())->orderBy('created_at', 'desc')->get();
-            $data_item_deposit      = ItemDeposit::where('date_deposit', Carbon::now()->toDateString())->orderBy('created_at', 'desc')->get();
+            $data_item_deposit      = ItemDeposit::where('deposit_date', Carbon::now()->toDateString())->orderBy('created_at', 'desc')->get();
 
             // Count Data All
             $count_appointment      = Appointment::get()->count();
@@ -27,7 +27,7 @@ class DashboardController extends Controller
 
             // Count Data by Date
             $count_date_appointment      = Appointment::where('visit_date', Carbon::now()->toDateString())->get()->count();
-            $count_date_item_deposit     = ItemDeposit::where('date_deposit', Carbon::now()->toDateString())->get()->count();
+            $count_date_item_deposit     = ItemDeposit::where('deposit_date', Carbon::now()->toDateString())->get()->count();
             $count_date_wartelsuspas     = Wartelsuspas::whereDate('created_at', '>=', now()->toDateString())->get()->count();
             $count_date_guest_book       = GuestBook::whereDate('created_at', '>=', now()->toDateString())->get()->count();
 
@@ -47,7 +47,7 @@ class DashboardController extends Controller
             ));
         }
         // Query Data
-        $data_item_deposit      = ItemDeposit::where('date_deposit', Carbon::now()->toDateString())->where('created_by', Auth::id())->orderBy('created_at', 'desc')->get();
+        $data_item_deposit      = ItemDeposit::where('deposit_date', Carbon::now()->toDateString())->where('created_by', Auth::id())->orderBy('created_at', 'desc')->get();
         $data_appointment       = Appointment::where('visit_date', Carbon::now()->toDateString())->where('created_by', Auth::id())->orderBy('created_at', 'desc')->get();
 
         // Count Data

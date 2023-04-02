@@ -53,7 +53,7 @@ class CreateAppointment
      */
     private function mapItem(array $item): array
     {
-        $photo_path = $this->uploadImage('item-deposit', $item['photo']);
+        $photo_path = $this->uploadImage('item_deposit', $item['photo']);
 
         return [
             'name' => $item['name'],

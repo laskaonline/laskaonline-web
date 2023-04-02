@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'SINI-BANG | Lapas Sekayu')
+@section('title', 'Lupa Password | Lapas Sekayu')
 
 @section('content')
     <div class="vh-100 d-grid place-items-center">
@@ -10,7 +10,7 @@
                      width="80%">
             </div>
             <div class="col col-lg-4">
-                <form action="{{ url('/login') }}" method="post" class="row gap-2">
+                <form action="{{ route('password.update') }}" method="post" class="row gap-2">
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -26,27 +26,27 @@
                         <a href="/"><img src="{{ asset('/assets/images/kemenkumham-auth.png') }}" alt="Logo Kemenkumham"
                                          class="img-fluid min-w-100 w-75 p-3"></a>
                     </center>
-
                     @csrf
-                    <div>
-                        <label for="email" class="form-label">
-                            Email
-                        </label>
-                        <input type="email" name="email" class="form-control">
-                    </div>
-                    <div>
-                        <label for="password" class="form-label">
-                            Password
-                        </label>
-                        <input type="password" name="password" class="form-control">
-                    </div>
-                    <x-honeypot/>
-                    <button type="submit" class="btn btn-primary">
-                        Login
-                    </button>
+                        <div>
+                            <input type="hidden" name="email" class="form-control" value="{{$email}}">
+                        </div>
 
-                    <p class="text-center">Lupa Password? <a href="{{route('password.request')}}">Lupa Password</a></p>
-                    <p class="text-center">Belum punya akun? <a href="/register">Register</a></p>
+                        <div>
+                            <label for="password" class="form-label">
+                                Password
+                            </label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <div>
+                            <label for="password_confirmation" class="form-label">
+                               Konfirmasi Password
+                            </label>
+                            <input type="password" name="password_confirmation" class="form-control">
+                        </div>
+                        <x-honeypot/>
+                    <button type="submit" class="btn btn-primary">
+                        Reset Password
+                    </button>
                 </form>
             </div>
         </div>

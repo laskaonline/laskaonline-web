@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function apilogin(Request $request)
+    public function store(Request $request)
     {
         $credentials = $request->only(['email', 'password']);
 
