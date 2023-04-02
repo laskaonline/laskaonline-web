@@ -73,7 +73,7 @@ class ItemDepositController extends Controller
     {
         return response()->json([
             'status' => 'success',
-            'data' => $itemDeposit->with(['items', 'approvals'])->find($itemDeposit->id)
+            'data' => $itemDeposit->with(['user', 'items', 'approvals.user'])->find($itemDeposit->id)
         ]);
     }
 
