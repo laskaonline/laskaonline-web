@@ -13,7 +13,7 @@ class StoreItemDepositRequest extends FormRequest
             'room_block'        => ['required', 'string'],
             'case'              => ['required', 'string'],
             'relationship'      => ['required', 'string'],
-            'date_deposit'      => ['required', 'date'],
+            'deposit_date'      => ['required', 'date'],
             'problem'           => ['required', 'string'],
             'photo_visitor'     => ['required', 'image'],
             'family_card'       => ['required', 'image'],
