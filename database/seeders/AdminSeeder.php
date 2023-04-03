@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
 
         $superAdmin->assignRole('superior');
 
-        $admins = User::create([
+        $admin = User::create([
             'email'     => 'fauzan@test.com',
             'name'      => 'Fauzan',
             'no_ktp'    => '1671070104960012',
@@ -28,8 +28,6 @@ class AdminSeeder extends Seeder
             'password'  => bcrypt('@Admin123'),
         ]);
 
-        $admins->each(function ($admin) {
-            $admin->assignRole('admin');
-        });
+        $admin->assignRole('admin');
     }
 }

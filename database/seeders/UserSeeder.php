@@ -10,16 +10,14 @@ class UserSeeder extends Seeder
 {
     public function run(): void
     {
-        $visitors = User::create([
+        $visitor = User::create([
             'email'     => 'visitor@test.com',
             'name'      => 'Visitor',
             'no_ktp'    => '1671070104960013',
             'phone'     => '085267902953',
             'password'  => bcrypt('@Visitor123'),
-        ])->assignRole('visitor');
+        ]);
 
-        $visitors->each(function ($visitor) {
-            $visitor->assignRole('visitor');
-        });
+        $visitor->assignRole('visitor');
     }
 }
