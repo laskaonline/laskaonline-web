@@ -21,7 +21,7 @@ class ApproveItemDeposit
             throw new Exception('Barang ini sudah disetujui oleh 3 petugas');
         }
 
-        $photo_path = Storage::putFile('item-deposit', $data['photo']);
+        $photo_path = Storage::putFile('item_deposit', $data['photo']);
         $data['photo'] = $photo_path;
 
         return $itemDeposit->approvals()->updateOrCreate(
