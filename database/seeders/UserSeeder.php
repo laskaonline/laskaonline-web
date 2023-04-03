@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
             'no_ktp'    => '1671070104960013',
             'phone'     => '085267902953',
             'password'  => bcrypt('@Visitor123'),
-        ]);
+        ])->assignRole('visitor');
 
         $visitors->each(function ($visitor) {
             $visitor->assignRole('visitor');
