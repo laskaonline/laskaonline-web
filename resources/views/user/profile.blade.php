@@ -12,7 +12,7 @@
                         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <form method="POST" action="{{ route('password.update') }}">
+                                    <form method="POST" action="{{ route('app.password.update') }}">
                                         @csrf
                                         <div class="modal-header">
                                             <h4 class="modal-title" id="myModalLabel">Change Password</h4>
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>                    
+                    </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">

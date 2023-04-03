@@ -48,6 +48,7 @@ Route::middleware(['auth:web'])->group(function () {
         Route::get('/manage-user/{admin}', [ManageUserController::class, 'show'])->name('manage-user.show');
         Route::get('/manage-user/visitor/{visitor}', [ManageUserController::class, 'visitor'])->name('manage-user.visitor');
         Route::post('/manage-user/store', [ManageUserController::class, 'store'])->name('manage-user.store');
+        Route::post('/app/password/update', [ChangePasswordController::class, 'update'])->name('app.password.update');
 
         // Admin Penitipan Barang
         Route::resource('/item-deposit', ItemDepositController::class);
@@ -82,7 +83,7 @@ Route::middleware(['auth:web'])->group(function () {
     // Profil Visitor
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::put('/profile', [ProfileController::class, 'update'])->middleware(['honeypot'])->name('profile.update');
-    Route::post('/password/update', [ChangePasswordController::class, 'update'])->name('password.update');
+    Route::post('/app/password/update', [ChangePasswordController::class, 'update'])->name('app.password.update');
 });
 
 // Buku Tamu Public

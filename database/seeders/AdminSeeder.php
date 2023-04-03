@@ -10,17 +10,23 @@ class AdminSeeder extends Seeder
 {
     public function run(): void
     {
-        $superAdmin = User::factory()->create([
-            'email' => 'superadmin@test.com'
+        $superAdmin = User::create([
+            'email'     => 'superadmin@test.com',
+            'name'      => 'Super Admin',
+            'no_ktp'    => '1671070104960011',
+            'phone'     => '085267902951',
+            'password'  => bcrypt('@SuperAdmin123'),
         ]);
 
         $superAdmin->assignRole('superior');
 
-        $admins = User::factory(3)->state(new Sequence(
-            ['email' => 'admin1@test.com'],
-            ['email' => 'admin2@test.com'],
-            ['email' => 'admin3@test.com']
-        ))->create();
+        $admins = User::create([
+            'email'     => 'fauzan@test.com',
+            'name'      => 'Fauzan',
+            'no_ktp'    => '1671070104960012',
+            'phone'     => '085267902952',
+            'password'  => bcrypt('@Admin123'),
+        ]);
 
         $admins->each(function ($admin) {
             $admin->assignRole('admin');
