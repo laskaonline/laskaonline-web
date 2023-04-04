@@ -13,8 +13,8 @@ class AppointmentController extends Controller
     public function index()
     {
         $appointments = auth()->user()->hasAnyRole('admin', 'superior')
-            ? Appointment::with('user')->get()
-            : Appointment::whereBelongsTo(auth()->user())->get();
+            ? Appointment::with('items', 'creator', 'user')->get()
+            : Appointment::with('items', 'creator', 'user')->whereBelongsTo(auth()->user())->get();
 
         return response()->json([
             'status' => 'success',
@@ -36,7 +36,7 @@ class AppointmentController extends Controller
     {
         return response()->json([
             'status' => 'success',
-            'data' => $appointment
+            'data' => $appointment->with('items', 'creator', 'user')->find($appointment->id)
         ]);
     }
 
