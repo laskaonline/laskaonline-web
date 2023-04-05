@@ -15,6 +15,6 @@ class ApproveAppointmentController extends Controller
         return response()->json([
             'status' => 'success',
             'message' => 'Kunjungan berhasil disetujui'
-        ], 204);
+        ], 200);
     }
 }
