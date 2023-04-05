@@ -30,6 +30,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::middleware(['role:admin|superior'])->prefix('admin')->name('admin.')->group(function () {
         Route::get('/users', [ManageUserController::class, 'index']);
         Route::post('/users', [ManageUserController::class, 'store']);
+
+        Route::post('/item-deposits/{deposit}/approve', ApproveDepositController::class)->name('item-deposits.approve');
+        Route::post('/appointments/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
     });
 
     Route::apiResource('appointments', AppointmentController::class);
@@ -37,8 +40,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('item-deposits', ItemDepositController::class);
     Route::apiResource('wartelsuspas', WartelsuspasController::class);
 
-    Route::post('/item-deposits/{deposit}/approve', ApproveDepositController::class)->name('item-deposits.approve');
-    Route::post('/appointments/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
 
     Route::get('/user', [UserController::class, 'show']);
     Route::put('/user', [UserController::class, 'update']);
