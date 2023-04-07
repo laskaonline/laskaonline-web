@@ -35,6 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Wartelsuspas whereNameWbp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Wartelsuspas whereRelationship($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Wartelsuspas whereUpdatedAt($value)
+ * @property-read \App\Models\User $user
  * @mixin \Eloquent
  */
 class Wartelsuspas extends Model

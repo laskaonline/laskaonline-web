@@ -51,6 +51,19 @@ use Illuminate\Support\Carbon;
  * @method static Builder|Appointment whereRelationship($value)
  * @method static Builder|Appointment whereState($value)
  * @method static Builder|Appointment whereUpdatedAt($value)
+ * @property string $room_block
+ * @property int $queue
+ * @property int|null $approve_by
+ * @property string|null $approve_date
+ * @property-read \App\Models\User $creator
+ * @property-read Collection<int, \App\Models\Deposit> $items
+ * @property-read \App\Models\User|null $user
+ * @method static Builder|Appointment whereApproveBy($value)
+ * @method static Builder|Appointment whereApproveDate($value)
+ * @method static Builder|Appointment whereQueue($value)
+ * @method static Builder|Appointment whereRoomBlock($value)
+ * @method static Builder|Appointment whereVisitDate($value)
+ * @property-read Collection<int, \App\Models\Deposit> $items
  * @mixin Eloquent
  */
 class Appointment extends Model

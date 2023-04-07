@@ -25,6 +25,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|ItemDepositApprove wherePhoto($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ItemDepositApprove whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|ItemDepositApprove whereUserId($value)
+ * @property-read \App\Models\ItemDeposit $itemDeposit
+ * @property-read \App\Models\User $user
  * @mixin \Eloquent
  */
 class ItemDepositApprove extends Model
