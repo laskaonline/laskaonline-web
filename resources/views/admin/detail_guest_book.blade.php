@@ -31,12 +31,33 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="customFile">Foto
                                 Pengunjung</label>
                             <div class="col-md-6 col-sm-6 ">
-                                @if ($guest_book->photo !==null)
-                                    <img src="{{ asset('storage/' . $guest_book->photo) }}" class="img-thumbnail"
-                                         style="width:30%">
-                                @else
-                                    <span class="badge badge-danger">No Foto</span>
-                                @endif
+                                <a type="button" data-toggle="modal" data-target=".modal-photo-visitor">
+                                    @if ($guest_book->photo !==null)
+                                        <img src="{{ asset('storage/' . $guest_book->photo) }}" class="img-thumbnail"
+                                            style="width:30%">
+                                    @else
+                                        <span class="badge badge-danger">No Foto</span>
+                                    @endif
+                                </a>
+                                <div class="modal fade modal-photo-visitor" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">Foto Pengunjung</h4>
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                @if ($guest_book->photo !==null)
+                                                    <img src="{{ asset('storage/' . $guest_book->photo) }}" class="img-thumbnail"
+                                                        style="width:100%">
+                                                @else
+                                                    <span class="badge badge-danger">No Foto</span>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="item form-group">

@@ -135,11 +135,31 @@
                 </div>
                 <div class="x_content">
                     <div class="col-md-6 col-sm-6">
-                        @if ($appointment->photo_visitor)
-                            <img src="{{ asset('storage/' . $appointment->photo_visitor) }}" class="img-thumbnail" style="width:100%">
-                        @else
-                        <span class="badge badge-danger">No Foto</span>
-                        @endif
+                        <a type="button" data-toggle="modal" data-target=".modal-photo-visitor">
+                            @if ($appointment->photo_visitor)
+                                <img src="{{ asset('storage/' . $appointment->photo_visitor) }}" class="img-thumbnail" style="width:100%">
+                            @else
+                            <span class="badge badge-danger">No Foto</span>
+                            @endif
+                        </a>
+                        <div class="modal fade modal-photo-visitor" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="myModalLabel">Foto Pengunjung</h4>
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        @if ($appointment->photo_visitor)
+                                <img src="{{ asset('storage/' . $appointment->photo_visitor) }}" class="img-thumbnail" style="width:100%">
+                            @else
+                            <span class="badge badge-danger">No Foto</span>
+                            @endif
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         <div>
@@ -251,11 +271,31 @@
                                             readonly>
                                     </td>
                                     <td>
-                                        @if ($item->photo)
-                                        <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail" style="max-width:100px">
-                                        @else
-                                        <span class="badge badge-danger">No Foto</span>
-                                        @endif
+                                        <a type="button" data-toggle="modal" data-target=".modal-photo-deposit<?php echo $item->id; ?>">
+                                            @if ($item->photo)
+                                                <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail" style="max-width:100px">
+                                            @else
+                                                <span class="badge badge-danger">No Foto</span>
+                                            @endif
+                                        </a>
+                                        <div class="modal fade modal-photo-deposit<?php echo $item->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="myModalLabel">Foto Barang</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @if ($item->photo)
+                                                            <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail" style="max-width:100%">
+                                                        @else
+                                                            <span class="badge badge-danger">No Foto</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
