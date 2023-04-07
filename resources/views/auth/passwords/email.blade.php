@@ -38,7 +38,7 @@
                     <button type="submit" class="btn btn-primary">
                         Request Password
                     </button>
-
+                    <br>
                     <p class="text-center">Belum punya akun? <a href="{{route('register')}}">Register</a></p>
                     <p class="text-center">Sudah punya akun? <a href="{{route('login')}}">Login</a></p>
                 </form>

@@ -44,7 +44,7 @@
                     <button type="submit" class="btn btn-primary">
                         Login
                     </button>
-
+                    <br>
                     <p class="text-center">Lupa Password? <a href="{{route('password.request')}}">Lupa Password</a></p>
                     <p class="text-center">Belum punya akun? <a href="/register">Register</a></p>
                 </form>
