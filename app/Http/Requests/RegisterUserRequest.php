@@ -33,4 +33,16 @@ class RegisterUserRequest extends FormRequest
             'min'         => ':Attribute harus berjumlah minimal :min karakter.',
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'name' => 'Nama',
+            'no_ktp' => 'Nomor KTP',
+            'email' => 'Alamat Email',
+            'phone' => 'Nomor Telepon',
+            'password' => 'Kata Sandi',
+            'password_confirmation' => 'Konfirmasi Kata Sandi',
+        ];
+    }
 }

@@ -18,4 +18,26 @@ class StoreWartelsuspasRequest extends FormRequest
             'information'       => ['required', 'string']
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'required'    => ':Attribute harus diisi.',
+            'string'      => ':Attribute harus berupa string.',
+            'starts_with' => ':Attribute harus diawali dengan :values.',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name_wbp'          => 'Nama WBP',
+            'bin_wbp'           => 'BIN WBP',
+            'block_and_room'    => 'Blok kamar',
+            'destination_phone' => 'Nomor Telepon Tujuan',
+            'relationship'      => 'Hubungan',
+            'address'           => 'Alamat',
+            'information'       => 'Keterangan',
+        ];
+    }
 }
