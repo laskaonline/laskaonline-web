@@ -28,11 +28,11 @@ class WartelsuspasController extends Controller
         ], 201);
     }
 
-    public function show(Wartelsuspas $wartelsuspas)
+    public function show(Wartelsuspas $wartelsuspa)
     {
         return response()->json([
             'status' => 'success',
-            'data' => $wartelsuspas
+            'data' => $wartelsuspa
         ]);
     }
 
