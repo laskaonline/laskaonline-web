@@ -31,8 +31,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/users', [ManageUserController::class, 'index']);
         Route::post('/users', [ManageUserController::class, 'store']);
 
-        Route::post('/item-deposits/{deposit}/approve', ApproveDepositController::class)->name('item-deposits.approve');
-        Route::post('/appointments/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
+        Route::post('/item-deposits/{deposit}/approve', ApproveDepositController::class);
+        Route::post('/appointments/{appointment}/approve', ApproveAppointmentController::class);
     });
 
     Route::apiResource('appointments', AppointmentController::class);
