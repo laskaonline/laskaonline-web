@@ -211,6 +211,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+//        'ImageOptimizer'=> Spatie\LaravelImageOptimizer\Facades\ImageOptimizer::class,
     ])->toArray(),
 
 ];

@@ -8,6 +8,7 @@ use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\GuestBookController;
 use App\Http\Controllers\API\ItemDepositController;
 use App\Http\Controllers\API\ManageUserController;
+use App\Http\Controllers\API\UploadImagesController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\WartelsuspasController;
 use Illuminate\Support\Facades\Route;
@@ -32,7 +33,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/users', [ManageUserController::class, 'store']);
 
         Route::post('/item-deposits/{deposit}/approve', ApproveDepositController::class)->name('item-deposits.approve');
-        Route::post('/appointments/{appointment}/approve', ApproveAppointmentController::class)->name('appointment.approve');
+        Route::post('/appointments/{appointment}/approve',
+            ApproveAppointmentController::class)->name('appointment.approve');
     });
 
     Route::apiResource('appointments', AppointmentController::class);
@@ -44,3 +46,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [UserController::class, 'show']);
     Route::put('/user', [UserController::class, 'update']);
 });
+
+Route::post('/upload-images', UploadImagesController::class)->name('upload-images');

@@ -26,6 +26,7 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Spatie\Honeypot\ProtectAgainstSpam;
+use Spatie\LaravelImageOptimizer\Middlewares\OptimizeImages;
 use Spatie\Permission\Middlewares\PermissionMiddleware;
 use Spatie\Permission\Middlewares\RoleMiddleware;
 use Spatie\Permission\Middlewares\RoleOrPermissionMiddleware;
@@ -94,6 +95,7 @@ class Kernel extends HttpKernel
         'role' => RoleMiddleware::class,
         'permission' => PermissionMiddleware::class,
         'role_or_permission' => RoleOrPermissionMiddleware::class,
-        'honeypot' => ProtectAgainstSpam::class
+        'honeypot' => ProtectAgainstSpam::class,
+        'optimizeImages' => OptimizeImages::class,
     ];
 }
