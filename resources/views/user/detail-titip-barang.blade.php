@@ -142,12 +142,33 @@
                 </div>
                 <div class="x_content">
                     <div class="col-md-6 col-sm-6">
+                    <a type="button" data-toggle="modal" data-target=".modal-photo-visitor">
                         @if ($item_deposit->photo_visitor)
                             <img src="{{ asset('storage/' . $item_deposit->photo_visitor) }}" class="img-thumbnail"
                                 style="width:100%">
                         @else
                             <span class="badge badge-danger">No Foto</span>
                         @endif
+                    </a>
+                    <div class="modal fade modal-photo-visitor" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel">Foto Pengunjung</h4>
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    @if ($item_deposit->photo_visitor)
+                                        <img src="{{ asset('storage/' . $item_deposit->photo_visitor) }}" class="img-thumbnail"
+                                            style="width:100%">
+                                    @else
+                                        <span class="badge badge-danger">No Foto</span>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                     <div class="col-md-6 col-sm-6">
                         {!! QrCode::size(200)->generate(json_encode(['item_deposit_id' => $item_deposit->id])) !!}
@@ -195,12 +216,33 @@
                                             value="{{ $item->amount }}" readonly>
                                     </td>
                                     <td>
-                                        @if ($item->photo)
-                                            <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail"
-                                                style="max-width:100px">
-                                        @else
-                                            <span class="badge badge-danger">No Foto</span>
-                                        @endif
+                                        <a type="button" data-toggle="modal" data-target=".modal-photo-deposit<?php echo $item->id; ?>">
+                                            @if ($item->photo)
+                                                <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail"
+                                                    style="max-width:100px">
+                                            @else
+                                                <span class="badge badge-danger">No Foto</span>
+                                            @endif
+                                        </a>
+                                        <div class="modal fade modal-photo-deposit<?php echo $item->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="myModalLabel">Foto Barang</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @if ($item->photo)
+                                                            <img src="{{ asset('storage/' . $item->photo) }}" class="img-thumbnail"
+                                                                style="max-width:100%">
+                                                        @else
+                                                            <span class="badge badge-danger">No Foto</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -241,12 +283,33 @@
                                             value="{{ $ApproveItemDeposit->user->name }}" readonly>
                                     </td>
                                     <td>
-                                        @if ($ApproveItemDeposit->photo)
-                                            <img src="{{ asset('storage/' . $ApproveItemDeposit->photo) }}"
-                                                class="img-thumbnail" style="max-width:100px">
-                                        @else
-                                            <span class="badge badge-danger">No Foto</span>
-                                        @endif
+                                        <a type="button" data-toggle="modal" data-target=".modal-photo-deposit-approve<?php echo $ApproveItemDeposit->id; ?>">
+                                            @if ($ApproveItemDeposit->photo)
+                                                <img src="{{ asset('storage/' . $ApproveItemDeposit->photo) }}"
+                                                    class="img-thumbnail" style="max-width:100px">
+                                            @else
+                                                <span class="badge badge-danger">No Foto</span>
+                                            @endif
+                                        </a>
+                                        <div class="modal fade modal-photo-deposit-approve<?php echo $ApproveItemDeposit->id; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h4 class="modal-title" id="myModalLabel">Foto Kondisi Barang</h4>
+                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        @if ($ApproveItemDeposit->photo)
+                                                            <img src="{{ asset('storage/' . $ApproveItemDeposit->photo) }}"
+                                                                class="img-thumbnail" style="max-width:100px">
+                                                        @else
+                                                            <span class="badge badge-danger">No Foto</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                     <td>
                                         {{ "Approve $loop->iteration" }}
