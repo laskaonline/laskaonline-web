@@ -14,8 +14,8 @@ class GuestBookController extends Controller
     {
         return response()->json(
             [
+                'message' => 'success',
                 'data' => GuestBook::all(),
-                'message' => 'success'
             ]
         );
     }
@@ -52,17 +52,16 @@ class GuestBookController extends Controller
         $data->save();
 
         return response()->json([
+            'message' => 'Buku Tamu berhasil diisi',
             'data' => $data,
-            'message' => 'Buku Tamu berhasil diisi'
         ], 201);
-
     }
 
     public function show(GuestBook $guestBook)
     {
         return response()->json([
+            'status' => 'success',
             'data' => $guestBook,
-            'status' => 'success'
         ]);
     }
 
