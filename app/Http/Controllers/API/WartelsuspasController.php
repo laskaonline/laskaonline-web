@@ -12,8 +12,8 @@ class WartelsuspasController extends Controller
     public function index()
     {
         return response()->json([
+            'status' => 'success',
             'data' => Wartelsuspas::all(),
-            'status' => 'success'
         ]);
     }
 
@@ -26,7 +26,6 @@ class WartelsuspasController extends Controller
             'message' => 'Wartelsuspas berhasil dibuat',
             'data' => $wartelsuspas
         ], 201);
-
     }
 
     public function show(Wartelsuspas $wartelsuspas)
