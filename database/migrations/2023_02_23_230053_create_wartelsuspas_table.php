@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name_wbp');
             $table->string('bin_wbp');
             $table->string('block_and_room');
-            $table->integer('destination_phone');
+            $table->string('destination_phone');
             $table->string('relationship');
             $table->string('address');
             $table->string('information');
