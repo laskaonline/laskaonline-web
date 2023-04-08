@@ -41,6 +41,6 @@ SINI-BANG | Lapas Sekayu
         <div class="position-absolute d-flex gap-2">
             
         </div>
-        <span class="mx-auto">&copy; SINI-BANG 2023</span>
+        <span class="mx-auto">&copy; SINI-BANG | Lapas Kelas II.B Sekayu 2023</span>
     </footer>
 @endsection
