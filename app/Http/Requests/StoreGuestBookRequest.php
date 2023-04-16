@@ -19,4 +19,29 @@ class StoreGuestBookRequest extends FormRequest
             'photo'     => ['required', 'image']
         ];
     }
+
+    public function attributes(): array
+    {
+        return [
+            'name'      => 'Nama',
+            'origin'    => 'Asal',
+            'nik'       => 'NIK',
+            'address'   => 'Alamat',
+            'email'     => 'Email',
+            'phone'     => 'Nomor telepon',
+            'necessity' => 'Keperluan',
+            'photo'     => 'Foto',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'required' => ':attribute tidak boleh kosong',
+            'email'    => ':attribute tidak valid',
+            'between'  => ':attribute harus 16 atau 17 digit',
+            'starts_with' => ':attribute harus diawali dengan 0 atau +62',
+            'image'    => ':attribute harus berupa gambar',
+        ];
+    }
 }
