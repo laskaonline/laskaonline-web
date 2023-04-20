@@ -42,8 +42,6 @@ class ItemDepositController extends Controller
 
     public function store(StoreItemDepositRequest $request)
     {
-        // $request->dd();
-
         $data['deposit_date']   = date('Y-m-d', strtotime($request->deposit_date));
         $data['photo_visitor']  = $request->file('photo_visitor')->store('photo_visitor');
         $data['family_card']    = $request->file('family_card')->store('family_card');
@@ -74,6 +72,9 @@ class ItemDepositController extends Controller
             });
 
             $item_deposit->items()->createMany($itemArray);
+
+            // Create Transaction for Item Deposit
+            $item_deposit->transactions()->create();
 
             DB::commit();
 

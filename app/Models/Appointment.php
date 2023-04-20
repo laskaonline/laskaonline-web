@@ -87,4 +87,9 @@ class Appointment extends Model
     {
         return $this->belongsTo(User::class, 'approve_by', 'id');
     }
+
+    public function transactions(): MorphMany
+    {
+        return $this->morphMany(Transaction::class, 'transactionable');
+    }
 }

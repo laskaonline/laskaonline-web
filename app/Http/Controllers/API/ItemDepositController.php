@@ -62,6 +62,9 @@ class ItemDepositController extends Controller
             });
 
             $item_deposit->items()->createMany($itemArray);
+
+            // Create Transaction for Item Deposit
+            $item_deposit->transactions()->create();
         });
 
         return response()->json([

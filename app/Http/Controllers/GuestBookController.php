@@ -5,9 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreGuestBookRequest;
 use App\Models\GuestBook;
 use Carbon\Carbon;
-use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class GuestBookController extends Controller
@@ -61,6 +59,9 @@ class GuestBookController extends Controller
         $data->created_by   = $create_by;
 
         $data->save();
+
+        // Create Transaction for Guest Book
+        $data->transactions()->create();
 
         return back()->with('success', 'Buku Tamu telah diisi');
     }

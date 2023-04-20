@@ -32,6 +32,10 @@ class CreateAppointment
         if (isset($data['items'])) {
             $this->createItems($data['items'], $appointment);
         }
+
+        // Create Transaction for Appointment
+        $appointment->transactions()->create();
+
         return $appointment;
     }
 

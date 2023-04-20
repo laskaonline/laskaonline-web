@@ -79,4 +79,9 @@ class ItemDeposit extends Model
     {
         return $this->hasMany(ItemDepositApprove::class, 'item_deposit_id');
     }
+
+    public function transactions(): MorphMany
+    {
+        return $this->morphMany(Transaction::class, 'transactionable');
+    }
 }
