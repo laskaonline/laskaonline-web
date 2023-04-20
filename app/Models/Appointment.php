@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Carbon;
 
 /**
@@ -88,8 +89,8 @@ class Appointment extends Model
         return $this->belongsTo(User::class, 'approve_by', 'id');
     }
 
-    public function transactions(): MorphMany
+    public function transaction(): MorphOne
     {
-        return $this->morphMany(Transaction::class, 'transactionable');
+        return $this->morphOne(Transaction::class, 'transactionable');
     }
 }

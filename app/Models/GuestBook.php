@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
  * App\Models\GuestBook
@@ -61,8 +61,8 @@ class GuestBook extends Model
         );
     }
 
-    public function transactions(): MorphMany
+    public function transaction(): MorphOne
     {
-        return $this->morphMany(Transaction::class, 'transactionable');
+        return $this->morphOne(Transaction::class, 'transactionable');
     }
 }

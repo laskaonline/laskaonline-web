@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Carbon;
 
 /**
@@ -80,8 +81,8 @@ class ItemDeposit extends Model
         return $this->hasMany(ItemDepositApprove::class, 'item_deposit_id');
     }
 
-    public function transactions(): MorphMany
+    public function transaction(): MorphOne
     {
-        return $this->morphMany(Transaction::class, 'transactionable');
+        return $this->morphOne(Transaction::class, 'transactionable');
     }
 }

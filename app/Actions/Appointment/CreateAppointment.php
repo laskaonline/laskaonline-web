@@ -34,7 +34,7 @@ class CreateAppointment
         }
 
         // Create Transaction for Appointment
-        $appointment->transactions()->create();
+        $appointment->transaction()->create();
 
         return $appointment;
     }
