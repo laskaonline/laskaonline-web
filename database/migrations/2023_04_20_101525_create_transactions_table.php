@@ -15,7 +15,6 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->morphs('transactionable');
-            $table->date('date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }
