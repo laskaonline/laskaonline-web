@@ -12,13 +12,14 @@ class TransactionController extends Controller
     {
         $limit = $request->query('limit', 100);
         $offset = $request->query('offset', 0);
+        $sortBy = $request->query('sortBy', 'DESC');
 
         $transactions = Transaction::with('transactionable')
             ->limit($limit)
             ->offset($offset)
             ->whereHasMorph('transactionable', '*', function ($query) use ($request) {
                 $query->where('created_by', $request->user()->id);
-            })->orderBy('created_at', 'desc')->get();
+            })->orderBy('created_at', $sortBy)->get();
 
         return response()->json([
             'message' => 'success',
