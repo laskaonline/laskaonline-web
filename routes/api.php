@@ -8,6 +8,7 @@ use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\GuestBookController;
 use App\Http\Controllers\API\ItemDepositController;
 use App\Http\Controllers\API\ManageUserController;
+use App\Http\Controllers\API\TransactionController;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\WartelsuspasController;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +40,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('guest-books', GuestBookController::class)->middleware('role:visitor');
     Route::apiResource('item-deposits', ItemDepositController::class);
     Route::apiResource('wartelsuspas', WartelsuspasController::class);
-
+    Route::apiResource('transactions', TransactionController::class);
 
     Route::get('/user', [UserController::class, 'show']);
     Route::put('/user', [UserController::class, 'update']);
