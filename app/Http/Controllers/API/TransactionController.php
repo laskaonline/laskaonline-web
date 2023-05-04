@@ -14,10 +14,9 @@ class TransactionController extends Controller
         $page   = $request->query('page', 1);
         $sortBy = $request->string('sortBy', 'DESC');
 
-        $transactions = Transaction::with('transactionable')
-            ->whereHasMorph('transactionable', '*', function ($query) use ($request) {
-                $query->where('created_by', $request->user()->id);
-            })
+        $transactions = Transaction::whereHasMorph('transactionable', '*', function ($query) use ($request) {
+            $query->where('created_by', $request->user()->id);
+        })
             ->orderBy('created_at', $sortBy)
             ->paginate(
                 $perPage = $limit,
@@ -29,6 +28,6 @@ class TransactionController extends Controller
             'message' => 'success',
             'meta' => $this->resultMeta($transactions, true),
             'data' => $this->resultData($transactions),
-        ])->content();
+        ]);
     }
 }

@@ -10,15 +10,27 @@ use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $appointments = auth()->user()->hasAnyRole('admin', 'superior')
-            ? Appointment::with('items', 'creator', 'user')->get()
-            : Appointment::with('items', 'creator', 'user')->whereBelongsTo(auth()->user())->get();
+        $limit  = $request->query('limit', 100);
+        $page   = $request->query('page', 1);
+        $sortBy = $request->string('sortBy', 'DESC');
+
+        $query = auth()->user()->hasAnyRole('admin', 'superior')
+            ? Appointment::with('items', 'creator', 'user')
+            : Appointment::with('items', 'creator', 'user')->whereBelongsTo(auth()->user());
+
+        $appointments = $query->orderBy('created_at', $sortBy)
+            ->paginate(
+                $perPage = $limit,
+                $columns = ['*'],
+                $pageName = 'page'
+            )->withQueryString();
 
         return response()->json([
-            'status' => 'success',
-            'data' => $appointments
+            'message' => 'success',
+            'meta' => $this->resultMeta($appointments, true),
+            'data' => $this->resultData($appointments),
         ]);
     }
 

@@ -2,24 +2,26 @@
 
 namespace App\Traits;
 
+use Illuminate\Pagination\LengthAwarePaginator;
+
 trait HasPaginateResult
 {
     /**
-     * @param mixed $mixed
+     * @param LengthAwarePaginator $paginator
      * @return array
      */
-    public function resultData(mixed $mixed): array
+    public function resultData(LengthAwarePaginator $paginator): array
     {
-        return $mixed->items();
+        return $paginator->items();
     }
 
     /**
-     * @param mixed $mixed
+     * @param LengthAwarePaginator $paginator
      * @return array
      */
-    public function resultMeta(mixed $mixed, bool $withLink = false): array
+    public function resultMeta(LengthAwarePaginator $paginator, bool $withLink = false): array
     {
-        $meta = $mixed->toArray();
+        $meta = $paginator->toArray();
         $result = [
             'total'          => $meta['total'],
             'per_page'       => $meta['per_page'],

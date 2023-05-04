@@ -10,14 +10,24 @@ use Illuminate\Support\Facades\Storage;
 
 class GuestBookController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(
-            [
-                'message' => 'success',
-                'data' => GuestBook::all(),
-            ]
-        );
+        $limit  = $request->query('limit', 100);
+        $page   = $request->query('page', 1);
+        $sortBy = $request->string('sortBy', 'DESC');
+
+        $guestBooks = GuestBook::orderBy('created_at', $sortBy)
+            ->paginate(
+                $perPage = $limit,
+                $columns = ['*'],
+                $pageName = 'page'
+            )->withQueryString();
+
+        return response()->json([
+            'message' => 'success',
+            'meta' => $this->resultMeta($guestBooks, true),
+            'data' => $this->resultData($guestBooks),
+        ]);
     }
 
     public function store(StoreGuestBookRequest $request)

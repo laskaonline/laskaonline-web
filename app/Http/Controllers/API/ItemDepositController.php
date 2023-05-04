@@ -13,22 +13,26 @@ class ItemDepositController extends Controller
 {
     public function index(Request $request)
     {
-        $limit  = $request->query('limit', 10);
-        $offset = $request->query('offset', 0);
-        $sortBy = $request->query('sortBy', 'DESC');
+        $limit  = $request->query('limit', 100);
+        $page   = $request->query('page', 1);
+        $sortBy = $request->string('sortBy', 'DESC');
         $hasApproval = $request->query('hasApproval', null);
 
         $item_deposits = ItemDeposit::with(['user', 'items', 'approvals.user'])
             ->when(auth()->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo(auth()->user()))
             ->when($hasApproval, fn ($q) => $q->has('approvals'))
-            ->limit($limit)
-            ->offset($offset)
             ->orderBy('created_at', $sortBy)
-            ->get();
+            ->paginate(
+                $perPage = $limit,
+                $columns = ['*'],
+                $pageName = 'page'
+            )->withQueryString();
+
 
         return response()->json([
             'message' => 'success',
-            'data' => $item_deposits,
+            'meta' => $this->resultMeta($item_deposits, true),
+            'data' => $this->resultData($item_deposits),
         ]);
     }
 

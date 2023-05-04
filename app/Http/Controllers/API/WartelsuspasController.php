@@ -9,11 +9,23 @@ use Illuminate\Http\Request;
 
 class WartelsuspasController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $limit  = $request->query('limit', 100);
+        $page   = $request->query('page', 1);
+        $sortBy = $request->string('sortBy', 'DESC');
+
+        $wartelsuspas = Wartelsuspas::orderBy('created_at', $sortBy)
+            ->paginate(
+                $perPage = $limit,
+                $columns = ['*'],
+                $pageName = 'page'
+            )->withQueryString();
+
         return response()->json([
-            'status' => 'success',
-            'data' => Wartelsuspas::all(),
+            'message' => 'success',
+            'meta' => $this->resultMeta($wartelsuspas, true),
+            'data' => $this->resultData($wartelsuspas),
         ]);
     }
 
