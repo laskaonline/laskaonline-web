@@ -10,20 +10,25 @@ class TransactionController extends Controller
 {
     public function index(Request $request)
     {
-        $limit = $request->query('limit', 100);
-        $offset = $request->query('offset', 0);
-        $sortBy = $request->query('sortBy', 'DESC');
+        $limit  = $request->query('limit', 100);
+        $page   = $request->query('page', 1);
+        $sortBy = $request->string('sortBy', 'DESC');
 
         $transactions = Transaction::with('transactionable')
-            ->limit($limit)
-            ->offset($offset)
             ->whereHasMorph('transactionable', '*', function ($query) use ($request) {
                 $query->where('created_by', $request->user()->id);
-            })->orderBy('created_at', $sortBy)->get();
+            })
+            ->orderBy('created_at', $sortBy)
+            ->paginate(
+                $perPage = $limit,
+                $columns = ['*'],
+                $pageName = 'page'
+            )->withQueryString();
 
         return response()->json([
             'message' => 'success',
-            'data' => $transactions,
-        ]);
+            'meta' => $this->resultMeta($transactions, true),
+            'data' => $this->resultData($transactions),
+        ])->content();
     }
 }
