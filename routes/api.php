@@ -6,6 +6,7 @@ use App\Http\Controllers\API\ApproveDepositController;
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\GuestBookController;
+use App\Http\Controllers\API\DepositableController;
 use App\Http\Controllers\API\ItemDepositController;
 use App\Http\Controllers\API\ManageUserController;
 use App\Http\Controllers\API\TransactionController;
@@ -41,6 +42,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('item-deposits', ItemDepositController::class);
     Route::apiResource('wartelsuspas', WartelsuspasController::class);
     Route::apiResource('transactions', TransactionController::class);
+
+    Route::post('depositable', DepositableController::class);
 
     Route::get('/user', [UserController::class, 'show']);
     Route::put('/user', [UserController::class, 'update']);

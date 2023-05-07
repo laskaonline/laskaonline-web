@@ -19,7 +19,7 @@ class ItemDepositController extends Controller
         $hasApproval = $request->query('hasApproval', null);
 
         $item_deposits = ItemDeposit::with(['user', 'items', 'approvals.user'])
-            ->when(auth()->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo(auth()->user()))
+            ->when($request->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo($request->user()))
             ->when($hasApproval, fn ($q) => $q->has('approvals'))
             ->orderBy('created_at', $sortBy)
             ->paginate(
@@ -42,37 +42,51 @@ class ItemDepositController extends Controller
         $data['photo_visitor'] = $request->file('photo_visitor')->store('item_deposit');
         $data['family_card'] = $request->file('family_card')->store('item_deposit');
 
-        DB::transaction(function () use ($request, $data) {
-            $item_deposit = auth()->user()->deposits()->create([
-                'name_wbp' => $request['name_wbp'],
-                'room_block' => $request['room_block'],
-                'case' => $request['case'],
-                'relationship' => $request['relationship'],
-                'problem' => $request['problem'],
-                'deposit_date' => $data['deposit_date'],
+
+        $item_deposit = DB::transaction(function () use ($request, $data) {
+            $item_deposit = $request->user()->deposits()->create([
+                'name_wbp'      => $request['name_wbp'],
+                'room_block'    => $request['room_block'],
+                'case'          => $request['case'],
+                'relationship'  => $request['relationship'],
+                'problem'       => $request['problem'],
+                'deposit_date'  => $data['deposit_date'],
                 'photo_visitor' => $data['photo_visitor'],
-                'family_card' => $data['family_card'],
-                'state' => '0',
+                'family_card'   => $data['family_card'],
+                'state'         => '0',
             ]);
 
-            $itemArray = collect($request->items)->map(function ($item) {
-                $photo_path = Storage::putFile('item_deposit', $item['photo']);
+            // json_decode($request->items)->map(function ($item) use ($item_deposit) {
+            //     $photo_path = Storage::putFile('item_deposit', $item['photo']);
 
-                return [
-                    'name' => $item['name'],
-                    'amount' => $item['amount'],
-                    'photo' => $photo_path
-                ];
-            });
+            //     $item_deposit->items()->create([
+            //         'name' => $item['name'],
+            //         'amount' => $item['amount'],
+            //         'photo' => $photo_path
+            //     ]);
+            // });
 
-            $item_deposit->items()->createMany($itemArray);
+            // $itemArray = collect($request->items)->map(function ($item) {
+            //     $photo_path = Storage::putFile('item_deposit', $item['photo']);
+
+            //     return [
+            //         'name' => $item['name'],
+            //         'amount' => $item['amount'],
+            //         'photo' => $photo_path
+            //     ];
+            // });
+
+            // $item_deposit->items()->createMany($itemArray);
 
             // Create Transaction for Item Deposit
             $item_deposit->transaction()->create();
+
+            return $item_deposit;
         });
 
         return response()->json([
-            'message' => 'success'
+            'message' => 'success',
+            'data'    => $item_deposit
         ]);
     }
 
