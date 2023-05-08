@@ -16,9 +16,9 @@ class AppointmentController extends Controller
         $page   = $request->query('page', 1);
         $sortBy = $request->string('sortBy', 'DESC');
 
-        $query = auth()->user()->hasAnyRole('admin', 'superior')
+        $query = $request->user()->hasAnyRole('admin', 'superior')
             ? Appointment::with('items', 'creator', 'user')
-            : Appointment::with('items', 'creator', 'user')->whereBelongsTo(auth()->user());
+            : Appointment::with('items', 'creator', 'user')->whereBelongsTo($request->user());
 
         $appointments = $query->orderBy('created_at', $sortBy)
             ->paginate(
