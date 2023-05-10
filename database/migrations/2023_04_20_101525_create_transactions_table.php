@@ -5,7 +5,8 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -14,7 +15,7 @@ return new class extends Migration {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->morphs('transactionable');
-            $table->date('date')->useCurrent();
+            $table->date('date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }
