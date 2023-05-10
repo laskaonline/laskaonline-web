@@ -34,7 +34,7 @@
                         <input name="no_ktp" type="text" class="form-control" placeholder="No KTP" required/>
                     </div>
                     <div>
-                        <input name="phone" type="tel" class="form-control" placeholder="No HP" required/>
+                        <input name="phone" type="tel" class="form-control" placeholder="Telephone" required/>
                     </div>
                     <div>
                         <input name="email" type="email" class="form-control" placeholder="Email" required/>
