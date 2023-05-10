@@ -91,18 +91,6 @@
                             </div>
                         </div>
                         <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Email Pengunjung
-                            </label>
-                            <div class="col-md-6 col-sm-6 ">
-                                <input type="email" name="email" required
-                                       class="form-control
-                                    @error('email')
-                                        is-invalid
-                                    @enderror"
-                                       value="{{ old('email',$user->email) }}">
-                            </div>
-                        </div>
-                        <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">No KTP
                                 Pengunjung
                             </label>

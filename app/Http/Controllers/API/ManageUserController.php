@@ -25,7 +25,6 @@ class ManageUserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'no_ktp' => 'required|string|between:16,17',
-            'email' => 'required|email|unique:users,email',
             'phone' => 'required|starts_with:08,+62',
             'job_title' => 'required|string',
             'password' => ['required', 'confirmed', Password::min(8)->uncompromised(3)],
@@ -33,7 +32,6 @@ class ManageUserController extends Controller
 
         User::create([
             'name' => $request['name'],
-            'email' => $request['email'],
             'no_ktp' => $request['no_ktp'],
             'phone' => $request['phone'],
             'job_title' => $request['job_title'],

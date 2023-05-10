@@ -26,7 +26,6 @@ class ProfileController extends Controller
         $name = $request->name;
         $no_ktp = $request->no_ktp;
         $phone = $request->phone;
-        $email = $request->email;
         $gender = $request->gender;
         $address = $request->address;
         $job_title = $request->job_title;
@@ -34,7 +33,6 @@ class ProfileController extends Controller
         $user->name = $name;
         $user->no_ktp = $no_ktp;
         $user->phone = $phone;
-        $user->email = $email;
         $user->gender = $gender;
         $user->address = $address;
         if (auth()->user()->hasAnyRole(['admin', 'superior'])) {

@@ -11,7 +11,6 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
         $superAdmin = User::create([
-            'email'     => 'superadmin@test.com',
             'name'      => 'Super Admin',
             'no_ktp'    => '1671070104960011',
             'phone'     => '085267902951',
@@ -21,7 +20,6 @@ class AdminSeeder extends Seeder
         $superAdmin->assignRole('superior');
 
         $admin = User::create([
-            'email'     => 'fauzan@test.com',
             'name'      => 'Fauzan',
             'no_ktp'    => '1671070104960012',
             'phone'     => '085267902952',
