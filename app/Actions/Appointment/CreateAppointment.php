@@ -29,9 +29,9 @@ class CreateAppointment
 
         $appointment->save();
 
-        if (isset($data['items'])) {
-            $this->createItems($data['items'], $appointment);
-        }
+        // if (isset($data['items'])) {
+        //     $this->createItems($data['items'], $appointment);
+        // }
 
         // Create Transaction for Appointment
         $appointment->transaction()->create();
