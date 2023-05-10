@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Email/Password tidak ada di database kami.',
+    'failed' => 'No HP/Password tidak ada di database kami.',
     'password' => 'Password yang anda masukkan salah.',
     'throttle' => 'Terlalu banyak percobaan login. Silahkan coba lagi dalam :seconds detik.',
 

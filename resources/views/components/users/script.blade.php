@@ -1,4 +1,4 @@
-s<!-- jQuery -->
+<!-- jQuery -->
 <script src="{{ asset('/template_admin/vendors/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap -->
 <script src="{{ asset('/template_admin/vendors/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
