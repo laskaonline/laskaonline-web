@@ -20,10 +20,10 @@ class StoreAppointmentRequest extends FormRequest
             'male_followers'    => ['required', 'integer', 'gte:0'],
             'female_followers'  => ['required', 'integer', 'gte:0'],
             'child_followers'   => ['required', 'integer', 'gte:0'],
-            // 'items'             => ['nullable', 'array'],
-            // 'items.*.name'      => ['required', 'string'],
-            // 'items.*.amount'    => ['required', 'integer', 'gt:0'],
-            // 'items.*.photo'     => ['required', 'image'],
+            'items'             => ['nullable', 'array'],
+            'items.*.name'      => ['required', 'string'],
+            'items.*.amount'    => ['required', 'integer', 'gt:0'],
+            'items.*.photo'     => ['required', 'image'],
         ];
     }
 }
