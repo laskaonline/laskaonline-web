@@ -29,10 +29,10 @@
 
                     @csrf
                     <div>
-                        <label for="email" class="form-label">
-                            Email
+                        <label for="phone" class="form-label">
+                            Nomor Telepon
                         </label>
-                        <input type="email" name="email" class="form-control">
+                        <input type="tel" name="phone" class="form-control">
                     </div>
                     <div>
                         <label for="password" class="form-label">
@@ -45,7 +45,7 @@
                         Login
                     </button>
                     <br>
-                    <p class="text-center">Lupa Password? <a href="{{route('password.request')}}">Lupa Password</a></p>
+{{--                    <p class="text-center">Lupa Password? <a href="{{route('password.request')}}">Lupa Password</a></p>--}}
                     <p class="text-center">Belum punya akun? <a href="/register">Register</a></p>
                 </form>
             </div>
