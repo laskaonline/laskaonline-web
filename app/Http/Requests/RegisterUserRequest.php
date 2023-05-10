@@ -27,7 +27,7 @@ class RegisterUserRequest extends FormRequest
             'unique' => ':Attribute sudah terdaftar.',
             'starts_with' => ':Attribute harus diawali dengan :values.',
             'between' => ':Attribute harus berjumlah :min sampai :max karakter.',
-            'confirmed' => ':Attribute tidak cocok dengan konfirmasi :attribute.',
+            'confirmed' => ':Attribute tidak cocok dengan ulangi kata sandi.',
             'min' => ':Attribute harus berjumlah minimal :min karakter.',
         ];
     }
