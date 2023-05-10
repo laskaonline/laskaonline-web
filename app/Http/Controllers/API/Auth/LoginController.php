@@ -13,7 +13,7 @@ class LoginController extends Controller
         $credentials = $request->only(['phone', 'password']);
 
         if (Auth::attempt($credentials)) {
-            $user = Auth::user();
+            $user = $request->user();
             $token = $user->createToken('mobile-app')->plainTextToken;
             return response()->json([
                 'status' => 'success',
