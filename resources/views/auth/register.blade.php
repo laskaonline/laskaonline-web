@@ -37,9 +37,6 @@
                         <input name="phone" type="tel" class="form-control" placeholder="Telephone" required/>
                     </div>
                     <div>
-                        <input name="email" type="email" class="form-control" placeholder="Email" required/>
-                    </div>
-                    <div>
                         <input name="password" type="password" class="form-control" placeholder="Password" required/>
                         <div class="form-text">Password minimal 8 karakter.</div>
                     </div>
