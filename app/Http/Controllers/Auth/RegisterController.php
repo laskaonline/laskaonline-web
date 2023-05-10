@@ -45,7 +45,7 @@ class RegisterController extends Controller
             'no_ktp' => ['required', 'string', 'between:16,17'],
             'email' => ['required', 'email', 'nullable'],
             'phone' => ['required', 'starts_with:08,+62', 'unique:users,phone'],
-            'password' => ['required', 'confirmed', Password::min(8)->uncompromised(3)],
+            'password' => ['required', 'confirmed'],
         ]);
     }
 
