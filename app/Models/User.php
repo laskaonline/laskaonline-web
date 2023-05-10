@@ -77,24 +77,6 @@ use Spatie\Permission\Traits\HasRoles;
  * @method static Builder|User whereUpdatedAt($value)
  * @property-read Collection<int, \App\Models\Appointment> $appointmentApprove
  * @property-read int|null $appointment_approve_count
- * @property-read Collection<int, \App\Models\ItemDeposit> $deposits
- * @property-read Collection<int, \App\Models\GuestBook> $guestBook
- * @property-read Collection<int, \App\Models\ItemDepositApprove> $itemDepositApprove
- * @property-read int|null $item_deposit_approve_count
- * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
- * @property-read Collection<int, Permission> $permissions
- * @property-read Collection<int, Role> $roles
- * @property-read Collection<int, PersonalAccessToken> $tokens
- * @property-read Collection<int, \App\Models\Wartelsuspas> $wartelsuspas
- * @property-read Collection<int, \App\Models\Appointment> $appointmentApprove
- * @property-read Collection<int, \App\Models\ItemDeposit> $deposits
- * @property-read Collection<int, \App\Models\GuestBook> $guestBook
- * @property-read Collection<int, \App\Models\ItemDepositApprove> $itemDepositApprove
- * @property-read DatabaseNotificationCollection<int, DatabaseNotification> $notifications
- * @property-read Collection<int, Permission> $permissions
- * @property-read Collection<int, Role> $roles
- * @property-read Collection<int, PersonalAccessToken> $tokens
- * @property-read Collection<int, \App\Models\Wartelsuspas> $wartelsuspas
  * @mixin Eloquent
  */
 class User extends Authenticatable

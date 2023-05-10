@@ -27,6 +27,11 @@ class LoginController extends Controller
         }
     }
 
+    public function username()
+    {
+        return 'phone';
+    }
+
     public function logout(Request $request)
     {
         Auth::logout();
