@@ -38,7 +38,7 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::apiResource('appointments', AppointmentController::class);
-    Route::apiResource('guest-books', GuestBookController::class)->middleware('role:visitor');
+    Route::apiResource('guest-books', GuestBookController::class);
     Route::apiResource('item-deposits', ItemDepositController::class);
     Route::apiResource('wartelsuspas', WartelsuspasController::class);
     Route::apiResource('transactions', TransactionController::class);
