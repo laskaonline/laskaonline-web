@@ -17,7 +17,7 @@ class TransactionController extends Controller
         $transactions = Transaction::whereHasMorph('transactionable', '*', function ($query) use ($request) {
             $query->where('created_by', $request->user()->id);
         })
-            ->orderBy('created_at', $sortBy)
+            ->orderBy('id', $sortBy)
             ->paginate(
                 $perPage = $limit,
                 $columns = ['*'],

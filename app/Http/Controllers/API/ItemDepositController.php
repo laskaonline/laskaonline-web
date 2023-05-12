@@ -21,7 +21,7 @@ class ItemDepositController extends Controller
         $item_deposits = ItemDeposit::with(['user', 'items', 'approvals.user'])
             ->when($request->user()->hasRole('visitor'), fn ($q) => $q->whereBelongsTo($request->user()))
             ->when($hasApproval, fn ($q) => $q->has('approvals'))
-            ->orderBy('created_at', $sortBy)
+            ->orderBy('id', $sortBy)
             ->paginate(
                 $perPage = $limit,
                 $columns = ['*'],

@@ -15,7 +15,7 @@ class WartelsuspasController extends Controller
         $page   = $request->query('page', 1);
         $sortBy = $request->string('sortBy', 'DESC');
 
-        $wartelsuspas = Wartelsuspas::orderBy('created_at', $sortBy)
+        $wartelsuspas = Wartelsuspas::orderBy('id', $sortBy)
             ->paginate(
                 $perPage = $limit,
                 $columns = ['*'],
@@ -31,7 +31,7 @@ class WartelsuspasController extends Controller
 
     public function store(StoreWartelsuspasRequest $request)
     {
-        $wartelsuspas = auth()->user()->wartelsuspas()->create($request->validated());
+        $wartelsuspas = $request->user()->wartelsuspas()->create($request->validated());
 
         return response()->json([
             'status' => 'success',

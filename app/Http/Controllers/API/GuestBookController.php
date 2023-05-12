@@ -16,7 +16,7 @@ class GuestBookController extends Controller
         $page   = $request->query('page', 1);
         $sortBy = $request->string('sortBy', 'DESC');
 
-        $guestBooks = GuestBook::orderBy('created_at', $sortBy)
+        $guestBooks = GuestBook::orderBy('id', $sortBy)
             ->paginate(
                 $perPage = $limit,
                 $columns = ['*'],

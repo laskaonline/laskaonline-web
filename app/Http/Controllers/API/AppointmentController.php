@@ -20,7 +20,7 @@ class AppointmentController extends Controller
             ? Appointment::with('items', 'creator', 'user')
             : Appointment::with('items', 'creator', 'user')->whereBelongsTo($request->user());
 
-        $appointments = $query->orderBy('created_at', $sortBy)
+        $appointments = $query->orderBy('id', $sortBy)
             ->paginate(
                 $perPage = $limit,
                 $columns = ['*'],
