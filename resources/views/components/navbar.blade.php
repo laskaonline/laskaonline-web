@@ -1,7 +1,8 @@
 <nav class="navbar bg-secondary  navbar-expand-lg">
     <div class="container-fluid flex-nowrap">
         <a href="/" class="navbar-brand align-self-start">
-            <img src="{{ asset('assets/images/SINI-BANG-Kanan-Biru.png') }}" alt="Logo Kemenkumham" class="img-fluid"  width="500px">
+            <img src="{{ asset('assets/images/SINI-BANG-Kanan-Biru.png') }}" alt="Logo Kemenkumham" class="img-fluid"
+                 width="500px">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
@@ -43,6 +44,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/login">
                         Administrator
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://drive.google.com/file/d/1Yrk92H9PH0imeYcyMfKsxY5jFkNE6yJc/view?usp=share_link"
+                       target="_blank">
+                        <button class="btn btn-primary rounded-pill">
+                            <i class="bi bi-download"></i>
+                            Download Sekarang
+                        </button>
                     </a>
                 </li>
             </ul>
