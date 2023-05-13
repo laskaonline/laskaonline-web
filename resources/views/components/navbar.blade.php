@@ -50,8 +50,9 @@
                     <a href="https://drive.google.com/file/d/1Yrk92H9PH0imeYcyMfKsxY5jFkNE6yJc/view?usp=share_link"
                        target="_blank">
                         <button class="btn btn-primary rounded-pill">
-                            <i class="bi bi-download"></i>
+                            <i class="bi bi-android2"></i>
                             Download Sekarang
+                            <i class="bi bi-box-arrow-up-right"></i>
                         </button>
                     </a>
                 </li>
