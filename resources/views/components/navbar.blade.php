@@ -1,8 +1,20 @@
+<style>
+    .banner-img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    @media screen and (max-width: 576px) {
+        .banner-img {
+            max-width: 200px;
+        }
+    }
+</style>
 <nav class="navbar bg-secondary  navbar-expand-lg">
-    <div class="container-fluid flex-nowrap">
+    <div class="container-fluid">
         <a href="/" class="navbar-brand align-self-start">
-            <img src="{{ asset('assets/images/SINI-BANG-Kanan-Biru.png') }}" alt="Logo Kemenkumham" class="img-fluid"
-                 width="500px">
+            <img src="{{ asset('assets/images/SINI-BANG-Kanan-Biru.png') }}" alt="Logo Kemenkumham"
+                 class="img-fluid banner-img">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
