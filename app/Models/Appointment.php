@@ -77,6 +77,7 @@ class Appointment extends Model
         'male_followers'    => 'string',
         'female_followers'  => 'string',
         'child_followers'   => 'string',
+        'queue'             => 'string',
         'approve_by'        => 'string',
         'created_by'        => 'string',
     ];
