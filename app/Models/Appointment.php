@@ -73,6 +73,10 @@ class Appointment extends Model
 
     protected $table = 'appointments';
     protected $guarded = [];
+    protected $casts   = [
+        'approve_by' => 'string',
+        'created_by' => 'string',
+    ];
 
     public function items(): MorphMany
     {

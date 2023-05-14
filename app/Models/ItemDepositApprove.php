@@ -35,6 +35,10 @@ class ItemDepositApprove extends Model
 
     protected $table    = 'item_deposit_approve';
     protected $guarded  = [];
+    protected $casts    = [
+        'item_deposit_id' => 'string',
+        'user_id'         => 'string'
+    ];
 
     public function user()
     {

@@ -44,6 +44,9 @@ class Wartelsuspas extends Model
 
     protected $table    = 'wartelsuspas';
     protected $guarded  = [];
+    protected $casts    = [
+        'created_by'        => 'string'
+    ];
 
     public function user()
     {

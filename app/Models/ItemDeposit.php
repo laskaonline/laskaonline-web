@@ -65,6 +65,9 @@ class ItemDeposit extends Model
 
     protected $table = 'item_deposit';
     protected $guarded = [];
+    protected $casts = [
+        'created_by' => 'string',
+    ];
 
     public function user(): BelongsTo
     {

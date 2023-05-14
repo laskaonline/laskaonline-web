@@ -49,6 +49,7 @@ class GuestBook extends Model
     protected $guarded  = [];
     protected $casts    = [
         'nik' => 'string',
+        'created_by' => 'string',
     ];
     protected $appends  = [
         'date',

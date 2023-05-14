@@ -11,6 +11,9 @@ class Transaction extends Model
     use HasFactory;
 
     protected $guarded = [];
+    protected $casts   = [
+        'transactionable_id' => 'string'
+    ];
 
     public function transactionable(): MorphTo
     {
