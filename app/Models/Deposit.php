@@ -36,7 +36,8 @@ class Deposit extends Model
 {
     protected $guarded = [];
     protected $casts   = [
-        'depositable_id' => 'string'
+        'depositable_id' => 'string',
+        'amount'         => 'string'
     ];
 
     public function depositable(): MorphTo
