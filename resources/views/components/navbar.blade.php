@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <a href="/" class="navbar-brand align-self-start">
             <img src="{{ asset('assets/images/SINI-BANG-Kanan-Biru.png') }}" alt="Logo Kemenkumham"
-                 class="img-fluid banner-img">
+                class="img-fluid banner-img">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
@@ -59,8 +59,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://drive.google.com/file/d/1Yrk92H9PH0imeYcyMfKsxY5jFkNE6yJc/view?usp=share_link"
-                       target="_blank">
+                    <a href="https://drive.google.com/drive/folders/1eV165swi6-5dA3EXFftj6yMOxBWoz2Rc?usp=sharing"
+                        target="_blank">
                         <button class="btn btn-primary rounded-pill">
                             <i class="bi bi-android2"></i>
                             Download Sekarang
