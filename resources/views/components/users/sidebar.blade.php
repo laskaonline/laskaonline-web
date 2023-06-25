@@ -1,8 +1,9 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
-            <a href="{{ route('dashboard') }}" class="site_title"> 
-                <img src="{{ asset('/assets/images/SINI-BANG-Kanan-Putih.png') }}" alt="sinibang" height="15px" class="img-fluid">
+            <a href="{{ route('dashboard') }}" class="site_title">
+                <img src="{{ asset('/assets/images/logo-sini-bang-right-color-white-no-background-small-size.png') }}"
+                    class="img-fluid " style="max-width:70%;" alt=" Responsive image">
             </a>
         </div>
 
@@ -13,24 +14,24 @@
             <br>
             <div class="profile_pic col">
                 @if (auth()->check())
-                    @if (auth()->user()->photo)
-                        <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="..."
-                            class="img-thumbnail profile_img" style="width:100%">
-                    @else
-                        <span class="badge badge-danger">No Foto</span>
-                    @endif
+                @if (auth()->user()->photo)
+                <img src="{{ asset('storage/' . auth()->user()->photo) }}" alt="..." class="img-thumbnail profile_img"
+                    style="width:100%">
                 @else
-                    <p>Anda Belum Login</p>
+                <span class="badge badge-danger">No Foto</span>
                 @endif
-                
+                @else
+                <p>Anda Belum Login</p>
+                @endif
+
             </div>
             <div class="col-md-1">
                 <span>Welcome,</span>
-                    @if (auth()->check())
-                        <p><strong>{{ auth()->user()->name }}</strong></p>
-                    @else
-                        <p>Anda Belum Login</p>
-                    @endif
+                @if (auth()->check())
+                <p><strong>{{ auth()->user()->name }}</strong></p>
+                @else
+                <p>Anda Belum Login</p>
+                @endif
             </div>
         </div>
         <!-- /menu profile quick info -->

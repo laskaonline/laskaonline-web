@@ -13,8 +13,8 @@
 <nav class="navbar bg-secondary  navbar-expand-lg">
     <div class="container-fluid">
         <a href="/" class="navbar-brand align-self-start">
-            <img src="{{ asset('assets/images/SINI-BANG-Kanan-Biru.png') }}" alt="Logo Kemenkumham"
-                class="img-fluid banner-img">
+            <img src="{{ asset('assets/images/logo-sini-bang-right-no-background.png') }}" alt="Logo Kemenkumham"
+                class="img-fluid banner-img" style="max-width:170px; padding-left:20px;" alt="Responsive image">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
             <span class="navbar-toggler-icon"></span>
@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://drive.google.com/drive/folders/1eV165swi6-5dA3EXFftj6yMOxBWoz2Rc?usp=sharing"
+                    <a href="https://play.google.com/store/apps/details?id=com.kemenkumham.sini_bang_app"
                         target="_blank">
                         <button class="btn btn-primary rounded-pill">
                             <i class="bi bi-android2"></i>

@@ -2,7 +2,8 @@
     <div class="left_col scroll-view">
         <div class="navbar nav_title" style="border: 0;">
             <a href="{{ route('admin.dashboard') }}" class="site_title">
-                <img src="{{ asset('/assets/images/SINI-BANG-Kanan-Putih.png') }}" alt="sinibang" height="15px" class="img-fluid">
+                <img src="{{ asset('/assets/images/logo-sini-bang-right-color-white-no-background-small-size.png') }}"
+                    class="img-fluid " style="max-width:70%;" alt=" Responsive image">
             </a>
         </div>
 
@@ -29,7 +30,8 @@
                     <li><a href="{{ route('admin.manage-user.index') }}"><i class="fa fa-users"></i> Management User
                         </a>
                     </li>
-                    <li><a href="{{ route('admin.item-deposit.index') }}"><i class="fa fa-cubes"></i> Titipan Barang </a>
+                    <li><a href="{{ route('admin.item-deposit.index') }}"><i class="fa fa-cubes"></i> Titipan Barang
+                        </a>
                     </li>
                     <li><a href="{{ route('admin.appointment.index') }}"><i class="fa fa-table"></i> Nomor Antrian </a>
                     </li>
