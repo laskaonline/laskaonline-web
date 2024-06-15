@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SINI-BANG | Lapas Sekayu</title>
+    <title>Lapas Kelas IIB Sekayu 2023</title>
 
     {{-- style --}}
     @stack('before-style')
