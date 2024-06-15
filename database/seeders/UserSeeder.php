@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
         $visitor = User::create([
             'name'      => 'Visitor',
             'no_ktp'    => '1671070104960013',
-            'phone'     => '085267902953',
+            'phone'     => '089658805414',
             'password'  => bcrypt('@Visitor123'),
         ]);
 

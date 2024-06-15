@@ -13,16 +13,16 @@ class AdminSeeder extends Seeder
         $superAdmin = User::create([
             'name'      => 'Super Admin',
             'no_ktp'    => '1671070104960011',
-            'phone'     => '085267902951',
+            'phone'     => '089658805412',
             'password'  => bcrypt('@SuperAdmin123'),
         ]);
 
         $superAdmin->assignRole('superior');
 
         $admin = User::create([
-            'name'      => 'Fauzan',
+            'name'      => 'Alwi',
             'no_ktp'    => '1671070104960012',
-            'phone'     => '085267902952',
+            'phone'     => '089658805413',
             'password'  => bcrypt('@Admin123'),
         ]);
 
