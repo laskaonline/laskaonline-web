@@ -1,0 +1,25 @@
+name: Continuous Delivery and Integration
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  build:
+    name: Deploying
+    runs-on: ubuntu-latest
+    steps:
+      - name: Connecting SSH Remote
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.PROD_SSH_HOST }}
+          username: ${{ secrets.PROD_SSH_USER }}
+          password: ${{ secrets.PROD_SSH_PASSWORD }}
+          port: ${{ secrets.PROD_SSH_PORT }}
+          script: |
+            cd domains/sini-bang.com/laskaonline-web
+            composer2 install --optimize-autoloader --no-dev
+            git pull https://${{ secrets.PROD_GITHUB_USERNAME }}:${{ secrets.PROD_GITHUB_TOKEN }}@github.com/YudistiraSiraPermana/logins-app.git production
+            composer2 install --optimize-autoloader --no-dev
+            php artisan directory:generate
+            php artisan optimize:clear
