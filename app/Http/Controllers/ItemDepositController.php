@@ -74,7 +74,9 @@ class ItemDepositController extends Controller
             $item_deposit->items()->createMany($itemArray);
 
             // Create Transaction for Item Deposit
-            $item_deposit->transaction()->create();
+            $item_deposit->transaction()->create([
+                'date' => now(),
+            ]);
 
             DB::commit();
 

@@ -34,7 +34,9 @@ class CreateAppointment
         }
 
         // Create Transaction for Appointment
-        $appointment->transaction()->create();
+        $appointment->transaction()->create([
+            'date' => now()
+        ]);
 
         return $appointment;
     }
