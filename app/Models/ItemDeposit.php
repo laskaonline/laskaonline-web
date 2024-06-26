@@ -57,6 +57,9 @@ use Illuminate\Support\Carbon;
  * @method static Builder|ItemDeposit whereDepositDate($value)
  * @property-read Collection<int, \App\Models\ItemDepositApprove> $approvals
  * @property-read Collection<int, \App\Models\Deposit> $items
+ * @property-read Collection<int, \App\Models\ItemDepositApprove> $approvals
+ * @property-read Collection<int, \App\Models\Deposit> $items
+ * @property-read \App\Models\Transaction|null $transaction
  * @mixin Eloquent
  */
 class ItemDeposit extends Model
