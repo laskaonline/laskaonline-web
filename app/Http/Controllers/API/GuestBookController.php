@@ -62,7 +62,9 @@ class GuestBookController extends Controller
         $data->save();
 
         // Create Transaction for Guest Book
-        $data->transaction()->create();
+        $data->transaction()->create([
+            'date' => now()
+        ]);
 
         return response()->json([
             'message' => 'Buku Tamu berhasil diisi',

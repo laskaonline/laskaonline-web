@@ -39,6 +39,7 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  * @method static \Illuminate\Database\Eloquent\Builder|GuestBook wherePhone($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GuestBook wherePhoto($value)
  * @method static \Illuminate\Database\Eloquent\Builder|GuestBook whereUpdatedAt($value)
+ * @property-read \App\Models\Transaction|null $transaction
  * @mixin \Eloquent
  */
 class GuestBook extends Model
