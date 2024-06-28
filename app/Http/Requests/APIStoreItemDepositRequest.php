@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreItemDepositRequest extends FormRequest
+class APIStoreItemDepositRequest extends FormRequest
 {
     public function rules(): array
     {
@@ -17,10 +17,10 @@ class StoreItemDepositRequest extends FormRequest
             'problem'        => ['required', 'string'],
             'photo_visitor'  => ['required', 'image'],
             'family_card'    => ['required', 'image'],
-            'items'          => ['required', 'array'],
-            'items.*.name'   => ['required', 'string'],
-            'items.*.amount' => ['required', 'integer', 'gt:0'],
-            'items.*.photo'  => ['required', 'image'],
+            //'items'          => ['required', 'array'],
+            //'items.*.name'   => ['required', 'string'],
+            //'items.*.amount' => ['required', 'integer', 'gt:0'],
+            //'items.*.photo'  => ['required', 'image'],
         ];
     }
 
