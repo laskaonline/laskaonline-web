@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\APIStoreItemDepositRequest;
 use App\Http\Requests\StoreItemDepositRequest;
 use App\Models\ItemDeposit;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class ItemDepositController extends Controller
         ]);
     }
 
-    public function store(StoreItemDepositRequest $request)
+    public function store(APIStoreItemDepositRequest $request)
     {
         $data['deposit_date'] = date('Y-m-d', strtotime($request->deposit_date));
         $data['photo_visitor'] = $request->file('photo_visitor')->store('item_deposit');

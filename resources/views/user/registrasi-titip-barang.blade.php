@@ -40,33 +40,33 @@
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="first-name">Nama WBP
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" name="name_wbp" class="form-control" required>
+                            <input type="text" name="name_wbp" class="form-control" value="{{ old('name_wbp') }}" required>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="last-name">Blok Kamar
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" name="room_block" class="form-control" required>
+                            <input type="text" name="room_block" class="form-control" value="{{ old('room_block') }}" required>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Kasus</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input class="form-control" type="text" name="case" required>
+                            <input class="form-control" type="text" name="case" value="{{ old('case') }}" required>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Hubungan</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input class="form-control" type="text" name="relationship" required>
+                            <input class="form-control" type="text" name="relationship" value="{{ old('relationship') }}" required>
                         </div>
                     </div>
                     <div class="item form-group">
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Tanggal
                             Penitipan</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input name="deposit_date" class="date-picker form-control" placeholder="dd-mm-yyyy"
+                            <input name="deposit_date" class="date-picker form-control" value="{{ old('deposit_date') }}" placeholder="dd-mm-yyyy"
                                 type="text" required onfocus="this.type='date'" onmouseover="this.type='date'"
                                 onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)"
                                 min="<?php echo date('Y-m-d'); ?>">
@@ -83,7 +83,7 @@
                         <label for="middle-name" class="col-form-label col-md-3 col-sm-3 label-align">Perkara
                         </label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input class="form-control" type="text" name="problem" required>
+                            <input class="form-control" type="text" name="problem" value="{{ old('problem') }}" required>
                         </div>
                     </div>
                     <div class="item form-group">
