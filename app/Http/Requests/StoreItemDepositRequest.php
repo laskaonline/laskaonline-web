@@ -23,4 +23,28 @@ class StoreItemDepositRequest extends FormRequest
             // 'items.*.photo'     => ['required', 'image'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'required' => ':attribute tidak boleh kosong',
+            'image' => ':attribute harus berupa gambar',
+            'date' => ':attribute harus berupa tanggal',
+            'string' => ':attribute harus berupa string',
+        ];
+    }
+
+    public function attributes(): array
+    {
+        return [
+            'name_wbp'          => 'Nama WBP',
+            'room_block'        => 'Blok Kamar',
+            'case'              => 'Kasus',
+            'relationship'      => 'Hubungan',
+            'deposit_date'      => 'Tanggal Penitipan',
+            'problem'           => 'Perkara',
+            'photo_visitor'     => 'Foto Selfie + KTP Penitip',
+            'family_card'       => 'Upload Kartu Keluarga',
+        ];
+    }
 }
